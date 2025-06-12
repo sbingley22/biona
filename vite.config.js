@@ -6,6 +6,7 @@ import { viteSingleFile } from 'vite-plugin-singlefile'
 // https://vite.dev/config/
 export default defineConfig({
   //plugins: [react(), viteSingleFile()],
+  base: '/biona/',
   plugins: [
     react(),
     VitePWA({
@@ -14,7 +15,7 @@ export default defineConfig({
       manifest: {
         name: 'Biona',
         short_name: 'Biona',
-        start_url: '/',
+        start_url: '/biona/',
         display: 'standalone',
         background_color: '#ffffff',
         theme_color: '#317EFB',
