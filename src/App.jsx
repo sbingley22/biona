@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import './App.css'
+import Game from './components/Game'
 
 function App() {
-  const [message, setMessage] = useState('Hello! This app works offline after first visit.')
   const [deferredPrompt, setDeferredPrompt] = useState(null);
   const [showInstall, setShowInstall] = useState(false);
 
@@ -21,7 +21,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    console.log('App mounted');
+    //console.log('App mounted');
   }, []);
 
   const handleInstallClick = async () => {
@@ -35,14 +35,15 @@ function App() {
   };
 
   return (
-    <div style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
-      <h1>Offline React App</h1>
-      <p>{message}</p>
+    <div id='app'>
       {showInstall && (
         <button onClick={handleInstallClick} style={{ marginTop: '1rem' }}>
           Install App
         </button>
       )}
+
+      <Game />
+
     </div>
   )
 }

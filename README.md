@@ -11,5 +11,7 @@ Features:
 - Collect different friends, and immune cells with unique abilities
 
 Todo:
-- ~~Setup singlefile, pwa, gh-pages~~
-- Add hospital room and garden, and allow travel between them
+- ~~Setup singlefile, pwa, gh-pages, zustand~~
+- ~~Add hospital room and garden, and allow travel between them~~
+- Add json file for dialog events
+- Add advance day function which triggers any dialog

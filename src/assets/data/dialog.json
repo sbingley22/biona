@@ -1,0 +1,41 @@
+{
+  "day-1": [
+    {
+      "character": "Sean",
+      "emotion": "sad",
+      "background": "special/operating-room.jpeg",
+      "text": [
+        "...",
+        "...my head...",
+        "... where am I ???"
+      ]
+    },
+    {
+      "character": "Sean",
+      "emotion": "sad",
+      "background": "special/red-veins.jpeg",
+      "text": [
+        "... he's stabilized for now.",
+        "Keep him in the ICU untill ..."
+      ]
+    }
+  ],
+  "day-2": [
+    {
+      "character": "Sean",
+      "emotion": "sad",
+      "background": "special/operating-room.jpeg",
+      "text": [
+        "bane?"
+      ]
+    },
+    {
+      "character": "Sean",
+      "emotion": "sad",
+      "background": "special/red-veins.jpeg",
+      "text": [
+        "for you"
+      ]
+    }
+  ]
+}

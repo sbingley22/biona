@@ -1,0 +1,44 @@
+#toolbar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+#toolbar.hidden {
+  display: none;
+}
+
+#opener {
+  width: 50px;
+  height: 50px;
+  background-color: green;
+}
+
+#container {
+  display: flex;
+  width: 100%;
+}
+#container.hidden {
+  display: none;
+}
+
+#main {
+  display: flex;
+}
+
+#sub {
+  display: none;
+  padding: 20px;
+}
+#sub.show {
+  display: flex;
+}
+
+#locations {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+}
+#locations.show {
+  display: flex;
+}
