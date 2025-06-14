@@ -21,8 +21,11 @@ function Game() {
       id="game"
       style={{ backgroundImage: `url("./locations/${background}")` }}
     >
+
       <VNMode />
+
       <Toolbar />
+
     </div>
   )
 }

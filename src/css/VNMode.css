@@ -1,4 +1,22 @@
 #vn-mode {
   width: 100%;
-  padding: 20px;
+  height: 100%;
+  padding: 0px;
+}
+
+#character-selection {
+  position: absolute;
+  right: 25px;
+  bottom : 200px;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 20px;
+}
+
+#character {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border: 4px solid gold;
+  border-radius: 20%;
 }

@@ -13,5 +13,12 @@ Features:
 Todo:
 - ~~Setup singlefile, pwa, gh-pages, zustand~~
 - ~~Add hospital room and garden, and allow travel between them~~
-- Add json file for dialog events
-- Add advance day function which triggers any dialog
+- ~~Add json file for dialog events~~
+- ~~Add advance day function which triggers any dialog~~
+- ~~Characters and dialog appear on screen and clicking moves dialog on~~
+- ~~Icons are hidden during dialog~~
+- ~~Handle special actions during dialog~~
+- Location automatically changes back to bed room if no dialog is triggered on new day
+- Current day notification floats in and out from top right when days pass
+- Implement day routine behaviour (talking to characters, revising, earning money)
+- Implement a shop

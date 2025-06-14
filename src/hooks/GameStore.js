@@ -13,13 +13,15 @@ const locationImages = {
 
 export const useGameStore = create((set) => ({
   background: 'hospital-room.jpeg',
+  setBackground: (newBackground) => set(()=>({background: newBackground})),
   location: 'hospital-room',
-  moveLocation: (newLocation) => set((state) => ({
+  moveLocation: (newLocation) => set(() => ({
     location: newLocation,
     background: locationImages[newLocation][locationImages[newLocation][0]],
   })),
   day: 1,
   nextDay: () => set((state) => ({ day: state.day + 1 })),
+  advanceDay: (days) => set((state) => ({ day: state.day + days })),
 
   dialog: null,
   setDialog: (newDialog) => set(() => ({ dialog: newDialog })),

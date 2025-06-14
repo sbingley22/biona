@@ -5,8 +5,12 @@ import { useState } from 'react'
 function Toolbar() {
   const toolbarVisible = useGameStore((state) => state.toolbarVisible)
   const moveLocation = useGameStore((state) => state.moveLocation)
+  const dialog = useGameStore((state) => state.dialog)
   const [containerOpen, setContainerOpen] = useState(false)
   const [subMenu, setSubMenu] = useState(null)
+
+  let showToolbar = true
+  if (dialog) showToolbar = false
 
   const handleOpenerClick = () => {
     setSubMenu(null)
@@ -14,7 +18,8 @@ function Toolbar() {
   }
 
   return (
-    <div id='toolbar' className={toolbarVisible ? '' : 'hidden'}>
+    <>
+    {showToolbar && <div id='toolbar' className={toolbarVisible ? '' : 'hidden'}>
       <div id='sub' className={subMenu ? 'show' : ''}>
         <div id='locations' className={subMenu==='locations' ? 'show' : ''}>
           <button onClick={()=>moveLocation('hospital-room')}>Room</button>
@@ -28,7 +33,8 @@ function Toolbar() {
           <button>Options</button>
         </div>
       </div>
-    </div>
+    </div>}
+    </>
   )
 }
 

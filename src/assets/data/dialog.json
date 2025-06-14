@@ -1,7 +1,7 @@
 {
   "day-1": [
     {
-      "character": "Sean",
+      "character": "sean",
       "emotion": "sad",
       "background": "special/operating-room.jpeg",
       "text": [
@@ -11,30 +11,25 @@
       ]
     },
     {
-      "character": "Sean",
-      "emotion": "sad",
+      "character": "sean",
+      "emotion": "idle",
       "background": "special/red-veins.jpeg",
       "text": [
         "... he's stabilized for now.",
         "Keep him in the ICU untill ..."
+      ],
+      "actions": [
+        {"action": "advance-day", "value": 4}
       ]
     }
   ],
-  "day-2": [
+  "day-5": [
     {
-      "character": "Sean",
-      "emotion": "sad",
+      "character": "nurse",
+      "emotion": "idle",
       "background": "special/operating-room.jpeg",
       "text": [
-        "bane?"
-      ]
-    },
-    {
-      "character": "Sean",
-      "emotion": "sad",
-      "background": "special/red-veins.jpeg",
-      "text": [
-        "for you"
+        "Normal ecg, bp, and hr, perfect!"
       ]
     }
   ]
