@@ -5,6 +5,10 @@ const locationImages = {
     1,
     'hospital-room.jpeg',
   ],
+  'hospital-ward': [
+    1,
+    'hospital-ward (3).jpeg',
+  ],
   'hospital-garden': [
     1,
     'hospital-garden.png',

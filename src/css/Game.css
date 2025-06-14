@@ -6,3 +6,27 @@
   background-position: center;
   position: relative;
 }
+
+#day-notifier {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+  background: black;
+  border: 4px solid purple;
+  border: none;
+  transform-origin: bottom;
+  transform: scaleY(0);
+  transition: transform 0.0s ease-in-out;
+  overflow: hidden;
+}
+
+#day-notifier.visible {
+  transform: scaleY(1);
+}

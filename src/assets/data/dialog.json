@@ -30,7 +30,25 @@
       "background": "special/operating-room.jpeg",
       "text": [
         "Normal ecg, bp, and hr, perfect!"
-      ]
+      ],
+      "actions": [{"action": "next-day"}]
+    }
+  ],
+  "day-6": [
+    {
+      "character": "sean",
+      "emotion": "idle",
+      "background": "hospital-ward (3).jpeg",
+      "text": [
+        "Who are all these people?",
+        "... I'm in a hospital???",
+        "What happened???",
+        "Nurse!",
+        "Nurse!!!",
+        "So tired ...",
+        "I better head back to my bed."
+      ],
+      "actions": [{"action": "move-location", "value": "hospital-ward"}]
     }
   ]
 }
