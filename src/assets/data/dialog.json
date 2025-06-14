@@ -3,7 +3,7 @@
     {
       "character": "sean",
       "emotion": "sad",
-      "background": "special/operating-room.jpeg",
+      "background": "special/operating-room.png",
       "text": [
         "...",
         "...my head...",
@@ -13,7 +13,7 @@
     {
       "character": "sean",
       "emotion": "idle",
-      "background": "special/red-veins.jpeg",
+      "background": "special/red-veins.png",
       "text": [
         "... he's stabilized for now.",
         "Keep him in the ICU untill ..."
@@ -27,7 +27,7 @@
     {
       "character": "nurse",
       "emotion": "idle",
-      "background": "special/operating-room.jpeg",
+      "background": "special/operating-room.png",
       "text": [
         "Normal ecg, bp, and hr, perfect!"
       ],
@@ -38,7 +38,7 @@
     {
       "character": "sean",
       "emotion": "idle",
-      "background": "hospital-ward (3).jpeg",
+      "background": "hospital-ward-b.jpeg",
       "text": [
         "Who are all these people?",
         "... I'm in a hospital???",
@@ -48,7 +48,7 @@
         "So tired ...",
         "I better head back to my bed."
       ],
-      "actions": [{"action": "move-location", "value": "hospital-ward"}]
+      "actions": [{"action": "move-location", "value": "hospital-ward-b"}]
     }
   ]
 }
