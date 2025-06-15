@@ -18,7 +18,6 @@ function Game() {
     // play day update animation
     setShowDayNotifier(true)
     const timer1 = setTimeout(() => {
-      console.log("in")
       setShowDayNotifier(false)
     }, 2000)
 

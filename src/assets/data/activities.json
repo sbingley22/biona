@@ -1,0 +1,67 @@
+{
+  "hopsital-room": [
+    {
+      "activity": "go-to-bed",
+      "description": "Go to bed early and recover hp and ep.",
+      "conditions": {
+        "days": [
+          [0,370]
+        ],
+        "days-off": [
+          [7,8]
+        ]
+      },
+      "actions": [
+        {
+          "action": "next-day"
+        },
+        {
+          "action": "heal",
+          "value": 50
+        },
+        {
+          "action": "energise",
+          "value": 50
+        }
+      ]
+    },
+    {
+      "activity": "talk-to-nurse",
+      "description": "Spend your day talking to nurse.",
+      "conditions": {
+        "days": [
+          [7, 370]
+        ]
+      },
+      "actions": [
+        {
+          "action": "heal",
+          "value": 10
+        }
+      ]
+    }
+  ],
+  "hospital-ward": [
+    {
+      "activity": "go-to-bioverse",
+      "description": "Gather party and head to the bioverse",
+      "conditions": {
+        "days": [
+          [30,45],
+          [60,75]
+        ] 
+      }
+    }
+  ],
+  "hospital-garden": [
+    {
+      "activity": "talk-to-cat",
+      "description": "Spend your day with the cat.",
+      "conditions": {
+        "days": [
+          [50,375]
+        ] 
+      }
+    }
+  ]
+}

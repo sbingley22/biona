@@ -20,5 +20,7 @@ Todo:
 - ~~Handle special actions during dialog~~
 - ~~Location automatically changes back to bed room if no dialog is triggered on new day~~
 - ~~Current day notification floats in and out from top right when days pass~~
+- ~~Add character image on screen with dialog~~
+- Add go to bed button (end day)
 - Implement day routine behaviour (talking to characters, revising, earning money)
 - Implement a shop

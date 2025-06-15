@@ -8,9 +8,16 @@
   },
   "nurse": {
     "square": null,
-    "idle": null,
-    "happy": null,
-    "sad": null,
-    "angy": null
+    "idle": "./characters/nurse-idle.png",
+    "happy":"./characters/nurse-idle.png",
+    "sad": "./characters/nurse-idle.png",
+    "angy": "./characters/nurse-idle.png"
+  },
+  "doctor": {
+    "square": null,
+    "idle": "./characters/doctor-idle.png",
+    "happy":"./characters/doctor-idle.png",
+    "sad": "./characters/doctor-idle.png",
+    "angy": "./characters/doctor-idle.png"
   }
 }
