@@ -4,27 +4,27 @@
     "idle": null,
     "happy": null,
     "sad": null,
-    "angy": null
+    "angry": null
   },
   "nurse": {
     "square": "./characters/nurse-square.png",
     "idle": "./characters/nurse-idle.png",
-    "happy":"./characters/nurse-idle.png",
-    "sad": "./characters/nurse-idle.png",
-    "angy": "./characters/nurse-idle.png"
+    "happy":"./characters/nurse-happy.png",
+    "sad": "./characters/nurse-sad.png",
+    "angry": "./characters/nurse-angry.png"
   },
   "doctor": {
-    "square": "./characters/doctor-idle.png",
+    "square": "./characters/doctor-square.png",
     "idle": "./characters/doctor-idle.png",
     "happy":"./characters/doctor-idle.png",
     "sad": "./characters/doctor-idle.png",
-    "angy": "./characters/doctor-idle.png"
+    "angry": "./characters/doctor-idle.png"
   },
   "boy": {
-    "square": "./characters/boy-idle.png",
+    "square": "./characters/boy-square.png",
     "idle": "./characters/boy-idle.png",
     "happy": "./characters/boy-idle.png",
     "sad": "./characters/boy-idle.png",
-    "angy": "./characters/boy-idle.png"
+    "angry": "./characters/boy-idle.png"
   }
 }

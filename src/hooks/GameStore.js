@@ -34,7 +34,7 @@ export const useGameStore = create((set) => ({
   getLocations: Object.keys(locationImages),
   pixelated: true,
 
-  day: 1,
+  day: 6,
   nextDay: () => set((state) => ({ day: state.day + 1 })),
   advanceDay: (days) => set((state) => ({ day: state.day + days })),
 

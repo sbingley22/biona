@@ -25,6 +25,7 @@ function VNMode() {
     const tempLocationActivities = []
 
     activities.forEach((activity) => {
+      //if (activity.activity === "go-to-bed") debugger
       let dayConditionMet = false
       activity?.conditions?.days?.forEach(d => {
         if (day >= d[0] && day < d[1]) dayConditionMet = true
@@ -44,7 +45,7 @@ function VNMode() {
 
     setCharacterActivities(tempCharacterActivities)
     setLocationActivities(tempLocationActivities)
-  }, [location])
+  }, [location, day])
 
   const handleActivity = (activity) => {
     activity.actions.forEach((action) => handleAction(action))

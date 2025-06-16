@@ -21,6 +21,8 @@ Todo:
 - ~~Location automatically changes back to bed room if no dialog is triggered on new day~~
 - ~~Current day notification floats in and out from top right when days pass~~
 - ~~Add character image on screen with dialog~~
-- Add go to bed button (end day)
+- ~~Add go to bed button (end day)~~
+- Add social link json file that holds social link dialog and actions
+- Use dialog.json to add special text to certain characters on certain days that's different to social links.
 - Implement day routine behaviour (talking to characters, revising, earning money)
 - Implement a shop

@@ -29,7 +29,15 @@
       "emotion": "idle",
       "background": "special/operating-room.png",
       "text": [
-        "Normal ecg, bp, and hr, perfect!"
+        "Normal ecg, bp, and hr..."
+      ]
+    },
+    {
+      "character": "nurse",
+      "emotion": "happy",
+      "background": "special/operating-room.png",
+      "text": [
+        "PERFECT!"
       ],
       "actions": [{"action": "next-day"}]
     }
@@ -49,6 +57,46 @@
         "I better head back to my bed."
       ],
       "actions": [{"action": "move-location", "value": "hospital-ward-b"}]
+    }
+  ],
+  "day-7": [
+    {
+      "character": "sean",
+      "emotion": "idle",
+      "background": null,
+      "text": [
+        "I must have had some sort of accident.",
+        "I can`t remember a thing.",
+        "I need to find a nurse to tell me what's going on..."
+      ]
+    }
+  ],
+  "day-7-nurse": [
+    {
+      "character": "sean",
+      "emotion": "idle",
+      "background": null,
+      "text": [
+        "Excuse me nurse."
+      ]
+    },
+    {
+      "character": "nurse",
+      "emotion": "idle",
+      "background": null,
+      "text": [
+        "and who do we have here...",
+        "Mystery Man?!"
+      ]
+    },
+    {
+      "character": "nurse",
+      "emotion": "happy",
+      "background": null,
+      "text": [
+        "YOU'RE AWAKE!!!"
+      ],
+      "actions": [{"action": "next-day"}]
     }
   ]
 }
