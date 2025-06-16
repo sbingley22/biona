@@ -4,7 +4,7 @@
   padding: 0px;
 }
 
-#character-selection {
+#activity-selection {
   position: absolute;
   right: 25px;
   bottom : 200px;
@@ -13,10 +13,16 @@
   gap: 20px;
 }
 
-#character {
+.character {
   width: 100px;
   height: 100px;
   object-fit: contain;
   border: 4px solid purple;
   border-radius: 20%;
+  cursor: pointer;
+}
+
+.activity {
+  border: 4px solid purple;
+  border-radius: 5%;
 }

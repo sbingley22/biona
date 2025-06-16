@@ -5,6 +5,7 @@ import { useState } from 'react'
 function Toolbar() {
   const toolbarVisible = useGameStore((state) => state.toolbarVisible)
   const moveLocation = useGameStore((state) => state.moveLocation)
+  const getLocations = useGameStore((state) => state.getLocations)
   const dialog = useGameStore((state) => state.dialog)
   const [containerOpen, setContainerOpen] = useState(false)
   const [subMenu, setSubMenu] = useState(null)
@@ -22,8 +23,12 @@ function Toolbar() {
     {showToolbar && <div id='toolbar' className={toolbarVisible ? '' : 'hidden'}>
       <div id='sub' className={subMenu ? 'show' : ''}>
         <div id='locations' className={subMenu==='locations' ? 'show' : ''}>
-          <button onClick={()=>moveLocation('hospital-room')}>Room</button>
-          <button onClick={()=>moveLocation('hospital-garden')}>Garden</button>
+          {getLocations.map((loc) => (
+            <button
+              key={loc}
+              onClick={() => moveLocation(loc)}
+            >{formatString(loc, "hospital")}</button>
+          ))}
         </div>
       </div>
       <div id='main'>
@@ -36,6 +41,14 @@ function Toolbar() {
     </div>}
     </>
   )
+}
+
+function formatString(str, wordToRemove) {
+  const regex = new RegExp(`\\b${wordToRemove}\\b`, 'gi')
+  let result = str.replace(regex, '')
+  result = result.replace(/-/g, ' ')
+  result = result.replace(/\b(\w)/g, char => char.toUpperCase())
+  return result.replace(/\s+/g, ' ').trim()
 }
 
 export default Toolbar

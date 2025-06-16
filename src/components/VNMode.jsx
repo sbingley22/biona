@@ -2,6 +2,7 @@ import '../css/VNMode.css'
 import { useGameStore } from '../hooks/GameStore'
 import Dialog from './Dialog'
 import activitiesData from "../assets/data/activities.json"
+import characterData from "../assets/data/characters.json"
 import { useEffect, useState } from 'react'
 
 function VNMode() {
@@ -13,30 +14,63 @@ function VNMode() {
 
   // Get days activities
   useEffect(()=>{
-    //const activities = activitiesData[location]
-    const activities = activitiesData["hospital-room"]
-    console.log(location, "hospital-room", location==="hospital-room", typeof(location))
+    const activities = activitiesData[location]
     if (!activities) {
-      console.log(activitiesData)
       console.warn("No activity data for location:", location)
       return
     }
-    console.log(activities)
+
+    const tempCharacterActivities = []
+    const tempLocationActivities = []
+
+    activities.forEach((activity) => {
+      let dayConditionMet = false
+      activity?.conditions?.days?.forEach(d => {
+        if (day >= d[0] && day < d[1]) dayConditionMet = true
+      })
+      activity?.conditions?.["days-off"]?.forEach(d => {
+        if (day >= d[0] && day < d[1]) dayConditionMet = false
+      })
+      if (dayConditionMet === false) return
+
+      if (activity.type === "social-link") {
+        tempCharacterActivities.push(activity)
+      }
+      else {
+        tempLocationActivities.push(activity)
+      }
+    })
+
+    setCharacterActivities(tempCharacterActivities)
+    setLocationActivities(tempLocationActivities)
   }, [location])
 
   return (
     <div id='vn-mode'>
 
       {!dialog && 
-      <div id='character-selection'>
-        <img 
-          id='character' 
-          src='./characters/sofia-square.png'
-        />
-        <img 
-          id='character' 
-          src='./characters/sofia-square.png'
-        />
+      <div id='activity-selection'>
+        {characterActivities.map((ca) => {
+          if (ca.type === "social-link") {
+            const charInfo = characterData[ca.character]
+            return (
+              <img
+                key={ca.activity}
+                className='character'
+                src={charInfo?.square || "./characters/sofia-square.png"}
+              />
+            )
+          } else {
+            return (
+              <button
+                key={ca.activity}
+                className='activity-btn'
+              >
+                {ca.name}
+              </button>
+            )
+          }
+        })}      
       </div>}
 
       {dialog && <Dialog />}

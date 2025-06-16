@@ -5,6 +5,10 @@ const locationImages = {
     1,
     'hospital-room.jpeg',
   ],
+  'hospital-nurses-station': [
+    1,
+    'hospital-nurses-station.jpeg',
+  ],
   'hospital-ward-a': [
     1,
     'hospital-ward-a.jpeg',
@@ -27,6 +31,9 @@ export const useGameStore = create((set) => ({
     location: newLocation,
     background: locationImages[newLocation][locationImages[newLocation][0]],
   })),
+  getLocations: Object.keys(locationImages),
+  pixelated: true,
+
   day: 1,
   nextDay: () => set((state) => ({ day: state.day + 1 })),
   advanceDay: (days) => set((state) => ({ day: state.day + days })),

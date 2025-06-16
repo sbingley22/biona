@@ -7,6 +7,32 @@
   position: relative;
 }
 
+#background-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
+#background-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: auto;
+}
+#background-img.pixelate {
+  image-rendering: pixelated;
+}
+#background-img.pixelate-2 {
+  image-rendering: pixelated;
+  transform: scale(0.1);
+  width: 1000%;
+  height: 1000%;
+  transform-origin: top left;
+}
+
 #day-notifier {
   position: absolute;
   top: 0;
@@ -26,6 +52,7 @@
   transition: transform 0.0s ease-in-out;
   overflow: hidden;
   z-index: 1000;
+  user-select: none;
 }
 
 #day-notifier.visible {

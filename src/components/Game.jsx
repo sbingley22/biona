@@ -11,6 +11,7 @@ function Game() {
   const moveLocation = useGameStore((state) => state.moveLocation)
   const setDialog = useGameStore((state) => state.setDialog)
   const [showDayNotifier, setShowDayNotifier] = useState(false)
+  const pixelated = useGameStore((state) => state.pixelated)
 
   useEffect(()=>{
     moveLocation('hospital-room')
@@ -19,7 +20,7 @@ function Game() {
     setShowDayNotifier(true)
     const timer1 = setTimeout(() => {
       setShowDayNotifier(false)
-    }, 2000)
+    }, 200)
 
     const newDialog = dialogData[`day-${day}`]
     if (!newDialog) return
@@ -30,11 +31,18 @@ function Game() {
     }
   }, [day])
 
+  let backgroundImg = './locations/${background}'
+  if (pixelated) backgroundImg = './pixelated/locations/${background}'
+
   return (
-    <div 
-      id="game"
-      style={{ backgroundImage: `url("./locations/${background}")` }}
-    >
+    <div id="game">
+
+      <div id='background-container'>
+        <img id='background-img'
+          //className={pixelated? 'pixelate' : ''}
+          src={backgroundImg}
+        />
+      </div>
 
       <VNMode />
 
