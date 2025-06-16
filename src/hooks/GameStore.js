@@ -38,6 +38,20 @@ export const useGameStore = create((set) => ({
   nextDay: () => set((state) => ({ day: state.day + 1 })),
   advanceDay: (days) => set((state) => ({ day: state.day + days })),
 
+  handleAction: (action) => set((state) => {
+    const a = action.action
+    if (a === 'next-day') {
+      state.nextDay()
+    }
+    else if (a === 'advance-day') {
+      state.advanceDay(action.value)
+    }
+    else if (a === 'move-location') {
+      state.moveLocation(action.value)
+    }
+    return {}
+  }),
+
   dialog: null,
   setDialog: (newDialog) => set(() => ({ dialog: newDialog })),
 

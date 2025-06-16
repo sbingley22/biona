@@ -3,6 +3,7 @@
     {
       "activity": "go-to-bed",
       "type": "location",
+      "name": "Go to bed",
       "description": "Go to bed early and recover hp and ep.",
       "conditions": {
         "days": [
@@ -29,6 +30,7 @@
     {
       "activity": "go-to-bioverse",
       "type": "location",
+      "name": "Go to bioverse",
       "description": "Gather party and head to the bioverse",
       "conditions": {
         "days": [
@@ -36,7 +38,9 @@
           [60,75]
         ] 
       }
-    },
+    }
+  ],
+  "hospital-nurses-station": [
     {
       "activity": "talk-to-nurse",
       "type": "social-link",

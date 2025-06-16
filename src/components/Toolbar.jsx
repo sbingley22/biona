@@ -18,6 +18,16 @@ function Toolbar() {
     setContainerOpen(!containerOpen)
   }
 
+  const closeToolbar = () => {
+    setSubMenu(null)
+    setContainerOpen(false)
+  }
+
+  const handleLocationClick = (loc) => {
+    closeToolbar()
+    moveLocation(loc)
+  }
+
   return (
     <>
     {showToolbar && <div id='toolbar' className={toolbarVisible ? '' : 'hidden'}>
@@ -26,7 +36,7 @@ function Toolbar() {
           {getLocations.map((loc) => (
             <button
               key={loc}
-              onClick={() => moveLocation(loc)}
+              onClick={() => handleLocationClick(loc)}
             >{formatString(loc, "hospital")}</button>
           ))}
         </div>
@@ -34,7 +44,7 @@ function Toolbar() {
       <div id='main'>
         <div id='opener' onClick={handleOpenerClick}></div>
         <div id='container' className={containerOpen ? '' : 'hidden'}>
-          <button onClick={()=>setSubMenu('locations')}>Location</button>
+          <button onClick={()=>setSubMenu('locations')}>Locations</button>
           <button>Options</button>
         </div>
       </div>

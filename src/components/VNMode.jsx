@@ -9,6 +9,7 @@ function VNMode() {
   const dialog = useGameStore((state) => state.dialog)
   const day = useGameStore((state) => state.day)
   const location = useGameStore((state) => state.location)
+  const handleAction = useGameStore((state) => state.handleAction)
   const [characterActivities, setCharacterActivities] = useState([])
   const [locationActivities, setLocationActivities] = useState([])
 
@@ -45,14 +46,18 @@ function VNMode() {
     setLocationActivities(tempLocationActivities)
   }, [location])
 
+  const handleActivity = (activity) => {
+    activity.actions.forEach((action) => handleAction(action))
+  }
+
   return (
     <div id='vn-mode'>
 
       {!dialog && 
       <div id='activity-selection'>
         {characterActivities.map((ca) => {
+          const charInfo = characterData[ca.character]
           if (ca.type === "social-link") {
-            const charInfo = characterData[ca.character]
             return (
               <img
                 key={ca.activity}
@@ -60,17 +65,17 @@ function VNMode() {
                 src={charInfo?.square || "./characters/sofia-square.png"}
               />
             )
-          } else {
-            return (
-              <button
-                key={ca.activity}
-                className='activity-btn'
-              >
-                {ca.name}
-              </button>
-            )
           }
         })}      
+        {locationActivities.map((la) => (
+          <button
+            key={la.activity}
+            className='activity-btn'
+            onClick={()=>handleActivity(la)}
+          >
+            {la.name}
+          </button>
+        ))}
       </div>}
 
       {dialog && <Dialog />}

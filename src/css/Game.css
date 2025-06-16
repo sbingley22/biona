@@ -25,13 +25,6 @@
 #background-img.pixelate {
   image-rendering: pixelated;
 }
-#background-img.pixelate-2 {
-  image-rendering: pixelated;
-  transform: scale(0.1);
-  width: 1000%;
-  height: 1000%;
-  transform-origin: top left;
-}
 
 #day-notifier {
   position: absolute;

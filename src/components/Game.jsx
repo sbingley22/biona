@@ -31,16 +31,12 @@ function Game() {
     }
   }, [day])
 
-  let backgroundImg = './locations/${background}'
-  if (pixelated) backgroundImg = './pixelated/locations/${background}'
-
   return (
     <div id="game">
 
       <div id='background-container'>
         <img id='background-img'
-          //className={pixelated? 'pixelate' : ''}
-          src={backgroundImg}
+          src={`./locations/${background}`}
         />
       </div>
 

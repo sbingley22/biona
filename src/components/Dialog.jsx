@@ -9,9 +9,7 @@ function Dialog() {
   const [dialogIndex, setDialogIndex] = useState(0)
   const [textIndex, setTextIndex] = useState(0)
   const setBackground = useGameStore((state) => state.setBackground)
-  const nextDay = useGameStore((state) => state.nextDay)
-  const advanceDay = useGameStore((state) => state.advanceDay)
-  const moveLocation = useGameStore((state) => state.moveLocation)
+  const handleAction = useGameStore((state) => state.handleAction)
 
   useEffect(()=>{
     if (!dialog) return
@@ -32,7 +30,8 @@ function Dialog() {
     // see to any actions
     if (dialog[dialogIndex].actions) {
       dialog[dialogIndex].actions.forEach((action) => {
-        doAction(action)
+        //doAction(action)
+        handleAction(action)
       })
     }
 
@@ -47,20 +46,6 @@ function Dialog() {
     // reached end of dialog
     setDialogIndex(0)
     setDialog(null)
-  }
-
-  const doAction = (action) => {
-    //console.log(action)
-    const a = action.action
-    if (a === 'next-day') {
-      nextDay()
-    }
-    else if (a === 'advance-day') {
-      advanceDay(action.value)
-    }
-    else if (a === 'move-location') {
-      moveLocation(action.value)
-    }
   }
 
   const currentDialog = dialog[dialogIndex]
