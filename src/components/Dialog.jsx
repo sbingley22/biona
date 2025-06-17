@@ -54,7 +54,7 @@ function Dialog() {
 
   return (
     <div id='dialog-container' onClick={handleTextClick}>
-      <img id='character-image' src={currentCharacter} />
+      {currentCharacter && <img id='character-image' src={currentCharacter} />}
       <div id='text-container'>
         <p>{currentText}</p>
       </div>

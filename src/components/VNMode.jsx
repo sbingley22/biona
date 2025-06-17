@@ -10,6 +10,7 @@ function VNMode() {
   const day = useGameStore((state) => state.day)
   const location = useGameStore((state) => state.location)
   const handleAction = useGameStore((state) => state.handleAction)
+  const [chatActivities, setChatActivities] = useState([])
   const [characterActivities, setCharacterActivities] = useState([])
   const [locationActivities, setLocationActivities] = useState([])
 
@@ -21,11 +22,11 @@ function VNMode() {
       return
     }
 
+    const tempChatActivities = []
     const tempCharacterActivities = []
     const tempLocationActivities = []
 
     activities.forEach((activity) => {
-      //if (activity.activity === "go-to-bed") debugger
       let dayConditionMet = false
       activity?.conditions?.days?.forEach(d => {
         if (day >= d[0] && day < d[1]) dayConditionMet = true
@@ -35,7 +36,10 @@ function VNMode() {
       })
       if (dayConditionMet === false) return
 
-      if (activity.type === "social-link") {
+      if (activity.type === "dialog") {
+        tempChatActivities.push(activity)
+      }
+      else if (activity.type === "social-link") {
         tempCharacterActivities.push(activity)
       }
       else {
@@ -43,6 +47,7 @@ function VNMode() {
       }
     })
 
+    setChatActivities(tempChatActivities)
     setCharacterActivities(tempCharacterActivities)
     setLocationActivities(tempLocationActivities)
   }, [location, day])
@@ -56,23 +61,36 @@ function VNMode() {
 
       {!dialog && 
       <div id='activity-selection'>
+        {chatActivities.map((ca) => {
+          const charInfo = characterData[ca.character]
+          return (
+            <img
+              key={ca.activity}
+              className='chat'
+              src={charInfo?.square || "./characters/sofia-square.png"}
+              onClick={()=>handleActivity(ca)}
+              title={`Chat with ${ca.character}`}
+            />
+          )
+        })}      
         {characterActivities.map((ca) => {
           const charInfo = characterData[ca.character]
-          if (ca.type === "social-link") {
-            return (
-              <img
-                key={ca.activity}
-                className='character'
-                src={charInfo?.square || "./characters/sofia-square.png"}
-              />
-            )
-          }
+          return (
+            <img
+              key={ca.activity}
+              className='character'
+              src={charInfo?.square || "./characters/sofia-square.png"}
+              onClick={()=>handleActivity(ca)}
+              title={`Spend you day with ${ca.character}`}
+            />
+          )
         })}      
         {locationActivities.map((la) => (
           <button
             key={la.activity}
             className='activity-btn'
             onClick={()=>handleActivity(la)}
+            title={la.description}
           >
             {la.name}
           </button>

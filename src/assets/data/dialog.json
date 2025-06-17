@@ -71,7 +71,7 @@
       ]
     }
   ],
-  "day-7-nurse": [
+  "nurse-1": [
     {
       "character": "sean",
       "emotion": "idle",
@@ -95,6 +95,171 @@
       "background": null,
       "text": [
         "YOU'RE AWAKE!!!"
+      ]
+    },
+    {
+      "character": "nurse",
+      "emotion": "happy",
+      "background": null,
+      "text": [
+        "[The blood suddenly drains from your head...]"
+      ],
+      "actions": [{"action": "next-day"}]
+    }
+  ],
+  "day-8": [
+    {
+      "character": "nurse",
+      "emotion": "sad",
+      "background": null,
+      "text": [
+        "... but he was doing so well,",
+        "walking around smiling."
+      ]
+    },
+    {
+      "character": "doctor",
+      "emotion": "idle",
+      "background": null,
+      "text": [
+        "Impossible! Not in that condition.",
+        "Are you sure you didn't imagine it?"
+      ]
+    },
+    {
+      "character": "nurse",
+      "emotion": "angry",
+      "background": null,
+      "text": [
+        "OF COURSE I DIDN'T IMAGINE IT!!!"
+      ]
+    },
+    {
+      "character": "doctor",
+      "emotion": "idle",
+      "background": null,
+      "text": [
+        "Ok, ok! I'm sorry!",
+        "Well there's not much I can do. We don't even know his name.",
+        "With a tumor that size he's got a year tops.",
+        "Besides it's lunch break and they're cooking my favorite...",
+        "PEPERONI PIZZA!",
+        "[The doctor leaves in a hurry]"
+      ]
+    },
+    {
+      "character": "nurse",
+      "emotion": "idle",
+      "background": null,
+      "text": [
+        "Why does he get so excited about pepperoni pizza!?"
+      ],
+      "actions": [
+        {"action": "advance-day", "value": 4}
+      ]
+    }
+  ],
+  "day-12": [
+    {
+      "character": "sean",
+      "emotion": "idle",
+      "background": null,
+      "text": [
+        "A brain tumor?",
+        "A year to live!!!",
+        "I must have dreamt it. My dreams have been extremely vivid lately.",
+        "That nurse should be able to clear things up..."
+      ]
+    }
+  ],
+  "nurse-2": [
+    {
+      "character": "sean",
+      "emotion": "idle",
+      "background": null,
+      "text": [
+        "Is it true nurse, do I have a brain tumor?"
+      ]
+    },
+    {
+      "character": "nurse",
+      "emotion": "idle",
+      "background": null,
+      "text": [
+        "Mystery Man?!"
+      ]
+    },
+    {
+      "character": "nurse",
+      "emotion": "angry",
+      "background": null,
+      "text": [
+        "DON'T SNEAK UP ON ME LIKE THAT!!!"
+      ] 
+    },
+    {
+      "character": "nurse",
+      "emotion": "sad",
+      "background": null,
+      "text": [
+        "Please forgive me for shouting.",
+        "Unfortunately it's true."
+      ]
+    },
+    {
+      "character": "sean",
+      "emotion": "idle",
+      "background": null,
+      "text": [
+        "And only a year to live?"
+      ]
+    },
+    {
+      "character": "nurse",
+      "emotion": "sad",
+      "background": null,
+      "text": [
+        "I'm sorry.",
+        "The tumor has spread throughout your brain and is inoperable.",
+        "Do you have any friends and family I can contact for you?"
+      ]
+    },
+    {
+      "character": "sean",
+      "emotion": "idle",
+      "background": null,
+      "text": [
+        "...err...",
+        "[Wait a minute who even am I?]",
+        "I don't even know my own name"
+      ]
+    },
+    {
+      "character": "nurse",
+      "emotion": "sad",
+      "background": null,
+      "text": [
+        "Oh my!"
+      ]
+    },
+    {
+      "character": "nurse",
+      "emotion": "happy",
+      "background": null,
+      "text": [
+        "Well no matter, we'll be your new family!",
+        "We're not the biggest hospital but that just makes everything more cosey!",
+        "We have a beautiful garden and a cute little cat and ...",
+        "\"Nurse! Nurse! Can I go play now?\""
+      ]
+    },
+    {
+      "character": "nurse",
+      "emotion": "idle",
+      "background": null,
+      "text": [
+        "Oh, it looks like little Havier wants to play football again.",
+        "Well Man of Mystery you get back to bed now and get some rest!"
       ],
       "actions": [{"action": "next-day"}]
     }

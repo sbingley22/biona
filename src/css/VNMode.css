@@ -13,11 +13,20 @@
   gap: 20px;
 }
 
-.character {
+.chat {
   width: 100px;
   height: 100px;
   object-fit: contain;
   border: 4px solid purple;
+  border-radius: 20%;
+  cursor: pointer;
+}
+
+.character {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border: 4px solid blueviolet;
   border-radius: 20%;
   cursor: pointer;
 }

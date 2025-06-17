@@ -1,0 +1,22 @@
+{
+  "hospital-room": [
+    1,
+    "hospital-room.jpeg"
+  ],
+  "hospital-nurses-station": [
+    1,
+    "hospital-nurses-station.jpeg"
+  ],
+  "hospital-ward-a": [
+    1,
+    "hospital-ward-a.jpeg"
+  ],
+  "hospital-ward-b": [
+    1,
+    "hospital-ward-b.jpeg"
+  ],
+  "hospital-garden": [
+    1,
+    "hospital-garden.png"
+  ]
+}

@@ -10,21 +10,14 @@
           [0,370]
         ],
         "days-off": [
-          [7,8]
+          [7,8],
+          [12,13]
         ]
       },
       "actions": [
-        {
-          "action": "next-day"
-        },
-        {
-          "action": "heal",
-          "value": 50
-        },
-        {
-          "action": "energise",
-          "value": 50
-        }
+        { "action": "next-day"},
+        { "action": "heal", "value": 50 },
+        { "action": "energise", "value": 50 }
       ]
     },
     {
@@ -45,18 +38,23 @@
       "activity": "talk-to-nurse",
       "type": "social-link",
       "character": "nurse",
-      "description": "Spend your day talking to nurse.",
       "conditions": {
         "days": [
-          [7, 370]
+          [20, 370]
         ]
       },
       "actions": [
-        {
-          "action": "heal",
-          "value": 10
-        }
+        { "action": "social-link", "value": "nurse" },
+        { "action": "heal", "value": 10 }
       ]
+    },
+    {
+      "activity": "talk-to-nurse", "type": "dialog", "character": "nurse",
+      "conditions": {"days": [[7, 8]]}, "actions": [{"action": "dialog", "value": "nurse-1"}]
+    },
+    {
+      "activity": "talk-to-nurse", "type": "dialog", "character": "nurse",
+      "conditions": { "days": [[12,13]] }, "actions": [{"action": "dialog", "value": "nurse-2"}]
     }
   ],
   "hospital-ward-b": [
@@ -64,7 +62,6 @@
       "activity": "talk-to-boy",
       "type": "social-link",
       "character": "boy",
-      "description": "Spend your day talking to boy.",
       "conditions": {
         "days": [
           [25,345]
@@ -77,7 +74,6 @@
       "activity": "talk-to-cat",
       "type": "social-link",
       "character": "cat",
-      "description": "Spend your day with the cat.",
       "conditions": {
         "days": [
           [50,375]
