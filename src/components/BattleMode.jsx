@@ -1,15 +1,14 @@
 import '../css/BattleMode.css'
 import { useGameStore } from '../hooks/GameStore'
+import BattlePrep from './BattlePrep'
 
 function BattleMode() {
-  const bears = useGameStore((state) => state.bears)
-  const increaseBears = useGameStore((state) => state.increasePopulation)
+  const day = useGameStore((state) => state.day)
 
   return (
-    <div>
+    <div id='battle-mode'>
       <p>Battle MODE</p>
-      <h1>{bears} around here </h1>
-      <button onClick={increaseBears}>one up</button>
+      <BattlePrep />
     </div>
   )
 }

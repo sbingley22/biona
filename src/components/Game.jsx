@@ -2,16 +2,17 @@ import { useEffect, useState } from 'react'
 import '../css/Game.css'
 import VNMode from '../components/VNMode'
 import Toolbar from '../components/Toolbar'
+import BattleMode from '../components/BattleMode'
 import { useGameStore } from '../hooks/GameStore'
 import dialogData from '../assets/data/dialog.json'
 
 function Game() {
   const background = useGameStore((state) => state.background)
   const day = useGameStore((state) => state.day)
+  const mode = useGameStore((state) => state.mode)
   const moveLocation = useGameStore((state) => state.moveLocation)
   const setDialog = useGameStore((state) => state.setDialog)
   const [showDayNotifier, setShowDayNotifier] = useState(false)
-  const pixelated = useGameStore((state) => state.pixelated)
 
   useEffect(()=>{
     moveLocation('hospital-room')
@@ -40,7 +41,9 @@ function Game() {
         />
       </div>
 
-      <VNMode />
+      {mode === "vn" && <VNMode />}
+
+      {mode === "battle" && <BattleMode />}
 
       <Toolbar />
 

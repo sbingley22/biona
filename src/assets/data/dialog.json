@@ -155,7 +155,21 @@
         "Why does he get so excited about pepperoni pizza!?"
       ],
       "actions": [
-        {"action": "advance-day", "value": 4}
+        {"action": "advance-day", "value": 2}
+      ]
+    }
+  ],
+  "day-10": [
+    {
+      "character": "sean",
+      "emotion": "idle",
+      "background": "./biona-sean (1).jpg",
+      "text": [
+        "I think things you cannot.",
+        "You will be me."
+      ],
+      "actions": [
+        {"action": "advance-day", "value": 2}
       ]
     }
   ],
@@ -249,8 +263,15 @@
       "text": [
         "Well no matter, we'll be your new family!",
         "We're not the biggest hospital but that just makes everything more cosey!",
-        "We have a beautiful garden and a cute little cat and ...",
-        "\"Nurse! Nurse! Can I go play now?\""
+        "We have a beautiful garden and a cute little cat and ..."
+      ]
+    },
+    {
+      "character": "boy",
+      "emotion": "idle",
+      "background": null,
+      "text": [
+        "Nurse! Nurse! Can I go play now?"
       ]
     },
     {
@@ -262,6 +283,24 @@
         "Well Man of Mystery you get back to bed now and get some rest!"
       ],
       "actions": [{"action": "next-day"}]
+    }
+  ],
+  "day-13": [
+    {
+      "character": "sean",
+      "emotion": "idle",
+      "background": "./biona-sean (3).jpg",
+      "text": [
+        "This place again?!",
+        "I don't like it here.",
+        "I need to find a way out of here!"
+      ],
+      "actions": [
+        {
+          "action": "go-to-dungeon", 
+          "value": "sean"
+        }
+      ]
     }
   ]
 }

@@ -13,9 +13,12 @@ export const useGameStore = create((set) => ({
   getLocations: Object.keys(locationData),
   pixelated: true,
 
-  day: 7,
+  day: 13,
   nextDay: () => set((state) => ({ day: state.day + 1 })),
   advanceDay: (days) => set((state) => ({ day: state.day + days })),
+
+  mode: "vn",
+  setMode: (newMode) => set(() => ({ mode: newMode })),
 
   handleAction: (action) => set((state) => {
     const a = action.action
@@ -33,6 +36,9 @@ export const useGameStore = create((set) => ({
     }
     else if (a === 'social-link') {
       state.setDialog(action.value)
+    }
+    else if (a === 'go-to-dungeon') {
+      state.setMode("battle")
     }
     return {}
   }),
