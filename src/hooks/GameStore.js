@@ -11,14 +11,23 @@ export const useGameStore = create((set) => ({
     background: locationData[newLocation][locationData[newLocation][0]],
   })),
   getLocations: Object.keys(locationData),
-  pixelated: true,
 
   day: 13,
   nextDay: () => set((state) => ({ day: state.day + 1 })),
   advanceDay: (days) => set((state) => ({ day: state.day + days })),
+  convertCharacterName: (name) => {
+    if (name === 'sean') return 'Mystery'
+    else if (name === 'boy') return 'Havier'
+    return name
+  },
 
   mode: "vn",
   setMode: (newMode) => set(() => ({ mode: newMode })),
+
+  stage: 'sean',
+  setStage: (newStage) => set(() => ({ stage: newStage })),
+  arena: null,
+  setArena: (newArena) => set(() => ({ arena: newArena })),
 
   handleAction: (action) => set((state) => {
     const a = action.action

@@ -1,14 +1,19 @@
 import '../css/BattleMode.css'
 import { useGameStore } from '../hooks/GameStore'
 import BattlePrep from './BattlePrep'
+import Arena from './Arena'
 
 function BattleMode() {
   const day = useGameStore((state) => state.day)
+  const arena = useGameStore((state) => state.arena)
 
   return (
     <div id='battle-mode'>
-      <p>Battle MODE</p>
-      <BattlePrep />
+
+      {!arena && <BattlePrep />}
+
+      {arena && <Arena />}
+
     </div>
   )
 }

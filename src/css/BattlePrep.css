@@ -1,4 +1,40 @@
 #battle-prep {
   width: 100%;
   height: 100%;
+  position: relative;
+}
+
+#stage-selection {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: purple;
+  padding: 5px;
+  border-radius: 10%;
+  gap: 5px;
+  max-height: 80%;
+  overflow-y: auto;
+}
+
+#party-selection {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: purple;
+  padding: 5px;
+  border-radius: 10%;
+  gap: 5px;
+  max-height: 90%;
+  overflow-y: auto;
+}
+
+#leave-dungeon {
+  position: absolute;
+  bottom: 5px;
+  right: 20px;
+  border: 4px solid purple;
 }
