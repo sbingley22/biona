@@ -7,6 +7,9 @@ import { useEffect, useState } from 'react'
 
 function BattlePrep() {
   const day = useGameStore((state) => state.day)
+  const handleAction = useGameStore((state) => state.handleAction)
+  const setMode = useGameStore((state) => state.setMode)
+  const moveLocation = useGameStore((state) => state.moveLocation)
   const setArena = useGameStore((state) => state.setArena)
   const stage = useGameStore((state) => state.stage)
   const convertCharacterName = useGameStore((state) => state.convertCharacterName)
@@ -34,22 +37,33 @@ function BattlePrep() {
     setArenaList(tempArenaList)
   }, [stage])
 
-  const handleArenaClick = (name) => {
-    setArena(name)
+  const handleArenaClick = (index) => {
+    const a = stages[stage][index]
+    if (!a) {
+      console.warn(`Couldn't find arena for ${stage} at ${index}`)
+    }
+    setArena(a)
   }
 
   const handlePartyClick = (slot) => {
     console.log("show available party members for slot: ", slot)
   }
 
+  const handleLeave = () => {
+    setArena(null)
+    setMode("vn")
+    moveLocation('hospital-room')
+    handleAction('next-day')
+  }
+
   return (
     <div id='battle-prep'>
       <div id='stage-selection'>
         <h3>{convertCharacterName(stage)}</h3>
-        {arenaList.map(a => (
+        {arenaList.map((a, index) => (
           <button
             key={a.name}
-            onClick={()=>handleArenaClick(a.name)}
+            onClick={()=>handleArenaClick(index)}
           >{a.name}</button>
         ))}
       </div>
@@ -64,7 +78,7 @@ function BattlePrep() {
         ))}
       </div>
 
-      <button id='leave-dungeon'>
+      <button id='leave-dungeon' onClick={handleLeave}>
         Leave Bionaverse
       </button>
     </div>

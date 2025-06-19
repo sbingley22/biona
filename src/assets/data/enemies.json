@@ -1,22 +1,23 @@
 {
-  "name": "nk-psycho",
-  "img": null,
-  "stats": {
-    "health": 15,
-    "energy": 30
-  },
-  "actions": [
-    {
-      "name": "Stab",
-      "type": "physical",
-      "dmg": 10
+  "nk-psycho": {
+    "img": null,
+    "stats": {
+      "health": 15,
+      "energy": 30
     },
-    {
-      "name": "ROS Grenade",
-      "type": "ros",
-      "multi": "true",
-      "dmg": 25,
-      "cost": ["energy", 25, "health", 5]
-    }
-  ]
+    "actions": [
+      {
+        "name": "Stab",
+        "type": "physical",
+        "dmg": 10
+      },
+      {
+        "name": "ROS Grenade",
+        "type": "ros",
+        "multi": "true",
+        "dmg": 25,
+        "cost": ["energy", 25, "health", 5]
+      }
+    ]
+  }
 }
