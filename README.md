@@ -23,6 +23,9 @@ Todo:
 - ~~Add character image on screen with dialog~~
 - ~~Add go to bed button (end day)~~
 - ~~Use dialog.json to add special text to certain characters on certain days that's different to social links.~~
+- Add battle system
+- Add placeholder images for bionas
+- Add battle ui (ability cards, health, opponent weaknesses, etc)
 - Add social link json file that holds social link dialog and actions
 - Implement day routine behaviour (talking to characters, revising, earning money)
 - Implement a shop

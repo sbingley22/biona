@@ -8,6 +8,9 @@ function Arena() {
   const arena = useGameStore((state) => state.arena)
   const setArena = useGameStore((state) => state.setArena)
   const convertCharacterName = useGameStore((state) => state.convertCharacterName)
+  const party = useGameStore((state) => state.party)
+  const partyStats = useGameStore((state) => state.partyStats)
+  const bionas = useGameStore((state) => state.bionas)
 
   const [turn, setTurn] = useState(true)
   const [turnIndex, setTurnIndex] = useState(0)
@@ -16,7 +19,6 @@ function Arena() {
 
   // load arena
   useEffect(()=>{
-    console.log(arena)
     if (arena.intro) setTextInfo(arena.intro)
     if (arena.enemies) {
       const tempEnemies = []
@@ -30,11 +32,20 @@ function Arena() {
 
   // handle team turns
   useEffect(()=>{
+    setTurnIndex(0)
 
   }, [turn])
 
   // handle individual turns
   useEffect(()=>{
+    if (!turn && turnIndex >= enemies.length) {
+      setTurn(!turn)
+      return
+    }
+    if (turn && turnIndex >= party.length) {
+      setTurn(!turn)
+      return
+    }
 
   }, [turnIndex])
 
@@ -62,7 +73,39 @@ function Arena() {
           <p>{textInfo[0].text}</p>
         </div>
       :
-        turn && <div id='party-actions'>
+        <div id='party-actions'>
+          {turn && bionas.map((bio, i) => {
+            return (
+              <div key={'bio' + i} className='biona-actions'>
+                {bio.actions.map(ba => (
+                  <div key={ba.name} className='action-card'>
+                    <p>{ba.name}</p>
+                    <p>{ba.type}</p>
+                    <p>{ba.dmg}</p>
+                    {ba.cost?.map((c, i) => {
+                      if (i%2===0) return null
+                      const costType = ba.cost[i-1]
+                      const costAmount = c
+                      return (<p key={i}>{`${costType} - ${costAmount}`}</p>)
+                    })}
+                  </div>
+                ))}
+              </div>
+            )
+          })}
+          {party.map(pName => {
+            const p = partyStats[pName]
+            const name = convertCharacterName(pName)
+            return (
+              <div key={pName} className='party-stats'>
+                <p>{name}</p>
+                <div>
+                  <p>H: {p.health}/{p.maxHealth}</p>
+                  <p>E: {p.energy}/{p.maxEnergy}</p>
+                </div>
+              </div>
+            )
+          })}
         </div>
       }
 

@@ -1,6 +1,37 @@
 import { create } from 'zustand'
 import dialogData from '../assets/data/dialog.json'
 import locationData from '../assets/data/locations.json'
+import alliesData from '../assets/data/allies.json'
+
+const defaultPartyStats = {
+  'sean': {
+    biona: "nk-cell",
+    health: 50,
+    maxHealth: 50,
+    energy: 30,
+    maxEnergy: 30,
+    nerfs: [],
+    buffs: [],
+  },
+  'sofia': {
+    biona: "nk-cell",
+    health: 45,
+    maxHealth: 45,
+    energy: 60,
+    maxEnergy: 60,
+    nerfs: [],
+    buffs: [],
+  },
+  'boy': {
+    biona: "nk-cell",
+    health: 60,
+    maxHealth: 60,
+    energy: 60,
+    maxEnergy: 60,
+    nerfs: [],
+    buffs: [],
+  },
+}
 
 export const useGameStore = create((set) => ({
   background: 'hospital-room.jpeg',
@@ -28,6 +59,16 @@ export const useGameStore = create((set) => ({
   setStage: (newStage) => set(() => ({ stage: newStage })),
   arena: null,
   setArena: (newArena) => set(() => ({ arena: newArena })),
+
+  allies: ['sean'],
+  setAllies: (newAllies) => set(() => ({ allies: newAllies })),
+  addAlly: (newAlly) => set((state) => ({ allies: state.allies.push(newAlly) })),
+  party: ['sean'],
+  setParty: (newParty) => set(() => ({ party: newParty })),
+  partyStats: defaultPartyStats,
+  setPartyStats: (newStats) => set(() => ({ partyStats: newStats })),
+  bionas: [alliesData['nk-cell']],
+  setBionas: (newBionas) => set(() => ({ bionas: newBionas })),
 
   handleAction: (action) => set((state) => {
     const a = action.action
@@ -57,3 +98,4 @@ export const useGameStore = create((set) => ({
 
   toolbarVisible: true,
 }))
+
