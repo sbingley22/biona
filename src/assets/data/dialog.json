@@ -297,8 +297,8 @@
       ],
       "actions": [
         {
-          "action": "go-to-dungeon", 
-          "value": "sean"
+          "action": "go-to-dungeon-battle", 
+          "value": 0
         }
       ]
     }

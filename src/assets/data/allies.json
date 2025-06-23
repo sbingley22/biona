@@ -1,6 +1,6 @@
 {
   "nk-cell": {
-    "img": null,
+    "img-url": "./bionas/b-cell/",
     "stats": {
       "health": 60,
       "energy": 40

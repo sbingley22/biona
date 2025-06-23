@@ -16,6 +16,7 @@ function Arena() {
   const [turnIndex, setTurnIndex] = useState(0)
   const [textInfo, setTextInfo] = useState([])
   const [enemies, setEnemies] = useState([])
+  const [bionaImage, setBionaImage] = useState(null)
 
   // load arena
   useEffect(()=>{
@@ -26,6 +27,8 @@ function Arena() {
         if (enemyData[en]) tempEnemies.push(enemyData[en])
         else console.warn(`Couldn't find ${en} enemy data`, enemyData, en)
       })
+      setEnemies(tempEnemies)
+      console.log(tempEnemies)
     }
     
   }, [arena])
@@ -47,6 +50,9 @@ function Arena() {
       return
     }
 
+    if (turn) {
+      setBionaImage(bionas[turnIndex]["img-url"] + "idle.png")
+    }
   }, [turnIndex])
 
   const handleTextClick = () => {
@@ -55,13 +61,20 @@ function Arena() {
     setTextInfo(tempTextInfo)
   }
 
+  console.log(enemies)
   return (
     <div id='arena'>
 
       <div id='enemy-container'>
+        {enemies.map((en, i) => {
+          return (
+            <img key={"enemy"+i} src={en["img-url"]+"idle.png"} />
+          )
+        })}
       </div>
 
       <div id='party-container'>
+        <img src={bionaImage} />
       </div>
 
       {textInfo.length > 0 ? 

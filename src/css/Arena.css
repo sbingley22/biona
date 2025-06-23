@@ -61,3 +61,27 @@
   padding: 10px;
 }
 
+#enemy-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+#enemy-container img {
+  height: 35vh;
+  object-fit: contain;
+}
+
+#party-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+#party-container img {
+  height: 70vh;
+  object-fit: contain;
+}

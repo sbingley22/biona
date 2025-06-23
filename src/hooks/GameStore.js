@@ -2,6 +2,7 @@ import { create } from 'zustand'
 import dialogData from '../assets/data/dialog.json'
 import locationData from '../assets/data/locations.json'
 import alliesData from '../assets/data/allies.json'
+import stages from '../assets/data/stages.json'
 
 const defaultPartyStats = {
   'sean': {
@@ -89,6 +90,12 @@ export const useGameStore = create((set) => ({
     }
     else if (a === 'go-to-dungeon') {
       state.setMode("battle")
+    }
+    else if (a === 'go-to-dungeon-battle') {
+      state.setMode("battle")
+      const a = stages[state.stage][action.value]
+      if (!a) console.warn(`Couldn't find arena for ${stage} at ${index}`)
+      state.setArena(a)
     }
     return {}
   }),

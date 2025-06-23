@@ -1,6 +1,6 @@
 {
   "nk-psycho": {
-    "img": null,
+    "img-url": "./bionas/t-cell/",
     "stats": {
       "health": 15,
       "energy": 30
