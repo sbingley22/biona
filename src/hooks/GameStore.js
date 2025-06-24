@@ -50,6 +50,9 @@ export const useGameStore = create((set) => ({
   convertCharacterName: (name) => {
     if (name === 'sean') return 'Mystery'
     else if (name === 'boy') return 'Havier'
+    else if (name === 'nk-cell') return 'Natural Killer Cell'
+    else if (name === 'b-cell') return 'B Cell'
+    else if (name === 't-cell') return 'T Cell'
     return name
   },
 

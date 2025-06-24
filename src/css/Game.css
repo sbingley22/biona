@@ -26,6 +26,9 @@
 #background-img.pixelate {
   image-rendering: pixelated;
 }
+#background-img.blur {
+  filter: blur(8px);
+}
 
 #day-notifier {
   position: absolute;

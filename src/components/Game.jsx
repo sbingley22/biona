@@ -36,8 +36,10 @@ function Game() {
     <div id="game">
 
       <div id='background-container'>
-        <img id='background-img'
+        <img 
+          id='background-img'
           src={`./locations/${background}`}
+          className={"blur"}
         />
       </div>
 
