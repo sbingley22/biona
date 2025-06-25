@@ -14,8 +14,9 @@
   flex-direction: column;
   font-size: 1.6rem;
   padding: 20px;
-  border: 8px solid purple;
+  border-top: 8px solid #414;
   background: black;
+  background: linear-gradient(to top, #000, #313);
   user-select: none;
 }
 
@@ -33,12 +34,12 @@
 
 .party-stats {
   background: black;
-  border: 1px solid purple;
+  background: linear-gradient(to left, #000, #313);
+  border-top: 1px solid purple;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 15px;
-  border-right: 1px solid purple;
 }
 
 .party-stats div {
@@ -50,15 +51,27 @@
   padding: 0px;
   gap: 0px;
   justify-content: right;
-  align-items: center;
+  align-items: stretch;
 }
 
 .action-card {
   min-width: 100px;
   max-width: 200px;
   background: black;
-  border: 1px solid purple;
+  background: linear-gradient(#000, #313);
+  border: 2px solid purple;
   padding: 10px;
+  border-top-left-radius: 25%;
+}
+
+.action-card .dmg-type {
+  display: flex;
+  width: 100%;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid purple;
+  border-bottom: 1px solid purple;
 }
 
 #enemy-container {
@@ -75,6 +88,11 @@
   object-fit: contain;
 }
 
+#enemy-container img.selected {
+  border: 4px solid #a00;
+  border-radius: 20px;
+}
+
 #party-container {
   position: absolute;
   bottom: 0;
@@ -85,3 +103,27 @@
   height: 70vh;
   object-fit: contain;
 }
+
+#weaknesses {
+  position: absolute;
+  bottom: -40px;
+  right: 0;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 0px;
+  background: black;
+}
+
+#weaknesses > div {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  border: 1px solid #333;
+  width: 80px;
+  height: 50px;
+}
+
+#weaknesses p {
+  margin: 0;
+  padding: 0;
+}
+

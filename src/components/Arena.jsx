@@ -17,18 +17,31 @@ function Arena() {
   const [textInfo, setTextInfo] = useState([])
   const [enemies, setEnemies] = useState([])
   const [bionaImage, setBionaImage] = useState(null)
+  const [weaknesses, setWeaknesses] = useState([])
+  const [selectedEnemy, setSelectedEnemy] = useState(0)
 
   // load arena
   useEffect(()=>{
     if (arena.intro) setTextInfo(arena.intro)
     if (arena.enemies) {
       const tempEnemies = []
+      const tempWeaknesses = []
       arena.enemies.forEach(en => {
-        if (enemyData[en]) tempEnemies.push(enemyData[en])
+        if (enemyData[en]) {
+          tempEnemies.push(enemyData[en])
+          tempWeaknesses.push({
+            "ros" : null,
+            "physical": null,
+            "ph": null,
+            "poison": null,
+            "antibodies": null,
+          })
+        }
         else console.warn(`Couldn't find ${en} enemy data`, enemyData, en)
       })
       setEnemies(tempEnemies)
-      console.log(tempEnemies)
+      setWeaknesses(tempWeaknesses)
+      console.log(tempEnemies, tempWeaknesses)
     }
     
   }, [arena])
@@ -61,16 +74,32 @@ function Arena() {
     setTextInfo(tempTextInfo)
   }
 
-  console.log(enemies)
   return (
     <div id='arena'>
 
       <div id='enemy-container'>
         {enemies.map((en, i) => {
           return (
-            <img key={"enemy"+i} src={en["img-url"]+"idle.png"} />
+            <img 
+              key={"enemy"+i} 
+              src={en["img-url"]+"idle.png"} 
+              className={selectedEnemy === i && turn ? "selected" : ""}
+              onClick={()=>setSelectedEnemy(i)}
+            />
           )
         })}
+        {turn && weaknesses[selectedEnemy] && Object.keys(weaknesses[selectedEnemy]).length > 0 &&
+          <div id='weaknesses'>
+            {Object.keys(weaknesses[selectedEnemy]).map((weakName, i) => {
+              const weak = weaknesses[selectedEnemy][weakName]
+              return (
+              <div key={weakName+selectedEnemy+i}>
+                <p>{convertTypeNames(weakName)}</p>
+                <p>{weak===null ? "null" : weak}</p>
+              </div>)
+            })}
+          </div>
+        }
       </div>
 
       <div id='party-container'>
@@ -93,8 +122,10 @@ function Arena() {
                 {bio.actions.map(ba => (
                   <div key={ba.name} className='action-card'>
                     <p>{ba.name}</p>
-                    <p>{ba.type}</p>
-                    <p>{ba.dmg}</p>
+                    <div className='dmg-type'>
+                      <p>{convertTypeNames(ba.type)}</p>
+                      <p>{ba.dmg}</p>
+                    </div>
                     {ba.cost?.map((c, i) => {
                       if (i%2===0) return null
                       const costType = ba.cost[i-1]
@@ -124,6 +155,15 @@ function Arena() {
 
     </div>
   )
+}
+
+function convertTypeNames(tName) {
+  if (tName === "ros") return "ROS"
+  if (tName === "physical") return "SLASH"
+  if (tName === "ph") return "PH"
+  if (tName === "poison") return "POISON"
+  if (tName === "antibodies") return "Anti-B"
+  return tName
 }
 
 export default Arena
