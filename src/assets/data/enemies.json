@@ -1,5 +1,6 @@
 {
   "nk-psycho": {
+    "name": "NK Psycho",
     "img-url": "./bionas/nk-cell-psycho/",
     "stats": {
       "health": 15,
@@ -18,6 +19,12 @@
         "dmg": 25,
         "cost": ["energy", 25, "health", 5]
       }
+    ],
+    "weaknesses": [
+      "ph", "ros"
+    ],
+    "strengths": [
+      "antibodies"
     ]
   }
 }

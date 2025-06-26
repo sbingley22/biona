@@ -1,6 +1,7 @@
 {
   "nk-cell": {
-    "img-url": "./bionas/b-cell/",
+    "name": "Natural Killer Cell",
+    "img-url": "./bionas/t-cell/",
     "stats": {
       "health": 60,
       "energy": 40
@@ -18,6 +19,42 @@
         "dmg": 25,
         "cost": ["energy", 15, "health", 5]
       }
+    ],
+    "weaknesses": [
+      "ph"
+    ],
+    "strengths": [
+      "antibodies", "physical"
     ]
+
+  },
+  "b-cell": {
+    "name": "B Cell",
+    "img-url": "./bionas/b-cell/",
+    "stats": {
+      "health": 30,
+      "energy": 80
+    },
+    "actions": [
+      {
+        "name": "Shoot",
+        "type": "physical",
+        "dmg": 15
+      },
+      {
+        "name": "Antibody rounds",
+        "type": "antibody",
+        "multi": "true",
+        "dmg": 20,
+        "cost": ["energy", 10, "health", 3]
+      }
+    ],
+    "weaknesses": [
+      "physical"
+    ],
+    "strengths": [
+      "antibodies"
+    ]
+
   }
 }

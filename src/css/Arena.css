@@ -32,18 +32,39 @@
   user-select: none;
 }
 
-.party-stats {
-  background: black;
-  background: linear-gradient(to left, #000, #313);
-  border-top: 1px solid purple;
+#party-stats {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
+  gap: 0px;
+  margin: 0;
+  padding: 0;
+  margin-left: auto;
+  background: linear-gradient(to right, #000, darkblue);
+  border-top: 1px solid darkblue;
 }
 
-.party-stats div {
+.member-stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  border-left: 1px solid darkblue;
+  padding: 0 15px;
+  margin: 0;
+}
+
+.member-stats.turn {
+  border: 3px solid blue;
+}
+
+.member-stats p {
+  margin: 0;
+  padding: 5px;
+}
+
+.member-stats div {
   font-size: 0.8rem;
+  display: flex;
 }
 
 .biona-actions {
@@ -52,13 +73,14 @@
   gap: 0px;
   justify-content: right;
   align-items: stretch;
+  color: #faf;
 }
 
 .action-card {
   min-width: 100px;
   max-width: 200px;
   background: black;
-  background: linear-gradient(#000, #313);
+  background: linear-gradient(#100, #313);
   border: 2px solid purple;
   padding: 10px;
   border-top-left-radius: 25%;

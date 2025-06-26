@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import '../css/Arena.css'
 import { useGameStore } from '../hooks/GameStore'
 import enemyData from '../assets/data/enemies.json'
-import allyData from '../assets/data/allies.json'
 
 function Arena() {
   const arena = useGameStore((state) => state.arena)
@@ -28,7 +27,8 @@ function Arena() {
       const tempWeaknesses = []
       arena.enemies.forEach(en => {
         if (enemyData[en]) {
-          tempEnemies.push(enemyData[en])
+          // create a deep copy of enemy data
+          tempEnemies.push(JSON.parse(JSON.stringify(enemyData[en])))
           tempWeaknesses.push({
             "ros" : null,
             "physical": null,
@@ -69,9 +69,92 @@ function Arena() {
   }, [turnIndex])
 
   const handleTextClick = () => {
+    if (textInfo[0].character === "turn end") setTurnIndex(turnIndex + 1)
     const tempTextInfo = [...textInfo]
     tempTextInfo.shift()
     setTextInfo(tempTextInfo)
+  }
+
+  const handleActionClick = (action) => {
+    if (selectedEnemy === -1) {
+      setTextInfo([{"character": "", "text": "Select an enemy"}])
+      return
+    }
+    const enemyBio = enemies[selectedEnemy]
+    if (!enemyBio) {
+      console.warn("Couldn't find selected enemy:", enemies, selectedEnemy)
+      return
+    }
+    const member = partyStats[party[turnIndex]]
+    //console.log("action clicked:", action)
+
+    setBionaImage(bionas[turnIndex]["img-url"] + "attack.png")
+    settleActionCostAlly(member, action.cost)
+
+    if (action.multi) {
+      const tempText = []
+      const tempWeaknesses = [...weaknesses]
+      enemies.forEach((en,index) => {
+        const [text, weak] = damageEnemy(en, action.type, action.dmg)
+        tempWeaknesses[index][action.type] = weak
+        tempText.push({"character": "", "text": text})
+      })
+      setWeaknesses(tempWeaknesses)
+      tempText[tempText.length-1].character = "turn end"
+      setTextInfo(tempText)
+    }
+    else {
+      const [text, weak] = damageEnemy(enemyBio, action.type, action.dmg)
+      const tempWeaknesses = [...weaknesses]
+      tempWeaknesses[selectedEnemy][action.type] = weak
+      setWeaknesses(tempWeaknesses)
+      setTextInfo([
+        {"character": "turn end", "text": text}
+      ])
+    }
+  }
+
+  const settleActionCostAlly = (bio, cost) => {
+    if (!cost) return
+    //console.log("settling action cost:", bio)
+    for (let i = 0; i < cost.length-1; i+=2) {
+      const costName = cost[i];
+      const costAmount = cost[i+1]
+      if (costName === "health") {
+        bio.health -= costAmount
+      }
+      else if (costName === "energy") {
+        bio.energy -= costAmount
+      }
+    }
+  }
+
+  const damageEnemy = (bio, type, amount) => {
+    if (bio.stats.health <= 0) return null
+    //console.log("damaging:", bio)
+
+    let dmg = amount
+    let weak = null
+    if (bio.weaknesses.includes(type)) {
+      dmg *= 3
+      weak = "weak"
+    }
+    else if (bio.strengths.includes(type)) {
+      dmg *= 0.35
+      weak = "str"
+    }
+    else {
+      weak = "-"
+    }
+    bio.stats.health -= dmg
+    let text = `${bio.name} was hit for ${dmg} (${bio.stats.health})`
+
+    if (bio.stats.health <= 0) {
+      setSelectedEnemy(-1)
+      text = `${bio.name} was killed!`
+    }
+
+    return [text, weak]
   }
 
   return (
@@ -79,6 +162,7 @@ function Arena() {
 
       <div id='enemy-container'>
         {enemies.map((en, i) => {
+          if (en.stats.health <= 0) return null
           return (
             <img 
               key={"enemy"+i} 
@@ -88,7 +172,7 @@ function Arena() {
             />
           )
         })}
-        {turn && weaknesses[selectedEnemy] && Object.keys(weaknesses[selectedEnemy]).length > 0 &&
+        {turn && selectedEnemy !=-1 && weaknesses[selectedEnemy] && Object.keys(weaknesses[selectedEnemy]).length > 0 &&
           <div id='weaknesses'>
             {Object.keys(weaknesses[selectedEnemy]).map((weakName, i) => {
               const weak = weaknesses[selectedEnemy][weakName]
@@ -117,11 +201,16 @@ function Arena() {
       :
         <div id='party-actions'>
           {turn && bionas.map((bio, i) => {
+            if (i !== turnIndex) return null
             return (
               <div key={'bio' + i} className='biona-actions'>
                 {bio.actions.map(ba => (
-                  <div key={ba.name} className='action-card'>
-                    <p>{ba.name}</p>
+                  <div 
+                    key={ba.name} 
+                    className='action-card'
+                    onClick={()=>handleActionClick(ba)}
+                  >
+                    <p style={{color: '#999', fontWeight: 'bold'}}>{ba.name}</p>
                     <div className='dmg-type'>
                       <p>{convertTypeNames(ba.type)}</p>
                       <p>{ba.dmg}</p>
@@ -130,26 +219,33 @@ function Arena() {
                       if (i%2===0) return null
                       const costType = ba.cost[i-1]
                       const costAmount = c
-                      return (<p key={i}>{`${costType} - ${costAmount}`}</p>)
+                      return (<p key={i} style={{color:'red'}}>{`${costType} - ${costAmount}`}</p>)
                     })}
                   </div>
                 ))}
               </div>
             )
           })}
-          {party.map(pName => {
-            const p = partyStats[pName]
-            const name = convertCharacterName(pName)
-            return (
-              <div key={pName} className='party-stats'>
-                <p>{name}</p>
-                <div>
-                  <p>H: {p.health}/{p.maxHealth}</p>
-                  <p>E: {p.energy}/{p.maxEnergy}</p>
+          <div id='party-stats'>
+            {party.map((pName,index) => {
+              const p = partyStats[pName]
+              const name = convertCharacterName(pName)
+              let className = 'member-stats'
+              if (turn && turnIndex===index) className += ' turn'
+              return (
+                <div 
+                  key={pName} 
+                  className={className}
+                >
+                  <p style={{color:'#999', fontWeight:'bold'}}>{name}</p>
+                  <div>
+                    <p style={{color: "green"}}>H: {p.health}/{p.maxHealth}</p>
+                    <p style={{color: "yellow"}}>E: {p.energy}/{p.maxEnergy}</p>
+                  </div>
                 </div>
-              </div>
-            )
-          })}
+              )
+            })}
+          </div>
         </div>
       }
 

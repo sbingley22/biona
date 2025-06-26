@@ -1,17 +1,19 @@
 import '../css/toolbar.css'
 import { useGameStore } from '../hooks/GameStore'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 function Toolbar() {
   const toolbarVisible = useGameStore((state) => state.toolbarVisible)
   const moveLocation = useGameStore((state) => state.moveLocation)
   const getLocations = useGameStore((state) => state.getLocations)
   const dialog = useGameStore((state) => state.dialog)
+  const mode = useGameStore((state) => state.mode)
   const [containerOpen, setContainerOpen] = useState(false)
   const [subMenu, setSubMenu] = useState(null)
 
   let showToolbar = true
   if (dialog) showToolbar = false
+  if (mode === 'battle') showToolbar = false
 
   const handleOpenerClick = () => {
     setSubMenu(null)

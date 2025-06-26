@@ -15,7 +15,7 @@ const defaultPartyStats = {
     buffs: [],
   },
   'sofia': {
-    biona: "nk-cell",
+    biona: "b-cell",
     health: 45,
     maxHealth: 45,
     energy: 60,
@@ -49,6 +49,7 @@ export const useGameStore = create((set) => ({
   advanceDay: (days) => set((state) => ({ day: state.day + days })),
   convertCharacterName: (name) => {
     if (name === 'sean') return 'Mystery'
+    else if (name === 'sofia') return 'Sofia'
     else if (name === 'boy') return 'Havier'
     else if (name === 'nk-cell') return 'Natural Killer Cell'
     else if (name === 'b-cell') return 'B Cell'
@@ -64,14 +65,14 @@ export const useGameStore = create((set) => ({
   arena: null,
   setArena: (newArena) => set(() => ({ arena: newArena })),
 
-  allies: ['sean'],
+  allies: ['sean', 'sofia'],
   setAllies: (newAllies) => set(() => ({ allies: newAllies })),
   addAlly: (newAlly) => set((state) => ({ allies: state.allies.push(newAlly) })),
-  party: ['sean'],
+  party: ['sean', 'sofia'],
   setParty: (newParty) => set(() => ({ party: newParty })),
   partyStats: defaultPartyStats,
   setPartyStats: (newStats) => set(() => ({ partyStats: newStats })),
-  bionas: [alliesData['nk-cell']],
+  bionas: [alliesData['nk-cell'], alliesData['b-cell']],
   setBionas: (newBionas) => set(() => ({ bionas: newBionas })),
 
   handleAction: (action) => set((state) => {

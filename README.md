@@ -24,8 +24,12 @@ Todo:
 - ~~Add go to bed button (end day)~~
 - ~~Use dialog.json to add special text to certain characters on certain days that's different to social links.~~
 - ~~Add placeholder images for bionas~~
-- Add weaknesses
-- Add battle ui (ability cards, health, opponent weaknesses, etc)
+- ~~Add weaknesses~~
+- ~~Add battle ui (ability cards, health, opponent weaknesses, etc)~~
+- ~~Temporarly add sofia to battle system~~
+- ~~Add turns and attacks~~
+- Add ai turns
+- Add items and skip / defend turn
 - Add battle system
 - Add social link json file that holds social link dialog and actions
 - Implement day routine behaviour (talking to characters, revising, earning money)
