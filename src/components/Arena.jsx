@@ -2,6 +2,10 @@ import { useEffect, useState } from 'react'
 import '../css/Arena.css'
 import { useGameStore } from '../hooks/GameStore'
 import enemyData from '../assets/data/enemies.json'
+import { useAI } from '../hooks/useAI'
+import { usePlayer } from '../hooks/usePlayer'
+import { convertTypeNames } from '../utils/battleUtils'
+import EnemyContainer from './EnemyContainer'
 
 function Arena() {
   const arena = useGameStore((state) => state.arena)
@@ -18,6 +22,23 @@ function Arena() {
   const [bionaImage, setBionaImage] = useState(null)
   const [weaknesses, setWeaknesses] = useState([])
   const [selectedEnemy, setSelectedEnemy] = useState(0)
+
+  const { handleActionClick } = usePlayer({
+    bionas,
+    party,
+    partyStats,
+    enemies,
+    weaknesses,
+    setEnemies,
+    setWeaknesses,
+    setTextInfo,
+    setBionaImage,
+    turnIndex,
+    selectedEnemy,
+    setSelectedEnemy,
+    convertCharacterName,
+  })
+  const { handleAiTurn } = useAI(bionas, party, partyStats, setTextInfo, setTurnIndex)
 
   // load arena
   useEffect(()=>{
@@ -102,119 +123,9 @@ function Arena() {
     }
     // enemy turn
     else {
-      setTimeout(()=>handleAiTurn(), 800)
+      setTimeout(()=>handleAiTurn(enemies[turnIndex], turnIndex), 800)
     }
   }, [turnIndex])
-
-  const handleAiTurn = () => {
-    const ai = enemies[turnIndex]
-    if (!ai) {
-      console.warn("couldn't find enemy at", turnIndex)
-      setTurnIndex(turnIndex+1)
-    }
-    if (ai.stats.health <= 0) setTurnIndex(turnIndex+1)
-
-    //console.log("Ais turn:", ai)
-    const action = selectAiAction(ai)
-    const playerIndex = selectAiTarget()
-    //const member = party[playerIndex]
-    //const biona = bionas[playerIndex]
-
-    if (action?.multi === true) {
-      // attack all players
-      const tempTextInfo = []
-      bionas.forEach((b,i) => {
-        const text = damagePlayer(i, action.type, action.dmg)
-        tempTextInfo.push({"character": "", "text": text})
-      })
-      tempTextInfo[tempTextInfo.length-1].character = "turn end"
-      setTextInfo(tempTextInfo)
-    }
-    if (action.type === "skip") {
-      // skip turn
-      const text = `${ai.name} skipped there turn.`
-      setTextInfo([
-        {"character": "turn end", "text": text}
-      ])
-    }
-    else {
-      // attack single player
-      const text = damagePlayer(playerIndex, action.type, action.dmg)
-      setTextInfo([
-        {"character": "turn end", "text": text}
-      ])
-    }
-  }
-
-  const selectAiAction = (ai) => {
-    // Select action at random, if that fails, do action at slot zero, else defend / skip turn
-    const chance = Math.floor(Math.random() * ai.actions.length)
-    let chosenAction = ai.actions[chance]
-    let canAfford = true
-    if (chosenAction.cost) {
-      chosenAction.cost.forEach((cost, i) => {
-        if (cost === "health" && ai.stats.health <= chosenAction.cost[i+1]) canAfford = false
-        else if (cost === "energy" && ai.stats.energy <= chosenAction.cost[i+1]) canAfford = false
-      });
-    }
-
-    if (canAfford) return chosenAction
-
-    // default to first action
-    chosenAction = ai.actions[0]
-    canAfford = true
-    if (chosenAction.cost) {
-      chosenAction.cost.forEach((cost, i) => {
-        if (cost === "health" && ai.stats.health <= chosenAction.cost[i+1]) canAfford = false
-        else if (cost === "energy" && ai.stats.energy <= chosenAction.cost[i+1]) canAfford = false
-      });
-    }
-    if (canAfford) return chosenAction
-
-    // skip turn
-    return { type: "skip" }
-  }
-  
-  const selectAiTarget = () => {
-    // Pick target at random who is alive
-    const aliveIndicies = []
-    bionas.forEach((b,i) => {
-      if (b.health <= 0) return
-      aliveIndicies.push(i)
-    });
-    const index = Math.floor(Math.random() * aliveIndicies.length)
-    const chosen = aliveIndicies[index]
-
-    return chosen
-  }
-
-  const damagePlayer = (index, type, amount) => {
-    // Ai attacks player
-    const member = partyStats[party[index]]
-    const biona = bionas[index]
-
-    if (member.health <= 0) return null
-    //console.log("damaging:", member, biona)
-
-    let dmg = amount
-    if (biona.weaknesses.includes(type)) {
-      dmg *= 3
-    }
-    else if (biona.strengths.includes(type)) {
-      dmg *= 0.35
-    }
-    member.health -= dmg
-    let text = `Enemy hit ${biona.name} for ${dmg} (${member.health})`
-
-    if (member.health <= 0) {
-      text = `Enemy killed ${biona.name}!`
-      member.health = 0
-    }
-
-    setBionaImage(biona["img-url"] + "defend.png")
-
-    return text
-  }
 
   const handleTextClick = () => {
     if (textInfo[0].character === "stage won") {
@@ -231,116 +142,16 @@ function Arena() {
     setTextInfo(tempTextInfo)
   }
 
-  const handleActionClick = (action) => {
-    if (selectedEnemy === -1) {
-      setTextInfo([{"character": "", "text": "Select an enemy"}])
-      return
-    }
-    const enemyBio = enemies[selectedEnemy]
-    if (!enemyBio) {
-      console.warn("Couldn't find selected enemy:", enemies, selectedEnemy)
-      return
-    }
-    const member = partyStats[party[turnIndex]]
-    //console.log("action clicked:", action)
-
-    setBionaImage(bionas[turnIndex]["img-url"] + "attack.png")
-    settleActionCostAlly(member, action.cost)
-
-    if (action.multi) {
-      const tempText = []
-      const tempWeaknesses = [...weaknesses]
-      enemies.forEach((en,index) => {
-        const [text, weak] = damageEnemy(en, action.type, action.dmg)
-        tempWeaknesses[index][action.type] = weak
-        tempText.push({"character": "", "text": text})
-      })
-      setWeaknesses(tempWeaknesses)
-      tempText[tempText.length-1].character = "turn end"
-      setTextInfo(tempText)
-    }
-    else {
-      const [text, weak] = damageEnemy(enemyBio, action.type, action.dmg)
-      const tempWeaknesses = [...weaknesses]
-      tempWeaknesses[selectedEnemy][action.type] = weak
-      setWeaknesses(tempWeaknesses)
-      setTextInfo([
-        {"character": "turn end", "text": text}
-      ])
-    }
-  }
-
-  const settleActionCostAlly = (bio, cost) => {
-    if (!cost) return
-    //console.log("settling action cost:", bio)
-    for (let i = 0; i < cost.length-1; i+=2) {
-      const costName = cost[i];
-      const costAmount = cost[i+1]
-      if (costName === "health") {
-        bio.health -= costAmount
-      }
-      else if (costName === "energy") {
-        bio.energy -= costAmount
-      }
-    }
-  }
-
-  const damageEnemy = (bio, type, amount) => {
-    if (bio.stats.health <= 0) return null
-    //console.log("damaging:", bio)
-
-    let dmg = amount
-    let weak = null
-    if (bio.weaknesses.includes(type)) {
-      dmg *= 3
-      weak = "weak"
-    }
-    else if (bio.strengths.includes(type)) {
-      dmg *= 0.35
-      weak = "str"
-    }
-    else {
-      weak = "-"
-    }
-    bio.stats.health -= dmg
-    let text = `${bio.name} was hit for ${dmg} (${bio.stats.health})`
-
-    if (bio.stats.health <= 0) {
-      setSelectedEnemy(-1)
-      text = `${bio.name} was killed!`
-    }
-
-    return [text, weak]
-  }
-
   return (
     <div id='arena'>
 
-      <div id='enemy-container'>
-        {enemies.map((en, i) => {
-          if (en.stats.health <= 0) return null
-          return (
-            <img 
-              key={"enemy"+i} 
-              src={en["img-url"]+"idle.png"} 
-              className={selectedEnemy === i && turn ? "selected" : ""}
-              onClick={()=>setSelectedEnemy(i)}
-            />
-          )
-        })}
-        {turn && selectedEnemy !=-1 && weaknesses[selectedEnemy] && Object.keys(weaknesses[selectedEnemy]).length > 0 &&
-          <div id='weaknesses'>
-            {Object.keys(weaknesses[selectedEnemy]).map((weakName, i) => {
-              const weak = weaknesses[selectedEnemy][weakName]
-              return (
-              <div key={weakName+selectedEnemy+i}>
-                <p>{convertTypeNames(weakName)}</p>
-                <p>{weak===null ? "null" : weak}</p>
-              </div>)
-            })}
-          </div>
-        }
-      </div>
+      <EnemyContainer 
+        enemies={enemies}
+        selectedEnemy={selectedEnemy}
+        setSelectedEnemy={setSelectedEnemy}
+        weaknesses={weaknesses}
+        turn={turn}
+      />
 
       <div id='party-container'>
         <img src={bionaImage} />
@@ -407,15 +218,6 @@ function Arena() {
 
     </div>
   )
-}
-
-function convertTypeNames(tName) {
-  if (tName === "ros") return "ROS"
-  if (tName === "physical") return "SLASH"
-  if (tName === "ph") return "PH"
-  if (tName === "poison") return "POISON"
-  if (tName === "antibodies") return "Anti-B"
-  return tName
 }
 
 export default Arena

@@ -29,6 +29,7 @@ Todo:
 - ~~Temporarly add sofia to battle system~~
 - ~~Add turns and attacks~~
 - ~~Add ai turns~~
+- Seperate Arena into components etc
 - Add items and skip / defend turn
 - Add status effects (poison reduces hp per turn, antibodies increase damage again)
 - Add battle system
