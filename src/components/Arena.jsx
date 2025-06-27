@@ -41,7 +41,7 @@ function Arena() {
       })
       setEnemies(tempEnemies)
       setWeaknesses(tempWeaknesses)
-      console.log(tempEnemies, tempWeaknesses)
+      //console.log(tempEnemies, tempWeaknesses)
     }
     
   }, [arena])
@@ -49,11 +49,11 @@ function Arena() {
   // handle team turns
   useEffect(()=>{
     setTurnIndex(0)
-
   }, [turn])
 
   // handle individual turns
   useEffect(()=>{
+    // pass turn to other team if end of line reached
     if (!turn && turnIndex >= enemies.length) {
       setTurn(!turn)
       return
@@ -63,12 +63,168 @@ function Arena() {
       return
     }
 
+    // check if all enemies dead
+    let enemiesAlive = false
+    enemies.forEach((e) => {
+      if (e.stats.health > 0) enemiesAlive = true
+    })
+    if (!enemiesAlive && enemies.length > 0) {
+      // stage cleared
+      setTextInfo([
+        {"character": "stage won", "text": "You did it!"}
+      ])
+    }
+
+    // check if all allies dead
+    let alliesAlive = false
+    party.forEach((p) => {
+      const member = partyStats[p]
+      if (member.health > 0) alliesAlive = true
+    })
+    if (!alliesAlive && party.length > 0) {
+      // stage lost
+      setTextInfo([
+        {"character": "stage lost", "text": "You were defeated!"}
+      ])
+    }
+
+    // player turn
     if (turn) {
+      const memberName = party[turnIndex]
+      const member = partyStats[memberName]
+      if (member.health <= 0) {
+        // skip turn
+        setTurnIndex(turnIndex + 1)
+      }
+
+      // show current player
       setBionaImage(bionas[turnIndex]["img-url"] + "idle.png")
+    }
+    // enemy turn
+    else {
+      setTimeout(()=>handleAiTurn(), 800)
     }
   }, [turnIndex])
 
+  const handleAiTurn = () => {
+    const ai = enemies[turnIndex]
+    if (!ai) {
+      console.warn("couldn't find enemy at", turnIndex)
+      setTurnIndex(turnIndex+1)
+    }
+    if (ai.stats.health <= 0) setTurnIndex(turnIndex+1)
+
+    //console.log("Ais turn:", ai)
+    const action = selectAiAction(ai)
+    const playerIndex = selectAiTarget()
+    //const member = party[playerIndex]
+    //const biona = bionas[playerIndex]
+
+    if (action?.multi === true) {
+      // attack all players
+      const tempTextInfo = []
+      bionas.forEach((b,i) => {
+        const text = damagePlayer(i, action.type, action.dmg)
+        tempTextInfo.push({"character": "", "text": text})
+      })
+      tempTextInfo[tempTextInfo.length-1].character = "turn end"
+      setTextInfo(tempTextInfo)
+    }
+    if (action.type === "skip") {
+      // skip turn
+      const text = `${ai.name} skipped there turn.`
+      setTextInfo([
+        {"character": "turn end", "text": text}
+      ])
+    }
+    else {
+      // attack single player
+      const text = damagePlayer(playerIndex, action.type, action.dmg)
+      setTextInfo([
+        {"character": "turn end", "text": text}
+      ])
+    }
+  }
+
+  const selectAiAction = (ai) => {
+    // Select action at random, if that fails, do action at slot zero, else defend / skip turn
+    const chance = Math.floor(Math.random() * ai.actions.length)
+    let chosenAction = ai.actions[chance]
+    let canAfford = true
+    if (chosenAction.cost) {
+      chosenAction.cost.forEach((cost, i) => {
+        if (cost === "health" && ai.stats.health <= chosenAction.cost[i+1]) canAfford = false
+        else if (cost === "energy" && ai.stats.energy <= chosenAction.cost[i+1]) canAfford = false
+      });
+    }
+
+    if (canAfford) return chosenAction
+
+    // default to first action
+    chosenAction = ai.actions[0]
+    canAfford = true
+    if (chosenAction.cost) {
+      chosenAction.cost.forEach((cost, i) => {
+        if (cost === "health" && ai.stats.health <= chosenAction.cost[i+1]) canAfford = false
+        else if (cost === "energy" && ai.stats.energy <= chosenAction.cost[i+1]) canAfford = false
+      });
+    }
+    if (canAfford) return chosenAction
+
+    // skip turn
+    return { type: "skip" }
+  }
+  
+  const selectAiTarget = () => {
+    // Pick target at random who is alive
+    const aliveIndicies = []
+    bionas.forEach((b,i) => {
+      if (b.health <= 0) return
+      aliveIndicies.push(i)
+    });
+    const index = Math.floor(Math.random() * aliveIndicies.length)
+    const chosen = aliveIndicies[index]
+
+    return chosen
+  }
+
+  const damagePlayer = (index, type, amount) => {
+    // Ai attacks player
+    const member = partyStats[party[index]]
+    const biona = bionas[index]
+
+    if (member.health <= 0) return null
+    //console.log("damaging:", member, biona)
+
+    let dmg = amount
+    if (biona.weaknesses.includes(type)) {
+      dmg *= 3
+    }
+    else if (biona.strengths.includes(type)) {
+      dmg *= 0.35
+    }
+    member.health -= dmg
+    let text = `Enemy hit ${biona.name} for ${dmg} (${member.health})`
+
+    if (member.health <= 0) {
+      text = `Enemy killed ${biona.name}!`
+      member.health = 0
+    }
+
+    setBionaImage(biona["img-url"] + "defend.png")
+
+    return text
+  }
+
   const handleTextClick = () => {
+    if (textInfo[0].character === "stage won") {
+      setArena(null)
+      return
+    }
+    if (textInfo[0].character === "stage lost") {
+      setArena(null)
+      return
+    }
     if (textInfo[0].character === "turn end") setTurnIndex(turnIndex + 1)
     const tempTextInfo = [...textInfo]
     tempTextInfo.shift()

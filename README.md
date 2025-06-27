@@ -28,8 +28,9 @@ Todo:
 - ~~Add battle ui (ability cards, health, opponent weaknesses, etc)~~
 - ~~Temporarly add sofia to battle system~~
 - ~~Add turns and attacks~~
-- Add ai turns
+- ~~Add ai turns~~
 - Add items and skip / defend turn
+- Add status effects (poison reduces hp per turn, antibodies increase damage again)
 - Add battle system
 - Add social link json file that holds social link dialog and actions
 - Implement day routine behaviour (talking to characters, revising, earning money)
