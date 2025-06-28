@@ -13,6 +13,7 @@ function BattlePrep() {
   const setArena = useGameStore((state) => state.setArena)
   const stage = useGameStore((state) => state.stage)
   const convertCharacterName = useGameStore((state) => state.convertCharacterName)
+  const party = useGameStore((state) => state.party)
 
   const [arenaList, setArenaList] = useState([])
   const [partyList, setPartyList] = useState([
@@ -70,12 +71,17 @@ function BattlePrep() {
 
       <div id='party-selection'>
         <h3>Party</h3>
-        {partyList.map((p,index) => (
+        {party.map((p,index) => (
           <button
             key={p+index}
             onClick={()=>handlePartyClick(index)}
           >{convertCharacterName(p)}</button>
         ))}
+        {party.length < 4 &&
+          <button
+            onClick={() => handlePartyClick(index)}
+          >+</button>
+        }
       </div>
 
       <button id='leave-dungeon' onClick={handleLeave}>

@@ -10,19 +10,19 @@ export const useAI = (bionas, party, partyStats, setTextInfo, setTurnIndex) => {
     if (action.type === "skip") {
       setTextInfo([{ character: "turn end", text: `${ai.name} skipped their turn.` }])
     } else if (action.multi) {
-      const info = bionas.map((b, i) => ({
+      const info = bionas.map((_, i) => ({
         character: "",
-        text: damagePlayer(i, action.type, action.dmg)
+        text: damagePlayer(i, action.type, action.dmg, ai.name)
       }))
       info[info.length - 1].character = "turn end"
       setTextInfo(info)
     } else {
-      const text = damagePlayer(playerIndex, action.type, action.dmg)
+      const text = damagePlayer(playerIndex, action.type, action.dmg, ai.name)
       setTextInfo([{ character: "turn end", text }])
     }
   }
 
-  const damagePlayer = (index, type, amount) => {
+  const damagePlayer = (index, type, amount, name) => {
     const member = partyStats[party[index]]
     const biona = bionas[index]
     if (member.health <= 0) return null
@@ -33,8 +33,8 @@ export const useAI = (bionas, party, partyStats, setTextInfo, setTurnIndex) => {
 
     member.health -= dmg
     const text = member.health <= 0
-      ? `Enemy killed ${biona.name}!`
-      : `Enemy hit ${biona.name} for ${dmg} (${member.health})`
+      ? `${name} killed ${biona.name}!`
+      : `${name} hit ${biona.name} for ${dmg} (${member.health})`
 
     if (member.health <= 0) member.health = 0
     return text

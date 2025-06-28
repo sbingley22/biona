@@ -3,7 +3,7 @@
     "name": "NK Psycho",
     "img-url": "./bionas/nk-cell-psycho/",
     "stats": {
-      "health": 15,
+      "health": 55,
       "energy": 30
     },
     "actions": [
@@ -17,7 +17,8 @@
         "type": "ros",
         "multi": "true",
         "dmg": 25,
-        "cost": ["energy", 25, "health", 5]
+        "cost": ["energy", 25, "health", 5],
+        "effect": {"type": "ph", "turns": 3, "value": 4}
       }
     ],
     "weaknesses": [
@@ -25,6 +26,35 @@
     ],
     "strengths": [
       "antibodies"
+    ]
+  },
+  "bacteria": {
+    "name": "Bacteria",
+    "img-url": "./bionas/bacteria/",
+    "stats": {
+      "health": 35,
+      "energy": 30
+    },
+    "actions": [
+      {
+        "name": "Slash",
+        "type": "physical",
+        "dmg": 10
+      },
+      {
+        "name": "Acid Blast",
+        "type": "ph",
+        "multi": "true",
+        "dmg": 10,
+        "cost": ["energy", 25, "health", 5],
+        "effect": {"type": "ph", "turns": 3, "value": 4}
+      }
+    ],
+    "weaknesses": [
+      "antibodies", "ros"
+    ],
+    "strengths": [
+      "ph"
     ]
   }
 }
