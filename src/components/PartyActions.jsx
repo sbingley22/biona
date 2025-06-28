@@ -2,7 +2,7 @@ import '../css/Arena.css'
 import { useGameStore } from '../hooks/GameStore'
 import { convertTypeNames } from '../utils/battleUtils'
 
-function PartyActions({ turn, turnIndex, setTurnIndex, textInfo, setTextInfo, bionaImage, handleActionClick }) {
+function PartyActions({ turn, turnIndex, setTurnIndex, textInfo, setTextInfo, bionaImage, handleActionClick, allyRef }) {
   const setArena = useGameStore((state) => state.setArena)
   const convertCharacterName = useGameStore((state) => state.convertCharacterName)
   const party = useGameStore((state) => state.party)
@@ -28,7 +28,10 @@ function PartyActions({ turn, turnIndex, setTurnIndex, textInfo, setTextInfo, bi
   return (
     <>
       <div id='party-container'>
-        <img src={bionaImage} />
+        <img 
+          ref={allyRef}
+          src={bionaImage} 
+        />
       </div>
 
       {textInfo && textInfo.length > 0 ? 
@@ -36,7 +39,9 @@ function PartyActions({ turn, turnIndex, setTurnIndex, textInfo, setTextInfo, bi
           id='info'
           onClick={handleTextClick}
         >
-          {textInfo[0].character && <h3>{convertCharacterName(textInfo[0].character)}</h3>}
+          {textInfo[0].character && textInfo[0].character !== "turn end" && 
+            <h3>{convertCharacterName(textInfo[0].character)}</h3>
+          }
           <p>{textInfo[0].text}</p>
         </div>
       :

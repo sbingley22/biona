@@ -1,4 +1,4 @@
-export const useAI = (bionas, party, partyStats, setTextInfo, setTurnIndex) => {
+export const useAI = (bionas, party, partyStats, setTextInfo, setTurnIndex, allyRef, enemyRefs, setBionaImage) => {
   const handleAiTurn = (ai, index) => {
     if (!ai || ai.stats.health <= 0) {
       setTurnIndex(index + 1)
@@ -12,17 +12,17 @@ export const useAI = (bionas, party, partyStats, setTextInfo, setTurnIndex) => {
     } else if (action.multi) {
       const info = bionas.map((_, i) => ({
         character: "",
-        text: damagePlayer(i, action.type, action.dmg, ai.name)
+        text: damagePlayer(index, i, action.type, action.dmg, ai.name)
       }))
       info[info.length - 1].character = "turn end"
       setTextInfo(info)
     } else {
-      const text = damagePlayer(playerIndex, action.type, action.dmg, ai.name)
+      const text = damagePlayer(index, playerIndex, action.type, action.dmg, ai.name)
       setTextInfo([{ character: "turn end", text }])
     }
   }
 
-  const damagePlayer = (index, type, amount, name) => {
+  const damagePlayer = (eIndex, index, type, amount, name) => {
     const member = partyStats[party[index]]
     const biona = bionas[index]
     if (member.health <= 0) return null
@@ -37,6 +37,23 @@ export const useAI = (bionas, party, partyStats, setTextInfo, setTurnIndex) => {
       : `${name} hit ${biona.name} for ${dmg} (${member.health})`
 
     if (member.health <= 0) member.health = 0
+
+    // animate
+    const enemyElement = enemyRefs.current[eIndex]
+    if (enemyElement) {
+      enemyElement.classList.remove('attack-anim')
+      enemyElement.classList.remove('defend-anim')
+      void enemyElement.offsetWidth
+      enemyElement.classList.add('attack-anim')
+    }
+    if (allyRef.current) {
+      allyRef.current.classList.remove('defend-anim')
+      allyRef.current.classList.remove('attack-anim')
+      void allyRef.current.offsetWidth
+      allyRef.current.classList.add('defend-anim')
+      setBionaImage(bionas[index]["img-url"] + "defend.png")
+    }
+
     return text
   }
 

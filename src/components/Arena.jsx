@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import '../css/Arena.css'
 import { useGameStore } from '../hooks/GameStore'
 import enemyData from '../assets/data/enemies.json'
@@ -22,7 +22,19 @@ function Arena() {
   const [weaknesses, setWeaknesses] = useState([])
   const [selectedEnemy, setSelectedEnemy] = useState(0)
 
-  const { handleAiTurn } = useAI(bionas, party, partyStats, setTextInfo, setTurnIndex)
+  const allyRef = useRef(null)
+  const enemyRefs = useRef([])
+
+  const { handleAiTurn } = useAI(
+    bionas, 
+    party, 
+    partyStats, 
+    setTextInfo, 
+    setTurnIndex, 
+    allyRef, 
+    enemyRefs,
+    setBionaImage,
+  )
   const { handleActionClick } = usePlayer({
     bionas,
     party,
@@ -36,7 +48,8 @@ function Arena() {
     turnIndex,
     selectedEnemy,
     setSelectedEnemy,
-    convertCharacterName,
+    allyRef,
+    enemyRefs,
   })
 
   // load arena
@@ -116,9 +129,10 @@ function Arena() {
         // skip turn
         setTurnIndex(turnIndex + 1)
       }
-
-      // show current player
-      setBionaImage(bionas[turnIndex]["img-url"] + "idle.png")
+      else {
+        // show current player
+        setBionaImage(bionas[turnIndex]["img-url"] + "idle.png")
+      }
     }
     // enemy turn
     else {
@@ -135,6 +149,7 @@ function Arena() {
         setSelectedEnemy={setSelectedEnemy}
         weaknesses={weaknesses}
         turn={turn}
+        enemyRefs={enemyRefs}
       />
 
       <PartyActions
@@ -145,6 +160,7 @@ function Arena() {
         setTextInfo={setTextInfo}
         bionaImage={bionaImage}
         handleActionClick={handleActionClick}
+        allyRef={allyRef}
       />
 
     </div>

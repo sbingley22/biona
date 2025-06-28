@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { convertTypeNames } from '../utils/battleUtils'
 
-export default function EnemyContainer({ enemies, selectedEnemy, setSelectedEnemy, weaknesses, turn }) {
+export default function EnemyContainer({ enemies, selectedEnemy, setSelectedEnemy, weaknesses, turn, enemyRefs }) {
+
   return (
     <div id='enemy-container'>
       {enemies.map((en, i) =>
         en.stats.health > 0 && (
           <img
+            ref={el => (enemyRefs.current[i] = el)}
             key={`enemy${i}`}
             src={en['img-url'] + 'idle.png'}
             className={selectedEnemy === i && turn ? 'selected' : ''}
