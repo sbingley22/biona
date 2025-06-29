@@ -1,9 +1,8 @@
 import '../css/BattlePrep.css'
 import { useGameStore } from '../hooks/GameStore'
 import stages from '../assets/data/stages.json'
-import enemies from '../assets/data/enemies.json'
-import allies from '../assets/data/allies.json'
 import { useEffect, useState } from 'react'
+import { findNonMatchingStrings } from '../utils/battleUtils'
 
 function BattlePrep() {
   const day = useGameStore((state) => state.day)
@@ -14,11 +13,9 @@ function BattlePrep() {
   const stage = useGameStore((state) => state.stage)
   const convertCharacterName = useGameStore((state) => state.convertCharacterName)
   const party = useGameStore((state) => state.party)
+  const allies = useGameStore((state) => state.allies)
 
   const [arenaList, setArenaList] = useState([])
-  const [partyList, setPartyList] = useState([
-    "sean", "sofia", "boy", "+"
-  ])
 
   useEffect(()=>{
     const stageArenas = stages[stage]
@@ -47,7 +44,9 @@ function BattlePrep() {
   }
 
   const handlePartyClick = (slot) => {
-    console.log("show available party members for slot: ", slot)
+    if (slot === 0) return
+    const availableAllies = findNonMatchingStrings(party, allies)
+    console.log("available party members for slot: ", slot, availableAllies)
   }
 
   const handleLeave = () => {
@@ -79,7 +78,7 @@ function BattlePrep() {
         ))}
         {party.length < 4 &&
           <button
-            onClick={() => handlePartyClick(index)}
+            onClick={() => handlePartyClick(party.length)}
           >+</button>
         }
       </div>

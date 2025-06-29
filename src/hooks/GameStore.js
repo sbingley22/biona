@@ -65,7 +65,7 @@ export const useGameStore = create((set) => ({
   arena: null,
   setArena: (newArena) => set(() => ({ arena: newArena })),
 
-  allies: ['sean', 'sofia'],
+  allies: ['sean', 'sofia', 'boy'],
   setAllies: (newAllies) => set(() => ({ allies: newAllies })),
   addAlly: (newAlly) => set((state) => ({ allies: state.allies.push(newAlly) })),
   party: ['sean', 'sofia'],
