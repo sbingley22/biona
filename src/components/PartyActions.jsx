@@ -25,6 +25,14 @@ function PartyActions({ turn, turnIndex, setTurnIndex, textInfo, setTextInfo, bi
     setTextInfo(tempTextInfo)
   }
 
+  const handleSkipClick = () => {
+    setTextInfo([{"character": "turn end", "text": `${convertCharacterName(party[turnIndex])} skipped turn`}])
+  }
+
+  const handleInventoryClick = () => {
+    console.log("inventroy clikc")
+  }
+
   return (
     <>
       <div id='party-container'>
@@ -46,6 +54,10 @@ function PartyActions({ turn, turnIndex, setTurnIndex, textInfo, setTextInfo, bi
         </div>
       :
         <div id='party-actions'>
+          {turn && <div id='extra-actions'>
+            <button onClick={()=>handleInventoryClick()}>Items</button>
+            <button onClick={()=>handleSkipClick()}>Skip</button>
+          </div>}
           {turn && bionas.map((bio, i) => {
             if (i !== turnIndex) return null
             return (

@@ -32,6 +32,16 @@
   user-select: none;
 }
 
+#extra-actions {
+  display: flex;
+  width: 100%;
+  justify-content: end;
+  padding-bottom: 15px;
+}
+#extra-actions button {
+  border: 2px solid purple;
+}
+
 #party-stats {
   display: flex;
   gap: 0px;

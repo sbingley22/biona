@@ -75,6 +75,34 @@ export const useGameStore = create((set) => ({
   bionas: [alliesData['nk-cell'], alliesData['b-cell']],
   setBionas: (newBionas) => set(() => ({ bionas: newBionas })),
 
+  inventory: {'chocobar':2, 'vitadrink':1},
+  setInventory: (newInventory) => set({ inventory: newInventory }),
+  addItem: (newItem) => {
+    set((state) => {
+      const currentInventory = state.inventory;
+      const updatedInventory = {
+        ...currentInventory,
+        [newItem]: (currentInventory[newItem] || 0) + 1,
+      };
+      return { inventory: updatedInventory };
+    });
+  },
+  removeItem: (itemToRemove) => {
+    set((state) => {
+      const currentInventory = state.inventory;
+      const updatedInventory = { ...currentInventory }; // Create a shallow copy
+
+      if (updatedInventory[itemToRemove] && updatedInventory[itemToRemove] > 0) {
+        updatedInventory[itemToRemove] -= 1;
+        // Optionally, remove the item from the object if its quantity reaches 0
+        if (updatedInventory[itemToRemove] === 0) {
+          delete updatedInventory[itemToRemove];
+        }
+      }
+      return { inventory: updatedInventory };
+    });
+  },
+
   handleAction: (action) => set((state) => {
     const a = action.action
     if (a === 'next-day') {
