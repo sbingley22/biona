@@ -31,7 +31,7 @@ Todo:
 - ~~Add ai turns~~
 - ~~Seperate Arena into components etc~~
 - ~~Add attack defend css animations~~
-- Add items and skip / defend turn
+- ~~Add items and skip / defend turn~~
 - Add status effects (poison reduces hp per turn, antibodies increase damage again)
 - Add battle system
 - Add social link json file that holds social link dialog and actions

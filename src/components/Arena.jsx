@@ -12,7 +12,6 @@ function Arena() {
   const party = useGameStore((state) => state.party)
   const partyStats = useGameStore((state) => state.partyStats)
   const bionas = useGameStore((state) => state.bionas)
-  const convertCharacterName = useGameStore((state) => state.convertCharacterName)
 
   const [turn, setTurn] = useState(true)
   const [turnIndex, setTurnIndex] = useState(0)

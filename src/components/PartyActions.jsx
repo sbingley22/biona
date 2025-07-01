@@ -1,6 +1,8 @@
+import { useState } from 'react'
 import '../css/Arena.css'
 import { useGameStore } from '../hooks/GameStore'
 import { convertTypeNames } from '../utils/battleUtils'
+import Inventory from './Inventory'
 
 function PartyActions({ turn, turnIndex, setTurnIndex, textInfo, setTextInfo, bionaImage, handleActionClick, allyRef }) {
   const setArena = useGameStore((state) => state.setArena)
@@ -9,6 +11,7 @@ function PartyActions({ turn, turnIndex, setTurnIndex, textInfo, setTextInfo, bi
   const partyStats = useGameStore((state) => state.partyStats)
   const bionas = useGameStore((state) => state.bionas)
 
+  const [showInventory, setShowInventory] = useState(false)
 
   const handleTextClick = () => {
     if (textInfo[0].character === "stage won") {
@@ -31,10 +34,17 @@ function PartyActions({ turn, turnIndex, setTurnIndex, textInfo, setTextInfo, bi
 
   const handleInventoryClick = () => {
     console.log("inventroy clikc")
+    setShowInventory(true)
   }
 
   return (
     <>
+      {showInventory && <Inventory 
+        setShowInventory={setShowInventory} 
+        turnIndex={turnIndex}
+        setTextInfo={setTextInfo}
+      />}
+
       <div id='party-container'>
         <img 
           ref={allyRef}

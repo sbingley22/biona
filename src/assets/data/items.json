@@ -1,0 +1,12 @@
+{
+  "chocobar": {
+    "type": "healing",
+    "value": 50,
+    "multi": false
+  },
+  "vita-drink": {
+    "type": "energizing",
+    "value": 50,
+    "multi": false
+  }
+}
