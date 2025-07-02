@@ -3,6 +3,13 @@ import { convertTypeNames } from '../utils/battleUtils'
 
 export default function EnemyContainer({ enemies, selectedEnemy, setSelectedEnemy, weaknesses, turn, enemyRefs }) {
 
+  const effects = []
+  const statusEffects = enemies[selectedEnemy]?.statusEffects
+  if (statusEffects) {
+    statusEffects.forEach(e => {
+      if (e.turns > 0) effects.push(e.type)
+    });
+  }
   return (
     <div id='enemy-container'>
       {enemies.map((en, i) =>
@@ -19,7 +26,10 @@ export default function EnemyContainer({ enemies, selectedEnemy, setSelectedEnem
       {turn && selectedEnemy !== -1 && weaknesses[selectedEnemy] && (
         <div id='weaknesses'>
           {Object.entries(weaknesses[selectedEnemy]).map(([name, value], i) => (
-            <div key={`${name}-${i}`}>
+            <div 
+              key={`${name}-${i}`}
+              className={effects.includes(name) ? "active" : ''}
+            >
               <p>{convertTypeNames(name)}</p>
               <p>{value ?? 'null'}</p>
             </div>

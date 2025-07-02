@@ -199,6 +199,9 @@
   width: 80px;
   height: 50px;
 }
+#weaknesses > div.active {
+  background: red;
+}
 
 #weaknesses p {
   margin: 0;

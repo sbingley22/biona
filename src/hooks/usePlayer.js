@@ -17,7 +17,7 @@ export const usePlayer = ({
   enemyRefs,
 }) => {
 
-  const damageEnemy = useCallback((eIndex, bio, type, amount) => {
+  const damageEnemy = useCallback((eIndex, bio, type, amount, effect = null) => {
     if (bio.stats.health <= 0) return [null, null]
 
     let dmg = amount
@@ -34,13 +34,17 @@ export const usePlayer = ({
     }
 
     bio.stats.health -= dmg
-    let text = `${bio.name} was hit for ${dmg.toFixed(1)} (${bio.stats.health.toFixed(1)})`
+    //let text = `${bio.name} was hit for ${dmg.toFixed(1)} (${bio.stats.health.toFixed(1)})`
+    let text = `${dmg.toFixed(0)} damage to ${bio.name} (${bio.stats.health.toFixed(0)})`
 
     if (bio.stats.health <= 0) {
       setSelectedEnemy(-1)
       text = `${bio.name} was killed!`
     }
 
+    if (effect) {
+      bio.statusEffects.push(effect)
+    }
 
     // animate
     const enemyElement = enemyRefs.current[eIndex]
@@ -92,7 +96,7 @@ export const usePlayer = ({
       const tempEnemies = [...enemies]
 
       tempEnemies.forEach((en, index) => {
-        const [text, weak] = damageEnemy(index, en, action.type, action.dmg)
+        const [text, weak] = damageEnemy(index, en, action.type, action.dmg, action.effect)
         tempWeaknesses[index][action.type] = weak
         if (text) tempText.push({ character: "", text })
       })
@@ -103,7 +107,7 @@ export const usePlayer = ({
       setTextInfo(tempText)
 
     } else {
-      const [text, weak] = damageEnemy(selectedEnemy, enemyBio, action.type, action.dmg)
+      const [text, weak] = damageEnemy(selectedEnemy, enemyBio, action.type, action.dmg, action.effect)
       const tempWeaknesses = [...weaknesses]
       tempWeaknesses[selectedEnemy][action.type] = weak
 

@@ -32,7 +32,10 @@ Todo:
 - ~~Seperate Arena into components etc~~
 - ~~Add attack defend css animations~~
 - ~~Add items and skip / defend turn~~
+- ~~Allow attacks etc to inflict status effects.~~
+- make antibodies make attacks do increase damage
 - Add status effects (poison reduces hp per turn, antibodies increase damage again)
+- clear status effects on match end
 - Add battle system
 - Add social link json file that holds social link dialog and actions
 - Implement day routine behaviour (talking to characters, revising, earning money)

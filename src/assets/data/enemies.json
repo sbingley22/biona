@@ -18,7 +18,7 @@
         "multi": "true",
         "dmg": 25,
         "cost": ["energy", 25, "health", 5],
-        "effect": {"type": "ph", "turns": 3, "value": 4}
+        "effect": {"type": "ph", "turns": 3, "dmg": 4}
       }
     ],
     "weaknesses": [
@@ -26,7 +26,8 @@
     ],
     "strengths": [
       "antibodies"
-    ]
+    ],
+    "statusEffects": [{ "type": "antibodies", "turns": 3, "dmg": 5}]
   },
   "bacteria": {
     "name": "Bacteria",
@@ -47,7 +48,7 @@
         "multi": "true",
         "dmg": 10,
         "cost": ["energy", 25, "health", 5],
-        "effect": {"type": "ph", "turns": 3, "value": 4}
+        "effect": {"type": "ph", "turns": 3, "dmg": 4}
       }
     ],
     "weaknesses": [
@@ -55,6 +56,7 @@
     ],
     "strengths": [
       "ph"
-    ]
+    ],
+    "statusEffects": []
   }
 }

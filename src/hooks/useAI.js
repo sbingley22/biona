@@ -12,20 +12,23 @@ export const useAI = (bionas, party, partyStats, setTextInfo, setTurnIndex, ally
     } else if (action.multi) {
       const info = bionas.map((_, i) => ({
         character: "",
-        text: damagePlayer(index, i, action.type, action.dmg, ai.name)
+        text: damagePlayer(index, i, action, ai.name)
       }))
       info[info.length - 1].character = "turn end"
       setTextInfo(info)
     } else {
-      const text = damagePlayer(index, playerIndex, action.type, action.dmg, ai.name)
+      const text = damagePlayer(index, playerIndex, action, ai.name)
       setTextInfo([{ character: "turn end", text }])
     }
   }
 
-  const damagePlayer = (eIndex, index, type, amount, name) => {
+  const damagePlayer = (eIndex, index, action, name) => {
     const member = partyStats[party[index]]
     const biona = bionas[index]
     if (member.health <= 0) return null
+    const type = action.type
+    const amount = action.dmg
+    const effect = action.effect ? action.effect : null
 
     let dmg = amount
     if (biona.weaknesses.includes(type)) dmg *= 3
@@ -34,9 +37,22 @@ export const useAI = (bionas, party, partyStats, setTextInfo, setTurnIndex, ally
     member.health -= dmg
     const text = member.health <= 0
       ? `${name} killed ${biona.name}!`
-      : `${name} hit ${biona.name} for ${dmg} (${member.health})`
+      : `${action.name} ${dmg.toFixed(0)} damage to ${biona.name} (${member.health.toFixed(0)})`
+      //: `${name} hit ${biona.name} with ${action.name} for ${dmg} (${member.health})`
 
     if (member.health <= 0) member.health = 0
+
+    if (effect) {
+      //console.log(member.statusEffects, effect)
+      let matching = false
+      member.statusEffects.forEach(e => {
+        if (e.type !== effect.type || matching) return
+        e.dmg += effect.dmg
+        e.turns += effect.turns 
+        matching = true
+      });
+      if (!matching) member.statusEffects.push(effect)
+    }
 
     // animate
     const enemyElement = enemyRefs.current[eIndex]

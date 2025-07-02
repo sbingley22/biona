@@ -13,6 +13,7 @@ function Arena() {
   const partyStats = useGameStore((state) => state.partyStats)
   const setPartyStats = useGameStore((state) => state.setPartyStats)
   const bionas = useGameStore((state) => state.bionas)
+  const convertCharacterName = useGameStore((state) => state.convertCharacterName)
 
   const [totalTurns, setTotalTurns] = useState(0)
   const [turn, setTurn] = useState(true)
@@ -135,37 +136,61 @@ function Arena() {
       else {
         // show current player
         setBionaImage(bionas[turnIndex]["img-url"] + "idle.png")
-        handleStatusEffectsAlly()
+        handleStatusEffects(true)
       }
     }
     // enemy turn
     else {
-      setTimeout(()=>handleAiTurn(enemies[turnIndex], turnIndex), 800)
+      setTimeout(()=>{
+        handleStatusEffects(false)
+        handleAiTurn(enemies[turnIndex], turnIndex)
+      }, 800)
     }
   }, [turnIndex])
 
-  const handleStatusEffectsAlly = () => {
+  const handleStatusEffects = (ally=true) => {
     if (totalTurns === 0) return // skip so you don't die immidiately
-    const memberName = party[turnIndex]
-    const member = {...partyStats[memberName]}
 
+    // set member diferently if ally or not
+    const memberName = ally ? convertCharacterName(party[turnIndex]) : enemies[turnIndex].name
+    const member = ally
+      ? {...partyStats[party[turnIndex]]} 
+      : {...enemies[turnIndex], stats: {...enemies[turnIndex].stats}}
+
+    console.log(memberName, member, member.statusEffects)
+    //if (memberName === "Sofia" && member.statusEffects.length > 0) debugger
     if (!member.statusEffects) return
 
-    const newEffects = member.statusEffects.forEach(effect => {
-      if (effect.turns < 1) return
-      if (effect.type === "poison") {
-        member.health -= effect.dmg
-        setTextInfo([{"character": "", "text": `${memberName} took ${effect.dmg} poison damage`}])
-      }
-      return { ...effect, turns: effect.turns -= 1 }
-    })
+    const tempTextInfo = []
+    const updatedEffects = member.statusEffects
+      .map(effect => {
+        if (effect.turns < 1) return effect // Keep as-is for filtering
+        if (["poison", "antibodies", "ros", "ph"].includes(effect.type)) {
+          if (ally) {
+            member.health -= effect.dmg
+            tempTextInfo.push({ character: "", text: `${memberName} took ${effect.dmg} ${effect.type} damage` })
+          } else {
+            member.stats.health -= effect.dmg
+          }
+        }
+        return { ...effect, turns: effect.turns - 1 }
+      })
+      .filter(effect => effect.turns > 0) // ⬅️ remove expired effects
+    member.statusEffects = updatedEffects
 
-    member.statusEffects = newEffects
+    if (tempTextInfo.length > 0) setTextInfo(tempTextInfo)
 
-    setPartyStats({
-      ...partyStats,
-      [memberName]: member
-    })
+    if (ally) {
+      setPartyStats({
+        ...partyStats,
+        [memberName]: member
+      })
+    }
+    else {
+      const tempEnemies = [...enemies]
+      tempEnemies[turnIndex] = member
+      setEnemies(tempEnemies)
+    }
   }
 
   return (

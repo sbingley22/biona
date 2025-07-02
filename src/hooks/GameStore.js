@@ -13,7 +13,7 @@ const defaultPartyStats = {
     maxEnergy: 30,
     nerfs: [],
     buffs: [],
-    statusEffects: [{type: "poison", turns: 3, dmg: -5}],
+    statusEffects: [{type: "poison", turns: 3, dmg: 5}],
   },
   'sofia': {
     biona: "b-cell",
