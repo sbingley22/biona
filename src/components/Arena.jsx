@@ -11,8 +11,10 @@ function Arena() {
   const arena = useGameStore((state) => state.arena)
   const party = useGameStore((state) => state.party)
   const partyStats = useGameStore((state) => state.partyStats)
+  const setPartyStats = useGameStore((state) => state.setPartyStats)
   const bionas = useGameStore((state) => state.bionas)
 
+  const [totalTurns, setTotalTurns] = useState(0)
   const [turn, setTurn] = useState(true)
   const [turnIndex, setTurnIndex] = useState(0)
   const [textInfo, setTextInfo] = useState([])
@@ -95,6 +97,8 @@ function Arena() {
       return
     }
 
+    setTotalTurns(totalTurns+1)
+
     // check if all enemies dead
     let enemiesAlive = false
     enemies.forEach((e) => {
@@ -131,6 +135,7 @@ function Arena() {
       else {
         // show current player
         setBionaImage(bionas[turnIndex]["img-url"] + "idle.png")
+        handleStatusEffectsAlly()
       }
     }
     // enemy turn
@@ -138,6 +143,30 @@ function Arena() {
       setTimeout(()=>handleAiTurn(enemies[turnIndex], turnIndex), 800)
     }
   }, [turnIndex])
+
+  const handleStatusEffectsAlly = () => {
+    if (totalTurns === 0) return // skip so you don't die immidiately
+    const memberName = party[turnIndex]
+    const member = {...partyStats[memberName]}
+
+    if (!member.statusEffects) return
+
+    const newEffects = member.statusEffects.forEach(effect => {
+      if (effect.turns < 1) return
+      if (effect.type === "poison") {
+        member.health -= effect.dmg
+        setTextInfo([{"character": "", "text": `${memberName} took ${effect.dmg} poison damage`}])
+      }
+      return { ...effect, turns: effect.turns -= 1 }
+    })
+
+    member.statusEffects = newEffects
+
+    setPartyStats({
+      ...partyStats,
+      [memberName]: member
+    })
+  }
 
   return (
     <div id='arena'>

@@ -13,6 +13,7 @@ const defaultPartyStats = {
     maxEnergy: 30,
     nerfs: [],
     buffs: [],
+    statusEffects: [{type: "poison", turns: 3, dmg: -5}],
   },
   'sofia': {
     biona: "b-cell",
@@ -22,6 +23,7 @@ const defaultPartyStats = {
     maxEnergy: 60,
     nerfs: [],
     buffs: [],
+    statusEffects: [],
   },
   'boy': {
     biona: "nk-cell",
@@ -31,6 +33,7 @@ const defaultPartyStats = {
     maxEnergy: 60,
     nerfs: [],
     buffs: [],
+    statusEffects: [],
   },
 }
 
@@ -75,7 +78,12 @@ export const useGameStore = create((set) => ({
   bionas: [alliesData['nk-cell'], alliesData['b-cell']],
   setBionas: (newBionas) => set(() => ({ bionas: newBionas })),
 
-  inventory: {'chocobar':2, 'vita-drink':1},
+  inventory: {
+    'chocobar':2, 
+    'vita-drink':1,
+    "vita-drink-pack":1,
+    "antidote": 1,
+  },
   setInventory: (newInventory) => set({ inventory: newInventory }),
   addItem: (newItem) => {
     set((state) => {

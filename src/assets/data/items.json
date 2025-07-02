@@ -4,9 +4,29 @@
     "value": 50,
     "multi": false
   },
+  "sushi": {
+    "type": "healing",
+    "value": 200,
+    "multi": false
+  },
+  "sharing-sushi": {
+    "type": "healing",
+    "value": 200,
+    "multi": true
+  },
   "vita-drink": {
     "type": "energizing",
     "value": 50,
+    "multi": false
+  },
+  "vita-drink-pack": {
+    "type": "energizing",
+    "value": 50,
+    "multi": false
+  },
+  "antidote": {
+    "type": "cure",
+    "ailment": "poison",
     "multi": false
   }
 }
