@@ -142,14 +142,14 @@ function Arena() {
     // enemy turn
     else {
       setTimeout(()=>{
-        handleStatusEffects(false)
-        handleAiTurn(enemies[turnIndex], turnIndex)
+        const skipTurn = handleStatusEffects(false)
+        if (!skipTurn) handleAiTurn(enemies[turnIndex], turnIndex)
       }, 800)
     }
   }, [turnIndex])
 
   const handleStatusEffects = (ally=true) => {
-    if (totalTurns === 0) return // skip so you don't die immidiately
+    if (totalTurns === 0) return false // skip so you don't die immidiately
 
     // set member diferently if ally or not
     const memberName = ally ? convertCharacterName(party[turnIndex]) : enemies[turnIndex].name
@@ -158,19 +158,28 @@ function Arena() {
       : {...enemies[turnIndex], stats: {...enemies[turnIndex].stats}}
 
     console.log(memberName, member, member.statusEffects)
-    //if (memberName === "Sofia" && member.statusEffects.length > 0) debugger
     if (!member.statusEffects) return
 
+    let skipTurn = false
     const tempTextInfo = []
     const updatedEffects = member.statusEffects
       .map(effect => {
         if (effect.turns < 1) return effect // Keep as-is for filtering
-        if (["poison", "antibodies", "ros", "ph"].includes(effect.type)) {
+        if (["antibodies", "ros", "ph"].includes(effect.type)) {
           if (ally) {
             member.health -= effect.dmg
             tempTextInfo.push({ character: "", text: `${memberName} took ${effect.dmg} ${effect.type} damage` })
           } else {
             member.stats.health -= effect.dmg
+          }
+        }
+        else if (["poison"].includes(effect.type)) {
+          if (ally) {
+            tempTextInfo.push({ character: "turn end", text: `${memberName} is too poisend to fight.` })
+            skipTurn = true
+          } else {
+            tempTextInfo.push({ character: "turn end", text: `${memberName} is too poisend to fight.` })
+            skipTurn = true
           }
         }
         return { ...effect, turns: effect.turns - 1 }
@@ -191,6 +200,8 @@ function Arena() {
       tempEnemies[turnIndex] = member
       setEnemies(tempEnemies)
     }
+
+    return skipTurn
   }
 
   return (

@@ -16,9 +16,9 @@
         "name": "ROS Grenade",
         "type": "ros",
         "multi": "true",
-        "dmg": 25,
-        "cost": ["energy", 25, "health", 5],
-        "effect": {"type": "ph", "turns": 3, "dmg": 4}
+        "dmg": 35,
+        "cost": ["energy", 25, "health", 25],
+        "effect": {"type": "ros", "turns": 1, "dmg": 20}
       }
     ],
     "weaknesses": [
@@ -48,7 +48,7 @@
         "multi": "true",
         "dmg": 10,
         "cost": ["energy", 25, "health", 5],
-        "effect": {"type": "ph", "turns": 3, "dmg": 4}
+        "effect": {"type": "ph", "turns": 2, "dmg": 4}
       }
     ],
     "weaknesses": [

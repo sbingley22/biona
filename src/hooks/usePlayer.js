@@ -33,8 +33,11 @@ export const usePlayer = ({
       weak = "-"
     }
 
+    bio.statusEffects.forEach(ef => {
+      if (ef.type === "antibodies") dmg *= 2
+    });
+
     bio.stats.health -= dmg
-    //let text = `${bio.name} was hit for ${dmg.toFixed(1)} (${bio.stats.health.toFixed(1)})`
     let text = `${dmg.toFixed(0)} damage to ${bio.name} (${bio.stats.health.toFixed(0)})`
 
     if (bio.stats.health <= 0) {

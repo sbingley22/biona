@@ -8,17 +8,27 @@
     },
     "actions": [
       {
+        "level": 0,
         "name": "Stab",
         "type": "physical",
         "dmg": 10
       },
       {
+        "level": 0,
         "name": "ROS Grenade",
         "type": "ros",
         "multi": "true",
         "dmg": 25,
         "cost": ["energy", 15, "health", 5],
         "effect": {"type": "ros", "turns": 2, "dmg": 9}
+      },
+      {
+        "level": 0,
+        "name": "Poison Tip",
+        "type": "poison",
+        "dmg": 5,
+        "cost": ["energy", 25],
+        "effect": {"type": "poison", "turns": 2, "dmg": 2}
       }
     ],
     "weaknesses": [
@@ -27,7 +37,6 @@
     "strengths": [
       "antibodies", "physical"
     ]
-
   },
   "b-cell": {
     "name": "B Cell",
@@ -38,17 +47,28 @@
     },
     "actions": [
       {
+        "level": 0,
         "name": "Shoot",
         "type": "physical",
         "dmg": 15
       },
       {
-        "name": "Antibody rounds",
+        "level": 0,
+        "name": "Antibody Rounds",
         "type": "antibody",
         "multi": "true",
-        "dmg": 20,
-        "cost": ["energy", 10, "health", 3],
-        "effect": {"type": "ros", "turns": 5, "dmg": 3}
+        "dmg": 5,
+        "cost": ["energy", 25],
+        "effect": {"type": "antibody", "turns": 3, "dmg": 1}
+      },
+      {
+        "level": 0,
+        "name": "Antibody Snipe",
+        "type": "antibody",
+        "multi": "true",
+        "dmg": 10,
+        "cost": ["energy", 15],
+        "effect": {"type": "antibody", "turns": 5, "dmg": 1}
       }
     ],
     "weaknesses": [
@@ -57,6 +77,5 @@
     "strengths": [
       "antibodies"
     ]
-
   }
 }

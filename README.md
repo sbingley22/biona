@@ -33,10 +33,12 @@ Todo:
 - ~~Add attack defend css animations~~
 - ~~Add items and skip / defend turn~~
 - ~~Allow attacks etc to inflict status effects.~~
-- make antibodies make attacks do increase damage
-- Add status effects (poison reduces hp per turn, antibodies increase damage again)
+- ~~make antibodies make attacks do increase damage~~
+- ~~add status effects (poison reduces hp per turn, antibodies increase damage again)~~
 - clear status effects on match end
-- Add battle system
-- Add social link json file that holds social link dialog and actions
-- Implement day routine behaviour (talking to characters, revising, earning money)
-- Implement a shop
+- add battle system
+- make player auto leave battle mode after first battle.
+- make arenas locked until previous complete
+- add social link json file that holds social link dialog and actions
+- implement day routine behaviour (talking to characters, revising, earning money)
+- implement a shop

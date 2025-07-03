@@ -7,6 +7,7 @@ import stages from '../assets/data/stages.json'
 const defaultPartyStats = {
   'sean': {
     biona: "nk-cell",
+    level: 1,
     health: 150,
     maxHealth: 150,
     energy: 30,
@@ -17,6 +18,7 @@ const defaultPartyStats = {
   },
   'sofia': {
     biona: "b-cell",
+    level: 1,
     health: 145,
     maxHealth: 145,
     energy: 60,
@@ -27,6 +29,7 @@ const defaultPartyStats = {
   },
   'boy': {
     biona: "nk-cell",
+    level: 1,
     health: 100,
     maxHealth: 100,
     energy: 60,
