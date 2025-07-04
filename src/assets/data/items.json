@@ -2,31 +2,56 @@
   "chocobar": {
     "type": "healing",
     "value": 50,
-    "multi": false
+    "multi": false,
+    "description": "Gain 50 health"
   },
   "sushi": {
     "type": "healing",
     "value": 200,
-    "multi": false
+    "multi": false,
+    "description": "Gain 200 health"
   },
   "sharing-sushi": {
     "type": "healing",
     "value": 200,
-    "multi": true
+    "multi": true,
+    "description": "Party heals for 200"
   },
   "vita-drink": {
     "type": "energizing",
     "value": 50,
-    "multi": false
+    "multi": false,
+    "description": "Gain 50 energy"
   },
   "vita-drink-pack": {
     "type": "energizing",
     "value": 50,
-    "multi": false
+    "multi": true,
+    "description": "Party gains 50 energy"
   },
   "antidote": {
     "type": "cure",
     "ailment": "poison",
+    "multi": true,
+    "description": "Cures party of poison"
+  },
+  "neutralizer": {
+    "type": "cure",
+    "ailment": "ph",
+    "multi": false,
+    "description": "Neutralizises PH"
+  },
+  "": {
+    "type": "cure",
+    "ailment": "ros",
     "multi": false
+  },
+  "cortisone": {
+    "type": "cure",
+    "ailment": "antibodies",
+    "multi": false,
+    "description": "Calms immune system, reduces antibodies"
   }
+
+
 }

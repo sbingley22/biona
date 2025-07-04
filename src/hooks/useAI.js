@@ -38,7 +38,6 @@ export const useAI = (bionas, party, partyStats, setTextInfo, setTurnIndex, ally
     const text = member.health <= 0
       ? `${name} killed ${biona.name}!`
       : `${action.name} ${dmg.toFixed(0)} damage to ${biona.name} (${member.health.toFixed(0)})`
-      //: `${name} hit ${biona.name} with ${action.name} for ${dmg} (${member.health})`
 
     if (member.health <= 0) member.health = 0
 

@@ -157,7 +157,7 @@ function Arena() {
       ? {...partyStats[party[turnIndex]]} 
       : {...enemies[turnIndex], stats: {...enemies[turnIndex].stats}}
 
-    console.log(memberName, member, member.statusEffects)
+    //console.log(memberName, member, member.statusEffects)
     if (!member.statusEffects) return
 
     let skipTurn = false

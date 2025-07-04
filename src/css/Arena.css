@@ -51,6 +51,17 @@
   background: linear-gradient(to right, #000, darkblue);
   border-top: 1px solid darkblue;
 }
+#party-stats div {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  margin: 0;
+  padding: 0;
+}
+#party-stats p {
+  font-size: 1.1rem;
+  padding: 0 20px;
+}
 
 .member-stats {
   display: flex;

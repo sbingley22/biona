@@ -35,8 +35,11 @@ Todo:
 - ~~Allow attacks etc to inflict status effects.~~
 - ~~make antibodies make attacks do increase damage~~
 - ~~add status effects (poison reduces hp per turn, antibodies increase damage again)~~
-- clear status effects on match end
-- add battle system
+- ~~clear status effects on match end~~
+- ~~add outro battle dialog~~
+- ~~add cure items functionality~~
+- ~~add battle system~~
+- allow adding and removal of party members in battlemode
 - make player auto leave battle mode after first battle.
 - make arenas locked until previous complete
 - add social link json file that holds social link dialog and actions

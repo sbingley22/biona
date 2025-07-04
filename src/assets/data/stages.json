@@ -4,18 +4,18 @@
       "name": "begining",
       "background": 2,
       "enemies": [
-        "nk-psycho",
-        "bacteria"
+        "hookworm",
+        "streptococcus"
       ],
       "intro": [
         {"character": "sean", "text": "These cells are going to kill me, I need to get out of here!"},
         {"character": "nk-cell", "text": "You'll never win if you always run commander. We need to cut them down before they really get out of control."},
-        {"character": "nk-cell", "text": "I'm yours to command! Tap the enemy you want me to target, then tell me what action to use."},
-        {"character": "nk-cell", "text": "Those natural killer cells are traitors but they are weak and deranged. I can deal with them."}
+        {"character": "nk-cell", "text": "I'm yours to command! Tap the enemy you want me to target, then tell me what action to use."}
       ],
       "outro": [
         {"character": "nk-cell", "text": "That was harder than I thought. I suggest when don't return here until we are stronger."},
-        {"character": "nk-cell", "text": "There are much stronger challenges ahead."}
+        {"character": "nk-cell", "text": "There are much stronger challenges ahead."},
+        {"character": "stage complete", "text": ""}
       ],
       "actions": [
         {"action": "leave-battle-mode"}
@@ -26,15 +26,16 @@
       "background": 1,
       "enemies": [
         "nk-psycho",
-        "nk-psycho",
-        "nk-psycho",
+        "hookworm",
         "nk-psycho"
       ],
       "intro": [
-        {"character": "sean", "text": "I can't run any longer."}
+        {"character": "sean", "text": "I can't run any longer."},
+        {"character": "nk-cell", "text": "Those natural killer cells are traitors but they are weak and deranged. I can deal with them."}
       ],
       "outro": [
-        {"character": "sean", "text": "One step closer."}
+        {"character": "sean", "text": "One step closer."},
+        {"character": "stage complete", "text": ""}
       ]
     }
   ]

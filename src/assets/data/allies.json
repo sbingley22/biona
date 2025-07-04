@@ -1,7 +1,7 @@
 {
   "nk-cell": {
     "name": "Natural Killer Cell",
-    "img-url": "./bionas/t-cell/",
+    "img-url": "./bionas/nk-cell/",
     "stats": {
       "health": 60,
       "energy": 40

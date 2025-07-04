@@ -29,9 +29,39 @@
     ],
     "statusEffects": [{ "type": "antibodies", "turns": 3, "dmg": 5}]
   },
-  "bacteria": {
-    "name": "Bacteria",
-    "img-url": "./bionas/bacteria/",
+  "streptococcus": {
+    "name": "Streptococcus",
+    "img-url": "./bionas/streptococcus/",
+    "stats": {
+      "health": 35,
+      "energy": 30
+    },
+    "actions": [
+      {
+        "name": "Slash",
+        "type": "physical",
+        "dmg": 10
+      },
+      {
+        "name": "Acid Blast",
+        "type": "ph",
+        "multi": "true",
+        "dmg": 10,
+        "cost": ["energy", 25, "health", 5],
+        "effect": {"type": "ph", "turns": 2, "dmg": 4}
+      }
+    ],
+    "weaknesses": [
+      "antibodies", "ros"
+    ],
+    "strengths": [
+      "ph"
+    ],
+    "statusEffects": []
+  },
+  "hookworm": {
+    "name": "Hookworm",
+    "img-url": "./bionas/hookworm/",
     "stats": {
       "health": 35,
       "energy": 30
@@ -59,4 +89,5 @@
     ],
     "statusEffects": []
   }
+
 }

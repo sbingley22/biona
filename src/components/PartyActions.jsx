@@ -9,16 +9,32 @@ function PartyActions({ turn, turnIndex, setTurnIndex, textInfo, setTextInfo, bi
   const convertCharacterName = useGameStore((state) => state.convertCharacterName)
   const party = useGameStore((state) => state.party)
   const partyStats = useGameStore((state) => state.partyStats)
+  const setPartyStats = useGameStore((state) => state.setPartyStats)
   const bionas = useGameStore((state) => state.bionas)
 
   const [showInventory, setShowInventory] = useState(false)
 
+  const removeAllStatusEffects = () => {
+    const tempPartyStats = {...partyStats}
+    Object.keys(tempPartyStats).forEach(name => {
+      tempPartyStats[name].statusEffects = []
+    })
+    setPartyStats(tempPartyStats)
+  }
+
   const handleTextClick = () => {
     if (textInfo[0].character === "stage won") {
-      setArena(null)
+      removeAllStatusEffects()
+      if (arena.intro) setTextInfo(arena.intro)
+      else setArena(null)
       return
     }
     if (textInfo[0].character === "stage lost") {
+      removeAllStatusEffects()
+      setArena(null)
+      return
+    }
+    if (textInfo[0].character === "stage complete") {
       setArena(null)
       return
     }
@@ -33,7 +49,6 @@ function PartyActions({ turn, turnIndex, setTurnIndex, textInfo, setTextInfo, bi
   }
 
   const handleInventoryClick = () => {
-    console.log("inventroy clikc")
     setShowInventory(true)
   }
 
@@ -106,10 +121,8 @@ function PartyActions({ turn, turnIndex, setTurnIndex, textInfo, setTextInfo, bi
                   className={className}
                 >
                   <p style={{color:'#999', fontWeight:'bold'}}>{name}</p>
-                  <div>
-                    <p style={{color: "green"}}>H: {p.health}/{p.maxHealth}</p>
-                    <p style={{color: "yellow"}}>E: {p.energy}/{p.maxEnergy}</p>
-                  </div>
+                  <p style={{color: "green"}}>H: {p.health}/{p.maxHealth}</p>
+                  <p style={{color: "yellow"}}>E: {p.energy}/{p.maxEnergy}</p>
                 </div>
               )
             })}

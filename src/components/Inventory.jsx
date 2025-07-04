@@ -5,9 +5,9 @@ import itemsData from '../assets/data/items.json'
 function Inventory ({ setShowInventory, turnIndex, setTextInfo }) {
   const party = useGameStore((state) => state.party)
   const partyStats = useGameStore((state) => state.partyStats)
+  const setPartyStats = useGameStore((state) => state.setPartyStats)
   const bionas = useGameStore((state) => state.bionas)
   const inventory = useGameStore((state) => state.inventory)
-  const addItem = useGameStore((state) => state.addItem)
   const removeItem = useGameStore((state) => state.removeItem)
 
   const handleItemClick = (itemName) => {
@@ -17,17 +17,18 @@ function Inventory ({ setShowInventory, turnIndex, setTextInfo }) {
       return
     }
 
-    const user = partyStats[party[turnIndex]]
+    const newStats = structuredClone(partyStats) // safe deep clone
+
+    const user = newStats[party[turnIndex]]
 
     if (item.type === "healing") {
       if (item.multi) {
         party.forEach((memberName) => {
-          const member = partyStats[memberName]
+          const member = newStats[memberName]
           member.health += item.value
           if (member.health > member.maxHealth) member.health = member.maxHealth
         })
-      }
-      else {
+      } else {
         user.health += item.value
         if (user.health > user.maxHealth) user.health = user.maxHealth
       }
@@ -35,18 +36,32 @@ function Inventory ({ setShowInventory, turnIndex, setTextInfo }) {
     else if (item.type === "energizing") {
       if (item.multi) {
         party.forEach((memberName) => {
-          const member = partyStats[memberName]
+          const member = newStats[memberName]
           member.energy += item.value
           if (member.energy > member.maxEnergy) member.energy = member.maxEnergy
         })
-      }
-      else {
+      } else {
         user.energy += item.value
         if (user.energy > user.maxEnergy) user.energy = user.maxEnergy
       }
     }
+    else if (item.type === "cure") {
+      if (item.multi) {
+        party.forEach(memberName => {
+          const member = newStats[memberName]
+          member.statusEffects = member.statusEffects.filter(effect => effect.type !== item.ailment)
+        })
+      } else {
+        user.statusEffects = user.statusEffects.filter(effect => effect.type !== item.ailment)
+      }
+    }
 
-    setTextInfo([{"character": "turn end", "text": `${party[turnIndex]} used ${itemName}`}])
+    setPartyStats(newStats)
+
+    setTextInfo([{
+      character: "turn end", 
+      text: `${party[turnIndex]} used ${itemName} (${item.description})`
+    }])
     removeItem(itemName)
     setShowInventory(false)
   }
