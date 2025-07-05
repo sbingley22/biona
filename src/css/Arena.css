@@ -90,11 +90,12 @@
 
 .biona-actions {
   display: flex;
+  margin: 0;
   padding: 0px;
   gap: 0px;
   justify-content: right;
   align-items: stretch;
-  color: #faf;
+  color: #7f5;
 }
 
 .action-card {
@@ -103,8 +104,8 @@
   background: black;
   background: linear-gradient(#100, #313);
   border: 2px solid purple;
-  padding: 10px;
-  border-top-left-radius: 25%;
+  padding: 5px;
+  border-top-left-radius: 15%;
 }
 
 .action-card .dmg-type {
@@ -115,6 +116,13 @@
   align-items: center;
   border-top: 1px solid purple;
   border-bottom: 1px solid purple;
+  margin: 0;
+  padding: 0;
+}
+
+.action-card p {
+  margin: 0;
+  padding: 4px;
 }
 
 #enemy-container {
@@ -219,3 +227,51 @@
   padding: 0;
 }
 
+@media(max-width: 768px) {
+  #arena {
+    font-size: 1rem;
+  }
+
+  #enemy-container img {
+    width: 25vw;
+    height: auto;
+  }
+  #party-container img {
+    height: 70vh;
+  }
+
+  #weaknesses {
+    bottom: -40px;
+  }
+
+  #weaknesses > div {
+    font-size: 0.7rem;
+    width: 40px;
+    height: 35px;
+  }
+
+  #extra-actions {
+    font-size: 0.8rem;
+  }
+
+  #party-stats p {
+    font-size: 0.7rem;
+    padding: 0 5px;
+  }
+  .member-stats {
+    padding: 0;
+  }
+  .member-stats div {
+    font-size: 0.9rem;
+  }
+  .member-stats p {
+    font-size: 0.5rem;
+  }
+
+  .action-card {
+    max-width: 90px;
+  }
+  .action-card p {
+    font-size: 0.8rem;
+  }
+}

@@ -95,14 +95,15 @@ function PartyActions({ turn, turnIndex, setTurnIndex, textInfo, setTextInfo, bi
                   >
                     <p style={{color: '#999', fontWeight: 'bold'}}>{ba.name}</p>
                     <div className='dmg-type'>
-                      <p>{convertTypeNames(ba.type)}</p>
+                      <p>{convertTypeNames(ba.type)}:</p>
                       <p>{ba.dmg}</p>
+                      {ba.multi && <p>*</p>}
                     </div>
                     {ba.cost?.map((c, i) => {
                       if (i%2===0) return null
                       const costType = ba.cost[i-1]
                       const costAmount = c
-                      return (<p key={i} style={{color:'red'}}>{`${costType} - ${costAmount}`}</p>)
+                      return (<span key={i} style={{color:'red'}}>{`${costType[0].toUpperCase()}:${costAmount} `}</span>)
                     })}
                   </div>
                 ))}

@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react'
 import { findNonMatchingStrings } from '../utils/battleUtils'
 
 function BattlePrep() {
-  const day = useGameStore((state) => state.day)
   const handleAction = useGameStore((state) => state.handleAction)
   const setMode = useGameStore((state) => state.setMode)
   const moveLocation = useGameStore((state) => state.moveLocation)
@@ -13,9 +12,12 @@ function BattlePrep() {
   const stage = useGameStore((state) => state.stage)
   const convertCharacterName = useGameStore((state) => state.convertCharacterName)
   const party = useGameStore((state) => state.party)
+  const setParty = useGameStore((state) => state.setParty)
   const allies = useGameStore((state) => state.allies)
 
   const [arenaList, setArenaList] = useState([])
+  const [selectedSlot, setSelectedSlot] = useState(-1)
+  const [availableAllies, setAvailableAllies] = useState([])
 
   useEffect(()=>{
     const stageArenas = stages[stage]
@@ -45,8 +47,24 @@ function BattlePrep() {
 
   const handlePartyClick = (slot) => {
     if (slot === 0) return
-    const availableAllies = findNonMatchingStrings(party, allies)
-    console.log("available party members for slot: ", slot, availableAllies)
+    if (slot >= party.length) {
+      // show available party members to add
+      setAvailableAllies(findNonMatchingStrings(party, allies))
+      setSelectedSlot(slot)
+    }
+    else {
+      // remove party members
+      const tempParty = [...party]
+      tempParty.splice(slot, 1)
+      setParty(tempParty)
+    }
+  }
+
+  const addAllyToParty = (ally) => {
+    const tempParty = [...party]
+    tempParty.push(ally)
+    setParty(tempParty)
+    setSelectedSlot(-1)
   }
 
   const handleLeave = () => {
@@ -82,6 +100,13 @@ function BattlePrep() {
           >+</button>
         }
       </div>
+
+      {selectedSlot !== -1 && availableAllies.length > 0 && <div id='member-selector'>
+        {availableAllies.map((a,i) => (
+          <button key={a + i} onClick={()=>addAllyToParty(a)}>{convertCharacterName(a)}</button>
+        ))}
+        <button onClick={()=>setSelectedSlot(-1)}>Cancel</button>
+      </div>}
 
       <button id='leave-dungeon' onClick={handleLeave}>
         Leave Bionaverse
