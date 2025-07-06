@@ -17,6 +17,7 @@ function PartyActions({ turn, turnIndex, setTurnIndex, textInfo, setTextInfo, bi
   const bionas = useGameStore((state) => state.bionas)
 
   const [showInventory, setShowInventory] = useState(false)
+  const [tooltip, setTooltip] = useState(null)
 
   const removeAllStatusEffects = () => {
     const tempPartyStats = {...partyStats}
@@ -64,6 +65,24 @@ function PartyActions({ turn, turnIndex, setTurnIndex, textInfo, setTextInfo, bi
     setShowInventory(true)
   }
 
+  const handleHelpClick = (e, item) => {
+    e.preventDefault()
+    console.log("Item info: ", item)
+    setTooltip(item.description)
+  }
+
+  const handleActionCardClick = (action) => {
+    console.log("click")
+    setTooltip(null)
+    handleActionClick(action)
+  }
+
+  const handleActionCardHold = (action) => {
+    console.log("hold")
+    setTooltip(action.description)
+    //handleActionClick(action)
+  }
+
   return (
     <>
       {showInventory && <Inventory 
@@ -93,6 +112,7 @@ function PartyActions({ turn, turnIndex, setTurnIndex, textInfo, setTextInfo, bi
         <div id='party-actions'>
           {turn && <div id='extra-actions'>
             <button onClick={()=>handleInventoryClick()}>Items</button>
+            <button onClick={(e)=>handleHelpClick(e, null)}>?</button>
             <button onClick={()=>handleSkipClick()}>Skip</button>
           </div>}
           {turn && bionas.map((bio, i) => {
@@ -103,7 +123,10 @@ function PartyActions({ turn, turnIndex, setTurnIndex, textInfo, setTextInfo, bi
                   <div 
                     key={ba.name} 
                     className='action-card'
-                    onClick={()=>handleActionClick(ba)}
+                    onClick={()=>handleActionCardClick(ba)}
+                    onTouchStart={()=>handleActionCardHold(ba)}
+                    onContextMenu={(e)=>handleHelpClick(e, ba)}
+                    title={ba.description? ba.description : null}
                   >
                     <p style={{color: '#999', fontWeight: 'bold'}}>{ba.name}</p>
                     <div className='dmg-type'>
@@ -142,6 +165,14 @@ function PartyActions({ turn, turnIndex, setTurnIndex, textInfo, setTextInfo, bi
           </div>
         </div>
       }
+
+      {tooltip && 
+        <p 
+          id='custom-tooltip'
+          onClick={()=>setTooltip(null)}
+        >
+          {tooltip}
+        </p>}
     </>
   )
 }

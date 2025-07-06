@@ -37,9 +37,26 @@
   width: 100%;
   justify-content: end;
   padding-bottom: 15px;
+  gap: 5px;
 }
 #extra-actions button {
   border: 2px solid purple;
+}
+
+#custom-tooltip {
+  position: absolute;
+  /*top: 0;*/
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 1.4em;
+  /*border: 8px solid purple;*/
+  z-index: 1000;
 }
 
 #party-stats {

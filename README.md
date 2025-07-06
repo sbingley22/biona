@@ -48,8 +48,8 @@ Todo:
 - ~~add battle system~~
 - ~~allow adding and removal of party members in battlemode~~
 - ~~make player auto leave battle mode after first battle.~~
-- remove the install button
-- hold touch or right click to display action info
+- ~~remove the install button~~
+- ~~hold touch or right click to display action info~~
 - make arenas locked until previous complete
 - add save system with local storage.
 - add day 14 events

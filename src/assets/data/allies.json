@@ -11,16 +11,18 @@
         "level": 0,
         "name": "Stab",
         "type": "physical",
-        "dmg": 10
+        "dmg": 10,
+        "description": "Slash one enemy for 10 damage."
       },
       {
         "level": 0,
         "name": "ROS Grenade",
         "type": "ros",
-        "multi": "true",
+        "multi": true,
         "dmg": 25,
         "cost": ["energy", 15, "health", 5],
-        "effect": {"type": "ros", "turns": 2, "dmg": 9}
+        "effect": {"type": "ros", "turns": 2, "dmg": 9},
+        "description": "Damage all enemies with a burst of ROS for 2 turns. Costs 15 energy and 5 health."
       },
       {
         "level": 0,
@@ -28,7 +30,8 @@
         "type": "poison",
         "dmg": 5,
         "cost": ["energy", 25],
-        "effect": {"type": "poison", "turns": 2, "dmg": 2}
+        "effect": {"type": "poison", "turns": 2, "dmg": 2},
+        "description": "Poison your opponent for 2 turns. Costs 25 energy"
       }
     ],
     "weaknesses": [
@@ -50,25 +53,28 @@
         "level": 0,
         "name": "Shoot",
         "type": "physical",
-        "dmg": 15
+        "dmg": 15,
+        "description": "Blast a single combatent for 15 damage."
       },
       {
         "level": 0,
         "name": "Antibody Rounds",
         "type": "antibody",
-        "multi": "true",
+        "multi": true,
         "dmg": 5,
         "cost": ["energy", 25],
-        "effect": {"type": "antibody", "turns": 3, "dmg": 1}
+        "effect": {"type": "antibody", "turns": 3, "dmg": 1},
+        "description": "Stick all enemies antibodies for 3 turns. Antibodies make subsequent attacks do more damage. Costs 25 energy."
       },
       {
         "level": 0,
         "name": "Antibody Snipe",
         "type": "antibody",
-        "multi": "true",
+        "multi": false,
         "dmg": 10,
         "cost": ["energy", 15],
-        "effect": {"type": "antibody", "turns": 5, "dmg": 1}
+        "effect": {"type": "antibody", "turns": 5, "dmg": 1},
+        "description": "Stick one enemy with antibodies for 5 turns. Antibodies make subsequent attacks do more damage. Costs 15 energy."
       }
     ],
     "weaknesses": [
