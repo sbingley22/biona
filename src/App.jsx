@@ -13,6 +13,10 @@ function App() {
       setShowInstall(true);
     };
 
+    setTimeout(()=>{
+      setShowInstall(false)
+    }, 1000 * 5)
+
     window.addEventListener('beforeinstallprompt', handler);
 
     return () => {
