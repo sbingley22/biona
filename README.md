@@ -39,9 +39,12 @@ Todo:
 - ~~add outro battle dialog~~
 - ~~add cure items functionality~~
 - ~~add battle system~~
-- allow adding and removal of party members in battlemode
-- make player auto leave battle mode after first battle.
+- ~~allow adding and removal of party members in battlemode~~
+- ~~make player auto leave battle mode after first battle.~~
 - make arenas locked until previous complete
+- add save system with local storage.
+- add day 14 events
 - add social link json file that holds social link dialog and actions
 - implement day routine behaviour (talking to characters, revising, earning money)
 - implement a shop
+- implement a leveling up system (unlock new attacks)

@@ -15,7 +15,7 @@
       "outro": [
         {"character": "nk-cell", "text": "That was harder than I thought. I suggest when don't return here until we are stronger."},
         {"character": "nk-cell", "text": "There are much stronger challenges ahead."},
-        {"character": "stage complete", "text": ""}
+        {"character": "exit battle mode", "text": ""}
       ],
       "actions": [
         {"action": "leave-battle-mode"}

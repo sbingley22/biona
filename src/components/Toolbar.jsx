@@ -1,6 +1,6 @@
 import '../css/toolbar.css'
 import { useGameStore } from '../hooks/GameStore'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 function Toolbar() {
   const toolbarVisible = useGameStore((state) => state.toolbarVisible)
@@ -16,7 +16,10 @@ function Toolbar() {
   if (mode === 'battle') showToolbar = false
 
   const handleOpenerClick = () => {
-    setSubMenu(null)
+    setSubMenu('locations')
+    if (containerOpen) {
+      setSubMenu(null)
+    }
     setContainerOpen(!containerOpen)
   }
 

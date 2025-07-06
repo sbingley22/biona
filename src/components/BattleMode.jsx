@@ -4,7 +4,6 @@ import BattlePrep from './BattlePrep'
 import Arena from './Arena'
 
 function BattleMode() {
-  const day = useGameStore((state) => state.day)
   const arena = useGameStore((state) => state.arena)
 
   return (

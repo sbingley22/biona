@@ -5,6 +5,10 @@ import { convertTypeNames } from '../utils/battleUtils'
 import Inventory from './Inventory'
 
 function PartyActions({ turn, turnIndex, setTurnIndex, textInfo, setTextInfo, bionaImage, handleActionClick, allyRef }) {
+  const setMode = useGameStore((state) => state.setMode)
+  const moveLocation = useGameStore((state) => state.moveLocation)
+  const handleAction = useGameStore((state) => state.handleAction)
+  const arena = useGameStore((state) => state.arena)
   const setArena = useGameStore((state) => state.setArena)
   const convertCharacterName = useGameStore((state) => state.convertCharacterName)
   const party = useGameStore((state) => state.party)
@@ -25,7 +29,8 @@ function PartyActions({ turn, turnIndex, setTurnIndex, textInfo, setTextInfo, bi
   const handleTextClick = () => {
     if (textInfo[0].character === "stage won") {
       removeAllStatusEffects()
-      if (arena.intro) setTextInfo(arena.intro)
+      //debugger
+      if (arena.outro) setTextInfo(arena.outro)
       else setArena(null)
       return
     }
@@ -36,6 +41,13 @@ function PartyActions({ turn, turnIndex, setTurnIndex, textInfo, setTextInfo, bi
     }
     if (textInfo[0].character === "stage complete") {
       setArena(null)
+      return
+    }
+    if (textInfo[0].character === "exit battle mode") {
+      setArena(null)
+      setMode("vn")
+      moveLocation('hospital-room')
+      handleAction('next-day')
       return
     }
     if (textInfo[0].character === "turn end") setTurnIndex(turnIndex + 1)

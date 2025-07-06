@@ -50,7 +50,7 @@ export const useGameStore = create((set) => ({
   })),
   getLocations: Object.keys(locationData),
 
-  day: 13,
+  day: 12,
   nextDay: () => set((state) => ({ day: state.day + 1 })),
   advanceDay: (days) => set((state) => ({ day: state.day + days })),
   convertCharacterName: (name) => {

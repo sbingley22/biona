@@ -39,7 +39,7 @@ function Game() {
         <img 
           id='background-img'
           src={`./locations/${background}`}
-          className={"blur"}
+          className={mode==="battle" ? "blur" : ""}
         />
       </div>
 
