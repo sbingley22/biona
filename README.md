@@ -52,7 +52,8 @@ Todo:
 - ~~hold touch or right click to display action info~~
 - ~~make arenas locked until previous complete~~
 - ~~add save system with local storage.~~
-- make day end upon battle mode exit
+- ~~make day end upon battle mode exit~~
+- ~~add hp bar to enemies~~
 - add day 14 events
 - add social link json file that holds social link dialog and actions
 - implement day routine behaviour (talking to characters, revising, earning money)

@@ -152,8 +152,22 @@
   user-select: none;
 }
 
+.enemy-portrait {
+  width: 25%;
+  position: relative;
+}
+
+.enemy-stats {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: black;
+  font-size: 0.8;
+  color: red;
+}
+
 #enemy-container img {
-  height: 35vh;
+  width: 100%;
   object-fit: contain;
   user-select: none;
 }

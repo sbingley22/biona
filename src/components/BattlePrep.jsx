@@ -78,7 +78,7 @@ function BattlePrep() {
     setArena(null)
     setMode("vn")
     moveLocation('hospital-room')
-    handleAction('next-day')
+    handleAction({"action": 'next-day'})
   }
 
   return (

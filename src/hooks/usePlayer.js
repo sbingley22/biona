@@ -38,7 +38,7 @@ export const usePlayer = ({
     });
 
     bio.stats.health -= dmg
-    let text = `${dmg.toFixed(0)} damage to ${bio.name} (${bio.stats.health.toFixed(0)})`
+    let text = `${dmg.toFixed(0)} damage to ${bio.name}`
 
     if (bio.stats.health <= 0) {
       setSelectedEnemy(-1)
@@ -68,12 +68,20 @@ export const usePlayer = ({
   }, [setSelectedEnemy])
 
   function settleActionCostAlly(bio, cost) {
-    if (!cost) return;
+    if (!cost) return true
+    let tempHealth = bio.health
+    let tempEnergy = bio.energy
     for (let i = 0; i < cost.length - 1; i += 2) {
       const [costName, costAmount] = [cost[i], cost[i + 1]];
-      if (costName === "health") bio.health -= costAmount;
-      if (costName === "energy") bio.energy -= costAmount;
+      if (costName === "health") tempHealth -= costAmount;
+      else if (costName === "energy") tempEnergy -= costAmount;
     }
+    if (tempHealth > 0 && tempEnergy >= 0) {
+      bio.health = tempHealth
+      bio.energy = tempEnergy
+    }
+    else return false
+    return true
   }
 
   const handleActionClick = useCallback((action) => {
@@ -91,7 +99,10 @@ export const usePlayer = ({
     const member = partyStats[party[turnIndex]]
     setBionaImage(bionas[turnIndex]["img-url"] + "attack.png")
 
-    settleActionCostAlly(member, action.cost)
+    if (!settleActionCostAlly(member, action.cost)) {
+      setTextInfo([{ character: "", text: "Cannot afford action" }])
+      return
+    }
 
     if (action.multi) {
       const tempText = []

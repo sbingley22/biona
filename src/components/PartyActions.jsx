@@ -28,15 +28,21 @@ function PartyActions({ turn, turnIndex, setTurnIndex, textInfo, setTextInfo, bi
     setPartyStats(tempPartyStats)
   }
 
+  const exitBattle = (leaveBattleMode = false) => {
+    removeAllStatusEffects()
+    incrementStageLevel()
+    setArena(null)
+    if (leaveBattleMode) {
+      setMode("vn")
+      moveLocation('hospital-room')
+      handleAction({"action": 'next-day'})
+    }
+  }
+
   const handleTextClick = () => {
     if (textInfo[0].character === "stage won") {
-      removeAllStatusEffects()
       if (arena.outro) setTextInfo(arena.outro)
-      else {
-        incrementStageLevel()
-        console.log("incrementing stage level")
-        setArena(null)
-      }
+      else exitBattle()
       return
     }
     if (textInfo[0].character === "stage lost") {
@@ -45,18 +51,11 @@ function PartyActions({ turn, turnIndex, setTurnIndex, textInfo, setTextInfo, bi
       return
     }
     if (textInfo[0].character === "stage complete") {
-      setArena(null)
-      incrementStageLevel()
-      console.log("incrementing stage level")
+      exitBattle()
       return
     }
     if (textInfo[0].character === "exit battle mode") {
-      setArena(null)
-      incrementStageLevel()
-      console.log("incrementing stage level")
-      setMode("vn")
-      moveLocation('hospital-room')
-      handleAction('next-day')
+      exitBattle(true)
       return
     }
     if (textInfo[0].character === "turn end") setTurnIndex(turnIndex + 1)

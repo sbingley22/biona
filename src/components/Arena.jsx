@@ -110,6 +110,7 @@ function Arena() {
       setTextInfo([
         {"character": "stage won", "text": "You did it!"}
       ])
+      return
     }
 
     // check if all allies dead
@@ -123,6 +124,7 @@ function Arena() {
       setTextInfo([
         {"character": "stage lost", "text": "You were defeated!"}
       ])
+      return
     }
 
     // player turn
