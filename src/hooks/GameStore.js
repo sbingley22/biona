@@ -1,151 +1,156 @@
 import { create } from 'zustand'
+import { persist, createJSONStorage } from 'zustand/middleware'
 import dialogData from '../assets/data/dialog.json'
 import locationData from '../assets/data/locations.json'
 import alliesData from '../assets/data/allies.json'
 import stages from '../assets/data/stages.json'
+import { defaultPartyStats } from "../utils/battleUtils.js"
 
-const defaultPartyStats = {
-  'sean': {
-    biona: "nk-cell",
-    level: 1,
-    health: 150,
-    maxHealth: 150,
-    energy: 30,
-    maxEnergy: 30,
-    nerfs: [],
-    buffs: [],
-    statusEffects: [],
-  },
-  'sofia': {
-    biona: "b-cell",
-    level: 1,
-    health: 145,
-    maxHealth: 145,
-    energy: 60,
-    maxEnergy: 60,
-    nerfs: [],
-    buffs: [],
-    statusEffects: [],
-  },
-  'boy': {
-    biona: "t-cell",
-    level: 1,
-    health: 100,
-    maxHealth: 100,
-    energy: 60,
-    maxEnergy: 60,
-    nerfs: [],
-    buffs: [],
-    statusEffects: [],
-  },
-}
+export const useGameStore = create(
+  persist(
+    (set, get) => ({
+      background: 'hospital-room.jpeg',
+      setBackground: (newBackground) => set(()=>({background: newBackground})),
+      location: 'hospital-room',
+      moveLocation: (newLocation) => set(() => ({
+        location: newLocation,
+        background: locationData[newLocation][locationData[newLocation][0]],
+      })),
+      getLocations: Object.keys(locationData),
 
-export const useGameStore = create((set) => ({
-  background: 'hospital-room.jpeg',
-  setBackground: (newBackground) => set(()=>({background: newBackground})),
-  location: 'hospital-room',
-  moveLocation: (newLocation) => set(() => ({
-    location: newLocation,
-    background: locationData[newLocation][locationData[newLocation][0]],
-  })),
-  getLocations: Object.keys(locationData),
+      day: 15,
+      nextDay: () => set((state) => ({ day: state.day + 1 })),
+      advanceDay: (days) => set((state) => ({ day: state.day + days })),
+      convertCharacterName: (name) => {
+        if (name === 'sean') return 'Mystery'
+        else if (name === 'sofia') return 'Sofia'
+        else if (name === 'boy') return 'Havier'
+        else if (name === 'nk-cell') return 'Natural Killer Cell'
+        else if (name === 'b-cell') return 'B Cell'
+        else if (name === 't-cell') return 'T Cell'
+        return name
+      },
 
-  day: 13,
-  nextDay: () => set((state) => ({ day: state.day + 1 })),
-  advanceDay: (days) => set((state) => ({ day: state.day + days })),
-  convertCharacterName: (name) => {
-    if (name === 'sean') return 'Mystery'
-    else if (name === 'sofia') return 'Sofia'
-    else if (name === 'boy') return 'Havier'
-    else if (name === 'nk-cell') return 'Natural Killer Cell'
-    else if (name === 'b-cell') return 'B Cell'
-    else if (name === 't-cell') return 'T Cell'
-    return name
-  },
+      devMode: false,
+      setDevMode: (dm) => set(() => ({ devMode: dm })),
 
-  mode: "vn",
-  setMode: (newMode) => set(() => ({ mode: newMode })),
+      mode: "vn",
+      setMode: (newMode) => set(() => ({ mode: newMode })),
 
-  stage: 'sean',
-  setStage: (newStage) => set(() => ({ stage: newStage })),
-  arena: null,
-  setArena: (newArena) => set(() => ({ arena: newArena })),
-
-  allies: ['sean', 'sofia', 'boy'],
-  setAllies: (newAllies) => set(() => ({ allies: newAllies })),
-  addAlly: (newAlly) => set((state) => ({ allies: state.allies.push(newAlly) })),
-  party: ['sean', 'sofia'],
-  setParty: (newParty) => set(() => ({ party: newParty })),
-  partyStats: defaultPartyStats,
-  setPartyStats: (newStats) => set(() => ({ partyStats: newStats })),
-  bionas: [alliesData['nk-cell'], alliesData['b-cell']],
-  setBionas: (newBionas) => set(() => ({ bionas: newBionas })),
-
-  inventory: {
-    'chocobar':2, 
-    'vita-drink':1,
-    "vita-drink-pack":1,
-    "antidote": 1,
-  },
-  setInventory: (newInventory) => set({ inventory: newInventory }),
-  addItem: (newItem) => {
-    set((state) => {
-      const currentInventory = state.inventory;
-      const updatedInventory = {
-        ...currentInventory,
-        [newItem]: (currentInventory[newItem] || 0) + 1,
-      };
-      return { inventory: updatedInventory };
-    });
-  },
-  removeItem: (itemToRemove) => {
-    set((state) => {
-      const currentInventory = state.inventory;
-      const updatedInventory = { ...currentInventory }; // Create a shallow copy
-
-      if (updatedInventory[itemToRemove] && updatedInventory[itemToRemove] > 0) {
-        updatedInventory[itemToRemove] -= 1;
-        // Optionally, remove the item from the object if its quantity reaches 0
-        if (updatedInventory[itemToRemove] === 0) {
-          delete updatedInventory[itemToRemove];
+      stage: 'sean',
+      setStage: (newStage) => set(() => ({ stage: newStage })),
+      stageLevels: {
+        'sean': 0,
+        'sofia': 0,
+        'boy': 0,
+      },
+      incrementStageLevel: () => set((state) => {
+        const currentStage = state.stage
+        const currentLevel = state.stageLevels[currentStage] || 0
+        return {
+          stageLevels: { 
+            ...state.stageLevels, 
+            [currentStage]: currentLevel + 1,
+          },
         }
-      }
-      return { inventory: updatedInventory };
-    });
-  },
+      }),
+      arena: null,
+      setArena: (newArena) => set(() => ({ arena: newArena })),
 
-  handleAction: (action) => set((state) => {
-    const a = action.action
-    if (a === 'next-day') {
-      state.nextDay()
-    }
-    else if (a === 'advance-day') {
-      state.advanceDay(action.value)
-    }
-    else if (a === 'move-location') {
-      state.moveLocation(action.value)
-    }
-    else if (a === 'dialog') {
-      state.setDialog(dialogData[action.value])
-    }
-    else if (a === 'social-link') {
-      state.setDialog(action.value)
-    }
-    else if (a === 'go-to-dungeon') {
-      state.setMode("battle")
-    }
-    else if (a === 'go-to-dungeon-battle') {
-      state.setMode("battle")
-      const a = stages[state.stage][action.value]
-      if (!a) console.warn(`Couldn't find arena for ${stage} at ${index}`)
-      state.setArena(a)
-    }
-    return {}
-  }),
+      allies: ['sean', 'sofia', 'boy'],
+      setAllies: (newAllies) => set(() => ({ allies: newAllies })),
+      addAlly: (newAlly) => set((state) => ({ allies: [...state.allies, newAlly] })),
+      party: ['sean', 'sofia'],
+      setParty: (newParty) => set(() => ({ party: newParty })),
+      partyStats: defaultPartyStats,
+      setPartyStats: (newStats) => set(() => ({ partyStats: newStats })),
+      bionas: [alliesData['nk-cell'], alliesData['b-cell']],
+      setBionas: (newBionas) => set(() => ({ bionas: newBionas })),
 
-  dialog: null,
-  setDialog: (newDialog) => set(() => ({ dialog: newDialog })),
+      inventory: {
+        'chocobar':2, 
+        'vita-drink':1,
+        "vita-drink-pack":1,
+        "antidote": 1,
+      },
+      setInventory: (newInventory) => set({ inventory: newInventory }),
+      addItem: (newItem) => {
+        set((state) => {
+          const currentInventory = state.inventory;
+          const updatedInventory = {
+            ...currentInventory,
+            [newItem]: (currentInventory[newItem] || 0) + 1,
+          };
+          return { inventory: updatedInventory };
+        });
+      },
+      removeItem: (itemToRemove) => {
+        set((state) => {
+          const currentInventory = state.inventory;
+          const updatedInventory = { ...currentInventory }; // Create a shallow copy
 
-  toolbarVisible: true,
-}))
+          if (updatedInventory[itemToRemove] && updatedInventory[itemToRemove] > 0) {
+            updatedInventory[itemToRemove] -= 1;
+            // Optionally, remove the item from the object if its quantity reaches 0
+            if (updatedInventory[itemToRemove] === 0) {
+              delete updatedInventory[itemToRemove];
+            }
+          }
+          return { inventory: updatedInventory };
+        });
+      },
 
+      handleAction: (action) => set((state) => {
+        const a = action.action
+        if (a === 'next-day') {
+          state.nextDay()
+        }
+        else if (a === 'advance-day') {
+          state.advanceDay(action.value)
+        }
+        else if (a === 'move-location') {
+          state.moveLocation(action.value)
+        }
+        else if (a === 'dialog') {
+          state.setDialog(dialogData[action.value])
+        }
+        else if (a === 'social-link') {
+          state.setDialog(action.value)
+        }
+        else if (a === 'go-to-dungeon') {
+          state.setMode("battle")
+        }
+        else if (a === 'go-to-dungeon-battle') {
+          state.setMode("battle")
+          const a = stages[state.stage][action.value]
+          if (!a) console.warn(`Couldn't find arena for ${stage} at ${index}`)
+          state.setArena(a)
+        }
+        return {}
+      }),
+
+      dialog: null,
+      setDialog: (newDialog) => set(() => ({ dialog: newDialog })),
+
+      toolbarVisible: true,
+    }),
+    {
+      name: 'game-storage',
+      storage: createJSONStorage(() => localStorage),
+      partialize: (state) => ({
+        day: state.day,
+        location: state.location,
+        background: state.background,
+        //mode: state.mode,
+        allies: state.allies,
+        party: state.party,
+        partyStats: state.partyStats,
+        bionas: state.bionas,
+        inventory: state.inventory,
+        stage: state.stage,
+        stageLevels: state.stageLevels,
+        arena: state.arena,
+      }),
+    }
+  )
+)

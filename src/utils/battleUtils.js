@@ -1,3 +1,39 @@
+export const defaultPartyStats = {
+  'sean': {
+    biona: "nk-cell",
+    level: 1,
+    health: 150,
+    maxHealth: 150,
+    energy: 30,
+    maxEnergy: 30,
+    nerfs: [],
+    buffs: [],
+    statusEffects: [],
+  },
+  'sofia': {
+    biona: "b-cell",
+    level: 1,
+    health: 145,
+    maxHealth: 145,
+    energy: 60,
+    maxEnergy: 60,
+    nerfs: [],
+    buffs: [],
+    statusEffects: [],
+  },
+  'boy': {
+    biona: "t-cell",
+    level: 1,
+    health: 100,
+    maxHealth: 100,
+    energy: 60,
+    maxEnergy: 60,
+    nerfs: [],
+    buffs: [],
+    statusEffects: [],
+  },
+}
+
 export function convertTypeNames(tName) {
   const map = {
     ros: "ROS",

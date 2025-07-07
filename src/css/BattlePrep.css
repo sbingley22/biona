@@ -18,6 +18,11 @@
   overflow-y: auto;
 }
 
+#stage-selection .locked {
+  border-color: gray;
+  color: gray;
+}
+
 #party-selection {
   display: flex;
   flex-direction: column;

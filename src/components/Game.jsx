@@ -10,9 +10,14 @@ function Game() {
   const background = useGameStore((state) => state.background)
   const day = useGameStore((state) => state.day)
   const mode = useGameStore((state) => state.mode)
+  const setDevMode = useGameStore((state) => state.setDevMode)
   const moveLocation = useGameStore((state) => state.moveLocation)
   const setDialog = useGameStore((state) => state.setDialog)
   const [showDayNotifier, setShowDayNotifier] = useState(false)
+
+  useEffect(()=>{
+    setDevMode(true)
+  }, [])
 
   useEffect(()=>{
     moveLocation('hospital-room')

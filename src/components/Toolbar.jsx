@@ -8,6 +8,7 @@ function Toolbar() {
   const getLocations = useGameStore((state) => state.getLocations)
   const dialog = useGameStore((state) => state.dialog)
   const mode = useGameStore((state) => state.mode)
+  const devMode = useGameStore((state) => state.devMode)
   const [containerOpen, setContainerOpen] = useState(false)
   const [subMenu, setSubMenu] = useState(null)
 
@@ -33,6 +34,11 @@ function Toolbar() {
     moveLocation(loc)
   }
 
+  const handleReset = () => {
+    localStorage.removeItem('game-storage')
+    window.location.reload()
+  }
+
   return (
     <>
     {showToolbar && <div id='toolbar' className={toolbarVisible ? '' : 'hidden'}>
@@ -51,6 +57,7 @@ function Toolbar() {
         <div id='container' className={containerOpen ? '' : 'hidden'}>
           <button onClick={()=>setSubMenu('locations')}>Locations</button>
           <button>Options</button>
+          {devMode && <button onClick={()=>handleReset()}>Reset Store</button>}
         </div>
       </div>
     </div>}

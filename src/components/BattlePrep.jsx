@@ -10,6 +10,7 @@ function BattlePrep() {
   const moveLocation = useGameStore((state) => state.moveLocation)
   const setArena = useGameStore((state) => state.setArena)
   const stage = useGameStore((state) => state.stage)
+  const stageLevels = useGameStore((state) => state.stageLevels)
   const convertCharacterName = useGameStore((state) => state.convertCharacterName)
   const party = useGameStore((state) => state.party)
   const setParty = useGameStore((state) => state.setParty)
@@ -18,6 +19,8 @@ function BattlePrep() {
   const [arenaList, setArenaList] = useState([])
   const [selectedSlot, setSelectedSlot] = useState(-1)
   const [availableAllies, setAvailableAllies] = useState([])
+
+  const stageLevel = stageLevels[stage]
 
   useEffect(()=>{
     const stageArenas = stages[stage]
@@ -38,6 +41,10 @@ function BattlePrep() {
   }, [stage])
 
   const handleArenaClick = (index) => {
+    if (index > stageLevel) {
+      console.warn("Cannot go to this stage yet", stageLevel, index)
+      return
+    }
     const a = stages[stage][index]
     if (!a) {
       console.warn(`Couldn't find arena for ${stage} at ${index}`)
@@ -82,6 +89,7 @@ function BattlePrep() {
           <button
             key={a.name}
             onClick={()=>handleArenaClick(index)}
+            className={index > stageLevel ? 'locked': ''}
           >{a.name}</button>
         ))}
       </div>

@@ -10,6 +10,7 @@ function PartyActions({ turn, turnIndex, setTurnIndex, textInfo, setTextInfo, bi
   const handleAction = useGameStore((state) => state.handleAction)
   const arena = useGameStore((state) => state.arena)
   const setArena = useGameStore((state) => state.setArena)
+  const incrementStageLevel = useGameStore((state) => state.incrementStageLevel)
   const convertCharacterName = useGameStore((state) => state.convertCharacterName)
   const party = useGameStore((state) => state.party)
   const partyStats = useGameStore((state) => state.partyStats)
@@ -30,9 +31,12 @@ function PartyActions({ turn, turnIndex, setTurnIndex, textInfo, setTextInfo, bi
   const handleTextClick = () => {
     if (textInfo[0].character === "stage won") {
       removeAllStatusEffects()
-      //debugger
       if (arena.outro) setTextInfo(arena.outro)
-      else setArena(null)
+      else {
+        incrementStageLevel()
+        console.log("incrementing stage level")
+        setArena(null)
+      }
       return
     }
     if (textInfo[0].character === "stage lost") {
@@ -42,10 +46,14 @@ function PartyActions({ turn, turnIndex, setTurnIndex, textInfo, setTextInfo, bi
     }
     if (textInfo[0].character === "stage complete") {
       setArena(null)
+      incrementStageLevel()
+      console.log("incrementing stage level")
       return
     }
     if (textInfo[0].character === "exit battle mode") {
       setArena(null)
+      incrementStageLevel()
+      console.log("incrementing stage level")
       setMode("vn")
       moveLocation('hospital-room')
       handleAction('next-day')
@@ -67,20 +75,12 @@ function PartyActions({ turn, turnIndex, setTurnIndex, textInfo, setTextInfo, bi
 
   const handleHelpClick = (e, item) => {
     e.preventDefault()
-    console.log("Item info: ", item)
     setTooltip(item.description)
   }
 
   const handleActionCardClick = (action) => {
-    console.log("click")
     setTooltip(null)
     handleActionClick(action)
-  }
-
-  const handleActionCardHold = (action) => {
-    console.log("hold")
-    setTooltip(action.description)
-    //handleActionClick(action)
   }
 
   return (
@@ -112,7 +112,6 @@ function PartyActions({ turn, turnIndex, setTurnIndex, textInfo, setTextInfo, bi
         <div id='party-actions'>
           {turn && <div id='extra-actions'>
             <button onClick={()=>handleInventoryClick()}>Items</button>
-            <button onClick={(e)=>handleHelpClick(e, null)}>?</button>
             <button onClick={()=>handleSkipClick()}>Skip</button>
           </div>}
           {turn && bionas.map((bio, i) => {
@@ -124,7 +123,7 @@ function PartyActions({ turn, turnIndex, setTurnIndex, textInfo, setTextInfo, bi
                     key={ba.name} 
                     className='action-card'
                     onClick={()=>handleActionCardClick(ba)}
-                    onTouchStart={()=>handleActionCardHold(ba)}
+                    onTouchStart={()=>handleHelpClick(ba)}
                     onContextMenu={(e)=>handleHelpClick(e, ba)}
                     title={ba.description? ba.description : null}
                   >
