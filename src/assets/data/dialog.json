@@ -293,13 +293,145 @@
       "text": [
         "This place again?!",
         "I don't like it here.",
-        "I need to find a way out of here!"
+        "I need to find a way out!"
       ],
       "actions": [
         {
           "action": "go-to-dungeon-battle", 
           "value": 0
         }
+      ]
+    }
+  ],
+  "day-14": [
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "What just happened?",
+        "It felt so real.",
+        "It WAS real! I was inside my body just now.",
+        "Could it be the brain tumor ...",
+        "[The curtain draws open as a bubbly middle age woman appears in front of your bed]"
+      ]
+    },
+    {
+      "character": "hmum", "emotion": "idle", "background": null,
+      "text": [
+        "Guess who's got your favorite treats...",
+        "Oh my, I'm sorry. I must have got the wrong bed.",
+        "I would give you a sweetie to make up for it but these are all for my son Havier.",
+        "He loves them so much he'd hate it if I gave any away hehe!",
+        "[The woman opens the curtain to the bed across from you]",
+        "Guess who's got your favorite treats!"
+      ]
+    },
+    {
+      "character": "boy", "emotion": "idle", "background": null,
+      "text": [
+        "But I'm not hungry!"
+      ]
+    },
+    {
+      "character": "hmum", "emotion": "idle", "background": null,
+      "text": [
+        "Nonsense! Look at you, your skin and bones",
+        "I can't have all the lovely doctors and nurses thinking I don't take care of my boy.",
+        "Now come on, eat up!"
+      ]
+    },
+    {
+      "character": "boy", "emotion": "sad", "background": null,
+      "text": [
+        "ok"
+      ]
+    },
+    {
+      "character": "doctor", "emotion": "idle", "background": null,
+      "text": [
+        "So how are you feeling Mr ... erm ... well what is your name? Let me see, it appears the nurse has wrote Mystery. So Mr Mystery how are we feeling today?"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "I feel like I was in my body just now. Maybe my brain. And I was fighting pathogens with my immune cells.",
+        "It was so real.",
+        "Have any patients managed to beat brain tumors by going into their bodies so to speak?"
+      ]
+    },
+    {
+      "character": "doctor", "emotion": "idle", "background": null,
+      "text": [
+        "Oh dear, he's declining more rapidly than I thought (he mumbles to himself)",
+        "It's not possible to go into your body and fight pathogens, whatever that means.",
+        "It's best you just accept your condition as it is",
+        "Sure some people do get better from it but nobody knows how or why"
+      ]
+    },
+    {
+      "character": "doctor", "emotion": "happy", "background": null,
+      "text": [
+        "You should try to just enjoy the pleasures of life, like candy!",
+        "[The doctor walks to the boys bed across and reaches for some candy.]"
+      ]
+    },
+    {
+      "character": "hmum", "emotion": "idle", "background": null,
+      "text": [
+        "Get your hands off!",
+        "[She slaps the doctors hand]",
+        "These are for my son and my son only!"
+      ]
+    },
+    {
+      "character": "boy", "emotion": "sad", "background": null,
+      "text": [
+        "It's fine you can have them. I'm full."
+      ]
+    },
+    {
+      "character": "hmum", "emotion": "idle", "background": null,
+      "text": [
+        "What have I told you Havier? These are for you and for you only.",
+        "No football until you finish them!",
+        "And you doctor. I would expect better than trying to take candy from a child!"
+      ]
+    },
+    {
+      "character": "doctor", "emotion": "sad", "background": null,
+      "text": [
+        "I'm sorry Miss, they just looked so delicious."
+      ]
+    },
+    {
+      "character": "doctor", "emotion": "happy", "background": null,
+      "text": [
+        "Anyway, you're looking well Havier!",
+        "You know we just might be ready to let you home by the end of tomorrow!"
+      ]
+    },
+    {
+      "character": "boy", "emotion": "happy", "background": null,
+      "text": [
+        "Oh boy really?!"
+      ]
+    },
+    {
+      "character": "doctor", "emotion": "happy", "background": null,
+      "text": [
+        "Yes really!",
+        "Just don't forget how your favorite doctor patched you up when you become a famous soccer star, ha ha!"
+      ],
+      "actions": [{"action": "next-day"}]
+    }
+  ],
+  "day-15": [
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "You wake to a large commotion across from you, nurses and doctors running in and out",
+        "[You see that one nurse you recognise from before]",
+        "Nurse! What's going on?"
       ]
     }
   ]

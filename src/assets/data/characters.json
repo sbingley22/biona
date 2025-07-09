@@ -16,15 +16,29 @@
   "doctor": {
     "square": "./characters/doctor-square.png",
     "idle": "./characters/doctor-idle.png",
-    "happy":"./characters/doctor-idle.png",
-    "sad": "./characters/doctor-idle.png",
-    "angry": "./characters/doctor-idle.png"
+    "happy":"./characters/doctor-happy.png",
+    "sad": "./characters/doctor-sad.png",
+    "angry": "./characters/doctor-angry.png"
+  },
+  "sofia": {
+    "square": "./characters/sofia-square.png",
+    "idle": "./characters/sofia-idle.png",
+    "happy": "./characters/sofia-happy.png",
+    "sad": "./characters/sofia-idle.png",
+    "angry": "./characters/sofia-idle.png"
   },
   "boy": {
     "square": "./characters/boy-square.png",
     "idle": "./characters/boy-idle.png",
-    "happy": "./characters/boy-idle.png",
-    "sad": "./characters/boy-idle.png",
-    "angry": "./characters/boy-idle.png"
+    "happy": "./characters/boy-happy.png",
+    "sad": "./characters/boy-sad.png",
+    "angry": "./characters/boy-angry.png"
+  },
+  "hmum": {
+    "square": "./characters/hmum-square.png",
+    "idle": "./characters/hmum-idle.png",
+    "happy": "./characters/hmum-idle.png",
+    "sad": "./characters/hmum-idle.png",
+    "angry": "./characters/hmum-idle.png"
   }
 }
