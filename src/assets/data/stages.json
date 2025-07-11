@@ -38,5 +38,49 @@
         {"character": "stage complete", "text": ""}
       ]
     }
+  ],
+  "sofia": [
+    {
+      "name": "prison",
+      "background": 2,
+      "enemies": [
+        "hookworm",
+        "streptococcus",
+        "hookworm"
+      ],
+      "intro": [
+        {"character": "sean", "text": "Oh no, it appears the prison guards are here!"},
+        {"character": "sofia", "text": "We have to hide, we can't beat them."},
+        {"character": "sean", "text": "It's ok, we can command our immune cells to fight for us. I'll show you!"}
+      ],
+      "outro": [
+        {"character": "sean", "text": "See, I told you we can do it!"},
+        {"character": "sofia", "text": "Wow, that was thrilling. Maybe theres a way out for me after all."},
+        {"character": "sean", "text": "I'm sorry. I feel weak, I'm fading out."},
+        {"character": "sean", "text": "I'll be back I promise!"},
+        {"character": "exit battle mode", "text": ""}
+      ],
+      "actions": [
+        {"action": "leave-battle-mode"}
+      ]
+    },
+    {
+      "name": "guiding-light",
+      "background": 1,
+      "enemies": [
+        "nk-psycho",
+        "hookworm",
+        "streptococcus"
+      ],
+      "intro": [
+        {"character": "sean", "text": "We should follow the light. That has to lead to a way out right?"},
+        {"character": "sofia", "text": "Good idea!"}
+      ],
+      "outro": [
+        {"character": "sean", "text": "I think we're getting somewhere."},
+        {"character": "sofia", "text": "Hopefully thats the last of those monsters."},
+        {"character": "stage complete", "text": ""}
+      ]
+    }
   ]
 }

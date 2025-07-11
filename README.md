@@ -55,8 +55,14 @@ Todo:
 - ~~make day end upon battle mode exit~~
 - ~~add hp bar to enemies~~
 - ~~add day 14 events~~
-- add social link json file that holds social link dialog and actions
-- implement day routine behaviour (talking to characters, revising, earning money)
-- implement a shop
+- add a file for the story outline.
+- add sofias dungeon
 - implement a leveling up system (unlock new attacks)
+- upon death you just get to try again with full health and energy (keeping your earned xp)
+- remove social link stuff, make it simplified and linear
+- implement a shop
+- implement day routine behaviour (talking to characters, revising, earning money)
 - make ui mobile friendly
+- complete Sofia plot line.
+- complete Havier plot line.
+- complete Mystery plot line.

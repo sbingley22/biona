@@ -56,6 +56,7 @@ function Toolbar() {
         <div id='opener' onClick={handleOpenerClick}></div>
         <div id='container' className={containerOpen ? '' : 'hidden'}>
           <button onClick={()=>setSubMenu('locations')}>Locations</button>
+          <button>Inventory</button>
           <button>Options</button>
           {devMode && <button onClick={()=>handleReset()}>Reset Store</button>}
         </div>

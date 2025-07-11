@@ -18,7 +18,8 @@ export const useGameStore = create(
       })),
       getLocations: Object.keys(locationData),
 
-      day: 14,
+      day: 20,
+      setDay: (newDay) => set(() => ({ day: newDay })),
       nextDay: () => set((state) => ({ day: state.day + 1 })),
       advanceDay: (days) => set((state) => ({ day: state.day + days })),
       convertCharacterName: (name) => {
@@ -111,6 +112,9 @@ export const useGameStore = create(
         else if (a === 'move-location') {
           state.moveLocation(action.value)
         }
+        else if (a === 'set-stage') {
+          state.setStage(action.value)
+        }
         else if (a === 'dialog') {
           state.setDialog(dialogData[action.value])
         }
@@ -123,7 +127,7 @@ export const useGameStore = create(
         else if (a === 'go-to-dungeon-battle') {
           state.setMode("battle")
           const a = stages[state.stage][action.value]
-          if (!a) console.warn(`Couldn't find arena for ${stage} at ${index}`)
+          if (!a) console.warn(`Couldn't find arena for ${state.stage} at ${action.value}`)
           state.setArena(a)
         }
         return {}

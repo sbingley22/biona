@@ -433,6 +433,192 @@
         "[You see that one nurse you recognise from before]",
         "Nurse! What's going on?"
       ]
+    },
+    {
+      "character": "nurse", "emotion": "sad", "background": null,
+      "text": [
+        "Poor Havier has fallen ill again, we don't know why",
+        "Please excuse me."
+      ]
+    },
+    {
+      "character": "hmum", "emotion": "idle", "background": null,
+      "text": [
+        "My poor boy! Why do bad things always happen to me!?"
+      ]
+    },
+    {
+      "character": "nurse", "emotion": "sad", "background": null,
+      "text": [
+        "There there. It's going to be ok.",
+        "The doctors are working as hard as the can"
+      ]
+    },
+    {
+      "character": "doctor", "emotion": "idle", "background": null,
+      "text": [
+        "He's stabilizing.",
+        "Thank god!"
+      ]
+    },
+    {
+      "character": "doctor", "emotion": "angry", "background": null,
+      "text": [
+        "What did we miss!",
+        "Nurse! Stay at his bedside for the rest of your shift.",
+        "He needs close monitoring",
+        "Contact me if there is the slightest change in his condition!"
+      ]
+    },
+    {
+      "character": "nurse", "emotion": "sad", "background": null,
+      "text": [
+        "Is he going to be alright?"
+      ]
+    },
+    {
+      "character": "doctor", "emotion": "idle", "background": null,
+      "text": [
+        "For now."
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "[The doctors and nurses keep buzzing around the boys bed for the rest of the day]"
+      ],
+      "actions": [{"action": "next-day"}]
+    }
+  ],
+  "day-16": [
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "[You wake up to see Havier sleeping or possibly unconcious with his mum dutifully beside him also asleep.]",
+        "I should find out whats going on with him",
+        "I don't want to disturb his resting mum.",
+        "I should go find that nurse"
+      ]
+    }
+  ],
+  "nurse-3": [
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "Excuse me nurse."
+      ]
+    },
+    {
+      "character": "nurse", "emotion": "idle", "background": null,
+      "text": [
+        "Oh, Mr Mystery!",
+        "Just give me a second while I see to Sofias feeding tube."
+      ]
+    },
+    {
+      "character": "nurse", "emotion": "sad", "background": null,
+      "text": [
+        "Poor Sofia. Shes been in a coma for over 10 years now.",
+        "She got in some kind of accident when she was 20",
+        "Her family barely visit anymore",
+        "I think they moved away. I guess it was all too depressing for them",
+        "I like to talk her about my day.",
+        "I think she can hear me you know.",
+        "Were all the family she has left..."
+      ]
+    },
+    {
+      "character": "nurse", "emotion": "happy", "background": null,
+      "text": [
+        "All done!",
+        "So what can I do for you?"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "I was just wondering what was happening with the boy across from me."
+      ]
+    },
+    {
+      "character": "nurse", "emotion": "sad", "background": null,
+      "text": [
+        "Hes ok for now. Though it was a close one.",
+        "He was doing so well...",
+        "It's happened before too. I just hope the doctors can figure out whats going on."
+      ]
+    },
+    {
+      "character": "nurse", "emotion": "idle", "background": null,
+      "text": [
+        "Anyway, your looking a little unsteady. I think you should go back to bed for now."
+      ],
+      "actions": [{"action": "advance-day", "value": 4}]
+    }
+  ],
+  "day-20": [
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "[The next few days you spend mostly sleeping. Havier still hasn't woken.]",
+        "I need to get up and move around!"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": "./special/sofia-sleeping.png",
+      "text": [
+        "[You find yourself sitting next to Sofias bed]",
+        "It's so sad. Are you trapped in there or are you just sleeping?",
+        "You reach out to grab her hand.",
+        "Suddenly a spark jolts through your brain!"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": "./special/sofia-prison.png",
+      "text": [
+        "It's happening again!",
+        "Who's that? Sofia!?"
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "idle", "background": "./special/sofia-prison.png",
+      "text": [
+        "Wait. It can't be!?",
+        "Another person???"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "You're Sofia? You can hear me?",
+        "You're actually alive in here?"
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "idle", "background": "./special/sofia-prison.png",
+      "text": [
+        "How do you know my name?",
+        "Are you just a figment of my imagination???"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "No time to explain. Enemies approach!"
+      ],
+      "actions": [
+        {"action": "set-stage", "value": "sofia"},
+        {"action": "go-to-dungeon-battle", "value": 0}
+      ]
+    }
+  ],
+  "day-21": [
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "Was that real?!",
+        "I need to get back to Sofia! I have to help her escape!"
+      ]
     }
   ]
 }

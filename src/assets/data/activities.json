@@ -27,7 +27,7 @@
       "description": "Gather party and head to the bioverse",
       "conditions": {
         "days": [
-          [15,20],
+          [21,30],
           [30,45],
           [60,75]
         ] 
@@ -59,6 +59,22 @@
     {
       "activity": "talk-to-nurse", "type": "dialog", "character": "nurse",
       "conditions": { "days": [[12,13]] }, "actions": [{"action": "dialog", "value": "nurse-2"}]
+    }
+  ],
+  "hospital-ward-a": [
+    {
+      "activity": "talk-to-sofia",
+      "type": "social-link",
+      "character": "sofia",
+      "conditions": {
+        "days": [
+          [25,345]
+        ] 
+      }
+    },
+    {
+      "activity": "talk-to-nurse", "type": "dialog", "character": "nurse",
+      "conditions": { "days": [[16,17]] }, "actions": [{"action": "dialog", "value": "nurse-3"}]
     }
   ],
   "hospital-ward-b": [
