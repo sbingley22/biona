@@ -2,7 +2,7 @@ import '../css/toolbar.css'
 import { useGameStore } from '../hooks/GameStore'
 import { useState } from 'react'
 
-function Toolbar() {
+function Toolbar({ setGameMode }) {
   const toolbarVisible = useGameStore((state) => state.toolbarVisible)
   const moveLocation = useGameStore((state) => state.moveLocation)
   const getLocations = useGameStore((state) => state.getLocations)
@@ -34,6 +34,10 @@ function Toolbar() {
     moveLocation(loc)
   }
 
+  const handleRestart = () => {
+    setGameMode('main-menu')
+  }
+
   const handleReset = () => {
     localStorage.removeItem('game-storage')
     window.location.reload()
@@ -58,6 +62,7 @@ function Toolbar() {
           <button onClick={()=>setSubMenu('locations')}>Locations</button>
           <button>Inventory</button>
           <button>Options</button>
+          <button onClick={()=>handleRestart()}>Restart</button>
           {devMode && <button onClick={()=>handleReset()}>Reset Store</button>}
         </div>
       </div>

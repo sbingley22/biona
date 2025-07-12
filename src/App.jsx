@@ -1,10 +1,15 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import Game from './components/Game'
+import MainMenu from './components/MainMenu'
 
 function App() {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
   const [showInstall, setShowInstall] = useState(false);
+  
+  const [gameMode, setGameMode] = useState('main-menu')
+  //const [gameMode, setGameMode] = useState('story')
+  //const [gameMode, setGameMode] = useState('battle')
 
   useEffect(() => {
     const handler = (e) => {
@@ -46,7 +51,11 @@ function App() {
         </button>
       )}
 
-      <Game />
+      {gameMode==='main-menu' && <MainMenu setGameMode={setGameMode} />}
+
+      {gameMode==='story' && <Game setGameMode={setGameMode} />}
+
+      {gameMode==='battle' && <Game setGameMode={setGameMode} />}
 
     </div>
   )

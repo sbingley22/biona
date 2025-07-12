@@ -6,7 +6,7 @@ import BattleMode from '../components/BattleMode'
 import { useGameStore } from '../hooks/GameStore'
 import dialogData from '../assets/data/dialog.json'
 
-function Game() {
+function Game({ setGameMode }) {
   const background = useGameStore((state) => state.background)
   const day = useGameStore((state) => state.day)
   const mode = useGameStore((state) => state.mode)
@@ -52,7 +52,7 @@ function Game() {
 
       {mode === "battle" && <BattleMode />}
 
-      <Toolbar />
+      <Toolbar setGameMode={setGameMode} />
 
       <div id='day-notifier' className={showDayNotifier ? 'visible' : ''}>
         <p>Day: {day}</p>
