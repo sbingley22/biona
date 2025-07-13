@@ -19,8 +19,8 @@
         "name": "ROS Grenade",
         "type": "ros",
         "multi": true,
-        "dmg": 25,
-        "cost": ["energy", 15, "health", 5],
+        "dmg": 20,
+        "cost": ["energy", 30, "health", 20],
         "effect": {"type": "ros", "turns": 2, "dmg": 9},
         "description": "Damage all enemies with a burst of ROS for 2 turns. Costs 15 energy and 5 health."
       },
@@ -79,6 +79,49 @@
     ],
     "weaknesses": [
       "physical"
+    ],
+    "strengths": [
+      "antibodies"
+    ]
+  },
+  "t-cell": {
+    "name": "T Cell",
+    "img-url": "./bionas/t-cell/",
+    "stats": {
+      "health": 50,
+      "energy": 60
+    },
+    "actions": [
+      {
+        "level": 0,
+        "name": "Shoot",
+        "type": "physical",
+        "dmg": 25,
+        "description": "Blast a single combatent for 25 damage."
+      },
+      {
+        "level": 0,
+        "name": "Air Strike",
+        "type": "ros",
+        "multi": true,
+        "dmg": 45,
+        "cost": ["energy", 25, "health", 25],
+        "effect": {"type": "ros", "turns": 3, "dmg": 10},
+        "description": "Bombard a party of pathogens with ROS for 3 turns. Costs 25 energy and 25 health."
+      },
+      {
+        "level": 0,
+        "name": "Target Locked",
+        "type": "antibody",
+        "multi": false,
+        "dmg": 50,
+        "cost": ["energy", 20],
+        "effect": {"type": "antibody", "turns": 3, "dmg": 1},
+        "description": "Use antibodies to cleanly target an enemy combatant. Inflicts antibodies, costs 20 energy."
+      }
+    ],
+    "weaknesses": [
+      "poison"
     ],
     "strengths": [
       "antibodies"

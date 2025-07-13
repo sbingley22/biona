@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import Game from './components/Game'
+import Survival from './components/Survival'
 import MainMenu from './components/MainMenu'
 
 function App() {
-  const [deferredPrompt, setDeferredPrompt] = useState(null);
-  const [showInstall, setShowInstall] = useState(false);
+  const [deferredPrompt, setDeferredPrompt] = useState(null)
+  const [showInstall, setShowInstall] = useState(false)
   
   const [gameMode, setGameMode] = useState('main-menu')
   //const [gameMode, setGameMode] = useState('story')
@@ -13,35 +14,35 @@ function App() {
 
   useEffect(() => {
     const handler = (e) => {
-      e.preventDefault();
-      setDeferredPrompt(e);
-      setShowInstall(true);
+      e.preventDefault()
+      setDeferredPrompt(e)
+      setShowInstall(true)
     };
 
     setTimeout(()=>{
       setShowInstall(false)
     }, 1000 * 5)
 
-    window.addEventListener('beforeinstallprompt', handler);
+    window.addEventListener('beforeinstallprompt', handler)
 
     return () => {
-      window.removeEventListener('beforeinstallprompt', handler);
-    };
-  }, []);
+      window.removeEventListener('beforeinstallprompt', handler)
+    }
+  }, [])
 
   useEffect(() => {
     //console.log('App mounted');
-  }, []);
+  }, [])
 
   const handleInstallClick = async () => {
     if (deferredPrompt) {
-      deferredPrompt.prompt();
-      const { outcome } = await deferredPrompt.userChoice;
-      console.log(`User response to install prompt: ${outcome}`);
-      setDeferredPrompt(null);
-      setShowInstall(false);
+      deferredPrompt.prompt()
+      const { outcome } = await deferredPrompt.userChoice
+      console.log(`User response to install prompt: ${outcome}`)
+      setDeferredPrompt(null)
+      setShowInstall(false)
     }
-  };
+  }
 
   return (
     <div id='app'>
@@ -55,7 +56,7 @@ function App() {
 
       {gameMode==='story' && <Game setGameMode={setGameMode} />}
 
-      {gameMode==='battle' && <Game setGameMode={setGameMode} />}
+      {gameMode==='battle' && <Survival setGameMode={setGameMode} />}
 
     </div>
   )

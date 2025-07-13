@@ -4,12 +4,12 @@ import stages from '../assets/data/stages.json'
 import { useEffect, useState } from 'react'
 import { findNonMatchingStrings } from '../utils/battleUtils'
 
-function BattlePrep() {
+function BattlePrep({ isSurvivalMode=false, setGameMode=null }) {
   const handleAction = useGameStore((state) => state.handleAction)
   const setMode = useGameStore((state) => state.setMode)
   const moveLocation = useGameStore((state) => state.moveLocation)
   const setArena = useGameStore((state) => state.setArena)
-  const stage = useGameStore((state) => state.stage)
+  const stage = isSurvivalMode ? "survival" : useGameStore((state) => state.stage)
   const stageLevels = useGameStore((state) => state.stageLevels)
   const convertCharacterName = useGameStore((state) => state.convertCharacterName)
   const party = useGameStore((state) => state.party)
@@ -41,7 +41,7 @@ function BattlePrep() {
   }, [stage])
 
   const handleArenaClick = (index) => {
-    if (index > stageLevel) {
+    if (!isSurvivalMode && index > stageLevel) {
       console.warn("Cannot go to this stage yet", stageLevel, index)
       return
     }
@@ -75,6 +75,10 @@ function BattlePrep() {
   }
 
   const handleLeave = () => {
+    if (isSurvivalMode) {
+      setGameMode('main-menu')
+      return
+    }
     setArena(null)
     setMode("vn")
     moveLocation('hospital-room')
@@ -89,7 +93,7 @@ function BattlePrep() {
           <button
             key={a.name}
             onClick={()=>handleArenaClick(index)}
-            className={index > stageLevel ? 'locked': ''}
+            className={index > stageLevel && !isSurvivalMode ? 'locked': ''}
           >{a.name}</button>
         ))}
       </div>

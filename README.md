@@ -57,11 +57,12 @@ Todo:
 - ~~add day 14 events~~
 - ~~add a file for the story outline.~~
 - ~~add main menu (story, battle mode, reset data)~~
-- add battle mode (survival mode, uses same characters that have been unlocked in story, restores health at the end. allows leveling up.)
+- ~~add how to play info.~~
+- ~~add survival mode (survival mode, uses same characters that have been unlocked in story, restores health at the end. allows leveling up.)~~
 - add sofias dungeon
 - add some more pathogen
 - implement a leveling up system (unlock new attacks)
-- upon death you just get to try again with full health and energy (keeping your earned xp)
+- ~~upon death you just get to try again with full health and energy (keeping your earned xp)~~
 - make ui mobile friendly
 - implement a shop
 - implement day routine behaviour (talking to characters, revising, earning money)

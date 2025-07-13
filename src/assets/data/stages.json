@@ -1,4 +1,33 @@
 {
+  "survival": [
+    {
+      "name": "easy 1",
+      "background": 1,
+      "enemies": [
+        "hookworm",
+        "streptococcus"
+      ]
+    },
+    {
+      "name": "easy 2",
+      "background": 2,
+      "enemies": [
+        "nk-psycho",
+        "hookworm",
+        "nk-psycho"
+      ]
+    },
+    {
+      "name": "easy 3",
+      "background": 3,
+      "enemies": [
+        "streptococcus",
+        "hookworm",
+        "streptococcus"
+      ]
+    }
+  ],
+
   "sean": [
     {
       "name": "begining",
@@ -39,6 +68,7 @@
       ]
     }
   ],
+
   "sofia": [
     {
       "name": "prison",

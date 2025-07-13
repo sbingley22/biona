@@ -4,7 +4,7 @@ import { useGameStore } from '../hooks/GameStore'
 import { convertTypeNames } from '../utils/battleUtils'
 import Inventory from './Inventory'
 
-function PartyActions({ turn, turnIndex, setTurnIndex, textInfo, setTextInfo, bionaImage, handleActionClick, allyRef }) {
+function PartyActions({ isSurvivalMode=false, setGameMode=null, turn, turnIndex, setTurnIndex, textInfo, setTextInfo, bionaImage, handleActionClick, allyRef }) {
   const setMode = useGameStore((state) => state.setMode)
   const moveLocation = useGameStore((state) => state.moveLocation)
   const handleAction = useGameStore((state) => state.handleAction)
@@ -28,7 +28,22 @@ function PartyActions({ turn, turnIndex, setTurnIndex, textInfo, setTextInfo, bi
     setPartyStats(tempPartyStats)
   }
 
+  const restoreAllPartyStats = () => {
+    const tempPartyStats = {...partyStats}
+    Object.keys(tempPartyStats).forEach(name => {
+      tempPartyStats[name].health = tempPartyStats[name].maxHealth
+      tempPartyStats[name].energy = tempPartyStats[name].maxEnergy
+    })
+    setPartyStats(tempPartyStats)
+  }
+
   const exitBattle = (leaveBattleMode = false) => {
+    if (isSurvivalMode) {
+      removeAllStatusEffects()
+      setArena(null)
+      return
+    }
+
     removeAllStatusEffects()
     incrementStageLevel()
     setArena(null)
@@ -41,12 +56,14 @@ function PartyActions({ turn, turnIndex, setTurnIndex, textInfo, setTextInfo, bi
 
   const handleTextClick = () => {
     if (textInfo[0].character === "stage won") {
+      restoreAllPartyStats()
       if (arena.outro) setTextInfo(arena.outro)
       else exitBattle()
       return
     }
     if (textInfo[0].character === "stage lost") {
       removeAllStatusEffects()
+      restoreAllPartyStats()
       setArena(null)
       return
     }

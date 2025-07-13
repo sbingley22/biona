@@ -62,7 +62,18 @@ export const useGameStore = create(
       setAllies: (newAllies) => set(() => ({ allies: newAllies })),
       addAlly: (newAlly) => set((state) => ({ allies: [...state.allies, newAlly] })),
       party: ['sean', 'sofia'],
-      setParty: (newParty) => set(() => ({ party: newParty })),
+      //setParty: (newParty) => set(() => ({ party: newParty })),
+      setParty: (newParty) => set(() => { 
+        const tempBionas = []
+        newParty.forEach(member => {
+          tempBionas.push(alliesData[defaultPartyStats[member].biona])
+        })
+
+        return {
+          party: newParty,
+          bionas: tempBionas,
+        }
+      }),
       partyStats: defaultPartyStats,
       setPartyStats: (newStats) => set(() => ({ partyStats: newStats })),
       bionas: [alliesData['nk-cell'], alliesData['b-cell']],

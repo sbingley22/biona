@@ -7,7 +7,7 @@ import { usePlayer } from '../hooks/usePlayer'
 import EnemyContainer from './EnemyContainer'
 import PartyActions from './PartyActions'
 
-function Arena() {
+function Arena({ isSurvivalMode=false, setGameMode=null }) {
   const arena = useGameStore((state) => state.arena)
   const party = useGameStore((state) => state.party)
   const partyStats = useGameStore((state) => state.partyStats)
@@ -56,6 +56,7 @@ function Arena() {
 
   // load arena
   useEffect(()=>{
+    //debugger
     if (arena.intro) setTextInfo(arena.intro)
     if (arena.enemies) {
       const tempEnemies = []
@@ -219,6 +220,8 @@ function Arena() {
       />
 
       <PartyActions
+        isSurvivalMode={isSurvivalMode}
+        setGameMode={setGameMode}
         turn={turn}
         turnIndex={turnIndex}
         setTurnIndex={setTurnIndex}
