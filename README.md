@@ -59,11 +59,11 @@ Todo:
 - ~~add main menu (story, battle mode, reset data)~~
 - ~~add how to play info.~~
 - ~~add survival mode (survival mode, uses same characters that have been unlocked in story, restores health at the end. allows leveling up.)~~
-- add sofias dungeon
-- add some more pathogen
-- implement a leveling up system (unlock new attacks)
 - ~~upon death you just get to try again with full health and energy (keeping your earned xp)~~
+- ~~implement a leveling up system (unlock new attacks)~~
 - make ui mobile friendly
+- add some more pathogen
+- add sofias dungeon
 - implement a shop
 - implement day routine behaviour (talking to characters, revising, earning money)
 - complete Sofia plot line.

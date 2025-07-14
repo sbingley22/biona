@@ -118,7 +118,8 @@ export const usePlayer = ({
       tempText[tempText.length - 1].character = "turn end"
       setEnemies(tempEnemies)
       setWeaknesses(tempWeaknesses)
-      setTextInfo(tempText)
+      //setTextInfo(tempText)
+      setTextInfo(tempText.slice(-1))
 
     } else {
       const [text, weak] = damageEnemy(selectedEnemy, enemyBio, action.type, action.dmg, action.effect)

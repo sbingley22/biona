@@ -12,9 +12,9 @@
       "name": "easy 2",
       "background": 2,
       "enemies": [
-        "nk-psycho",
         "hookworm",
-        "nk-psycho"
+        "streptococcus",
+        "hookworm"
       ]
     },
     {
@@ -23,7 +23,36 @@
       "enemies": [
         "streptococcus",
         "hookworm",
-        "streptococcus"
+        "streptococcus",
+        "hookworm"
+      ]
+    },
+    {
+      "name": "medium 1",
+      "background": 1,
+      "enemies": [
+        "hookworm",
+        "streptococcus",
+        "nk-psycho"
+      ]
+    },
+    {
+      "name": "medium 2",
+      "background": 2,
+      "enemies": [
+        "nk-psycho",
+        "hookworm",
+        "nk-psycho"
+      ]
+    },
+    {
+      "name": "medium 3",
+      "background": 3,
+      "enemies": [
+        "nk-psycho",
+        "streptococcus",
+        "hookworm",
+        "nk-psycho"
       ]
     }
   ],

@@ -16,6 +16,15 @@
       },
       {
         "level": 0,
+        "name": "Poison Tip",
+        "type": "poison",
+        "dmg": 5,
+        "cost": ["energy", 25],
+        "effect": {"type": "poison", "turns": 2, "dmg": 2},
+        "description": "Poison your opponent for 2 turns. Costs 25 energy"
+      },
+      {
+        "level": 4,
         "name": "ROS Grenade",
         "type": "ros",
         "multi": true,
@@ -25,13 +34,14 @@
         "description": "Damage all enemies with a burst of ROS for 2 turns. Costs 15 energy and 5 health."
       },
       {
-        "level": 0,
-        "name": "Poison Tip",
-        "type": "poison",
-        "dmg": 5,
-        "cost": ["energy", 25],
-        "effect": {"type": "poison", "turns": 2, "dmg": 2},
-        "description": "Poison your opponent for 2 turns. Costs 25 energy"
+        "level": 10,
+        "name": "Acidity",
+        "type": "ph",
+        "multi": true,
+        "dmg": 15,
+        "cost": ["energy", 25, "health", 30],
+        "effect": {"type": "ph", "turns": 2, "dmg": 20},
+        "description": "Coat the environment in acid for 2 turns dealing aditional damage. Costs 25 energy, 30 health."
       }
     ],
     "weaknesses": [
@@ -57,7 +67,7 @@
         "description": "Blast a single combatent for 15 damage."
       },
       {
-        "level": 0,
+        "level": 3,
         "name": "Antibody Rounds",
         "type": "antibody",
         "multi": true,
@@ -67,7 +77,7 @@
         "description": "Stick all enemies antibodies for 3 turns. Antibodies make subsequent attacks do more damage. Costs 25 energy."
       },
       {
-        "level": 0,
+        "level": 7,
         "name": "Antibody Snipe",
         "type": "antibody",
         "multi": false,
@@ -100,7 +110,7 @@
         "description": "Blast a single combatent for 25 damage."
       },
       {
-        "level": 0,
+        "level": 6,
         "name": "Air Strike",
         "type": "ros",
         "multi": true,
@@ -110,7 +120,7 @@
         "description": "Bombard a party of pathogens with ROS for 3 turns. Costs 25 energy and 25 health."
       },
       {
-        "level": 0,
+        "level": 3,
         "name": "Target Locked",
         "type": "antibody",
         "multi": false,

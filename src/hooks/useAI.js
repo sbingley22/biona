@@ -9,14 +9,16 @@ export const useAI = (bionas, party, partyStats, setTextInfo, setTurnIndex, ally
 
     if (action.type === "skip") {
       setTextInfo([{ character: "turn end", text: `${ai.name} skipped their turn.` }])
-    } else if (action.multi) {
+    } 
+    else if (action.multi) {
       const info = party.map((_, i) => ({
         character: "",
         text: damagePlayer(index, i, action, ai.name)
       }))
       info[info.length - 1].character = "turn end"
       setTextInfo(info)
-    } else {
+    } 
+    else {
       const text = damagePlayer(index, playerIndex, action, ai.name)
       setTextInfo([{ character: "turn end", text }])
     }

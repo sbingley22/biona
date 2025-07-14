@@ -62,7 +62,6 @@ export const useGameStore = create(
       setAllies: (newAllies) => set(() => ({ allies: newAllies })),
       addAlly: (newAlly) => set((state) => ({ allies: [...state.allies, newAlly] })),
       party: ['sean', 'sofia'],
-      //setParty: (newParty) => set(() => ({ party: newParty })),
       setParty: (newParty) => set(() => { 
         const tempBionas = []
         newParty.forEach(member => {
@@ -76,6 +75,21 @@ export const useGameStore = create(
       }),
       partyStats: defaultPartyStats,
       setPartyStats: (newStats) => set(() => ({ partyStats: newStats })),
+      levelUpParty: () => set((state) => {
+        const tempPartyStats = {...state.partyStats}
+
+        Object.keys(tempPartyStats).forEach((name) => {
+          const member = tempPartyStats[name]
+          member.level += 1
+          member.maxHealth += 5
+          member.maxEnergy += 5
+        })
+
+        return {
+          partyStats: tempPartyStats,
+        }
+      }),
+
       bionas: [alliesData['nk-cell'], alliesData['b-cell']],
       setBionas: (newBionas) => set(() => ({ bionas: newBionas })),
 

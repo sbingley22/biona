@@ -3,8 +3,8 @@
     "name": "NK Psycho",
     "img-url": "./bionas/nk-cell-psycho/",
     "stats": {
-      "health": 55,
-      "energy": 30
+      "health": 95,
+      "energy": 50
     },
     "actions": [
       {

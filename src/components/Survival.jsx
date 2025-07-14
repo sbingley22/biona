@@ -5,7 +5,6 @@ import { useGameStore } from '../hooks/GameStore'
 
 function Survival({ setGameMode }) {
   const background = useGameStore((state) => state.background)
-  const mode = useGameStore((state) => state.mode)
   const setDevMode = useGameStore((state) => state.setDevMode)
   const setArena = useGameStore((state) => state.setArena)
 
@@ -21,7 +20,7 @@ function Survival({ setGameMode }) {
         <img 
           id='background-img'
           src={`./locations/${background}`}
-          className={mode==="battle" ? "blur" : ""}
+          className="blur"
         />
       </div>
 

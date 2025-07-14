@@ -15,6 +15,7 @@ function PartyActions({ isSurvivalMode=false, setGameMode=null, turn, turnIndex,
   const party = useGameStore((state) => state.party)
   const partyStats = useGameStore((state) => state.partyStats)
   const setPartyStats = useGameStore((state) => state.setPartyStats)
+  const levelUpParty = useGameStore((state) => state.levelUpParty)
   const bionas = useGameStore((state) => state.bionas)
 
   const [showInventory, setShowInventory] = useState(false)
@@ -57,6 +58,7 @@ function PartyActions({ isSurvivalMode=false, setGameMode=null, turn, turnIndex,
   const handleTextClick = () => {
     if (textInfo[0].character === "stage won") {
       restoreAllPartyStats()
+      levelUpParty()
       if (arena.outro) setTextInfo(arena.outro)
       else exitBattle()
       return
@@ -132,6 +134,8 @@ function PartyActions({ isSurvivalMode=false, setGameMode=null, turn, turnIndex,
           </div>}
           {turn && bionas.map((bio, i) => {
             if (i !== turnIndex) return null
+            const level = partyStats[party[i]].level
+            //console.log(bio, party[i], level)
             return (
               <div key={'bio' + i} className='biona-actions'>
                 {bio.actions.map(ba => (
@@ -142,6 +146,7 @@ function PartyActions({ isSurvivalMode=false, setGameMode=null, turn, turnIndex,
                     onTouchStart={()=>handleHelpClick(ba)}
                     onContextMenu={(e)=>handleHelpClick(e, ba)}
                     title={ba.description? ba.description : null}
+                    style={{display: ba.level <= level ? 'inline' : 'none'}}
                   >
                     <p style={{color: '#999', fontWeight: 'bold'}}>{ba.name}</p>
                     <div className='dmg-type'>
