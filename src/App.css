@@ -3,6 +3,7 @@
   padding: 0;
   text-align: center;
   background: black;
+  background: transparent;
   box-sizing: border-box;
   display: flex;
   justify-content: center;

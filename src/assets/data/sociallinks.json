@@ -1,0 +1,43 @@
+{
+  "nurse": [
+    {
+      "character": "nurse",
+      "emotion": "happy",
+      "background": null,
+      "text": [
+        "Looks like you need patching up!"
+      ],
+      "actions": [{"action": "next-day"}]
+    }
+  ],
+  "sofia": [
+    {
+      "character": "sofia",
+      "emotion": "happy",
+      "background": null,
+      "text": [
+        "Lets discuss tactics!"
+      ]
+    }
+  ],
+  "boy": [
+    {
+      "character": "boy",
+      "emotion": "happy",
+      "background": null,
+      "text": [
+        "Alright! Lets play some football!!!"
+      ]
+    }
+  ],
+  "cat": [
+    {
+      "character": "sean",
+      "emotion": "happy",
+      "background": null,
+      "text": [
+        "Meow"
+      ]
+    }
+  ]
+}

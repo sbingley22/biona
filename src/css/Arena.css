@@ -281,6 +281,10 @@
     height: 35px;
   }
 
+  #party-actions {
+    font-size: 0.8rem;
+  }
+
   #extra-actions {
     font-size: 0.8rem;
   }
@@ -299,7 +303,11 @@
     font-size: 0.5rem;
   }
 
+  #biona-actions {
+    font-size: 0.8rem;
+  }
   .action-card {
+    min-width: 50px;
     max-width: 90px;
   }
   .action-card p {

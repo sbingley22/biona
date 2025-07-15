@@ -16,8 +16,8 @@
       },
       "actions": [
         { "action": "next-day"},
-        { "action": "heal", "value": 50 },
-        { "action": "energise", "value": 50 }
+        { "action": "heal", "value": 5 },
+        { "action": "energise", "value": 5 }
       ]
     },
     {
@@ -27,9 +27,7 @@
       "description": "Gather party and head to the bioverse",
       "conditions": {
         "days": [
-          [21,30],
-          [30,45],
-          [60,75]
+          [21,350]
         ] 
       },
       "actions": [
@@ -44,12 +42,12 @@
       "character": "nurse",
       "conditions": {
         "days": [
-          [20, 370]
+          [30, 370]
         ]
       },
       "actions": [
         { "action": "social-link", "value": "nurse" },
-        { "action": "heal", "value": 10 }
+        { "action": "heal", "value": 200 }
       ]
     },
     {
@@ -68,9 +66,13 @@
       "character": "sofia",
       "conditions": {
         "days": [
-          [25,345]
-        ] 
-      }
+          [30,345]
+        ]
+      },
+      "actions": [
+        { "action": "social-link", "value": "sofia" },
+        { "action": "heal", "value": 200 }
+      ]
     },
     {
       "activity": "talk-to-nurse", "type": "dialog", "character": "nurse",
@@ -86,7 +88,11 @@
         "days": [
           [25,345]
         ] 
-      }
+      },
+      "actions": [
+        { "action": "social-link", "value": "boy" },
+        { "action": "heal", "value": 100 }
+      ]
     }
   ],
   "hospital-garden": [
@@ -98,7 +104,11 @@
         "days": [
           [50,375]
         ] 
-      }
+      },
+      "actions": [
+        { "action": "social-link", "value": "cat" },
+        { "action": "heal", "value": 100 }
+      ]
     }
   ]
 }

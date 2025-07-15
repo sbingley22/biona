@@ -43,3 +43,21 @@
 #locations.show {
   display: flex;
 }
+
+@media(max-width: 768px) {
+  #main {
+    font-size: 0.8rem;
+    /*flex-wrap: wrap;*/
+  }
+
+  #container {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #opener {
+    width: 50px;
+    height: 100px;
+  }
+}

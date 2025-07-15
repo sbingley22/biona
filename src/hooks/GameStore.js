@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
 import dialogData from '../assets/data/dialog.json'
+import sociallinkData from '../assets/data/sociallinks.json'
 import locationData from '../assets/data/locations.json'
 import alliesData from '../assets/data/allies.json'
 import stages from '../assets/data/stages.json'
@@ -18,7 +19,7 @@ export const useGameStore = create(
       })),
       getLocations: Object.keys(locationData),
 
-      day: 20,
+      day: 30,
       setDay: (newDay) => set(() => ({ day: newDay })),
       nextDay: () => set((state) => ({ day: state.day + 1 })),
       advanceDay: (days) => set((state) => ({ day: state.day + days })),
@@ -144,7 +145,7 @@ export const useGameStore = create(
           state.setDialog(dialogData[action.value])
         }
         else if (a === 'social-link') {
-          state.setDialog(action.value)
+          state.setDialog(sociallinkData[action.value])
         }
         else if (a === 'go-to-dungeon') {
           state.setMode("battle")

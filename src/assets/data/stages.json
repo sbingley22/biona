@@ -103,7 +103,6 @@
       "name": "prison",
       "background": 2,
       "enemies": [
-        "hookworm",
         "streptococcus",
         "hookworm"
       ],
@@ -127,7 +126,6 @@
       "name": "guiding-light",
       "background": 1,
       "enemies": [
-        "nk-psycho",
         "hookworm",
         "streptococcus"
       ],
@@ -138,6 +136,120 @@
       "outro": [
         {"character": "sean", "text": "I think we're getting somewhere."},
         {"character": "sofia", "text": "Hopefully thats the last of those monsters."},
+        {"character": "stage complete", "text": ""}
+      ]
+    },
+    {
+      "name": "2",
+      "background": 3,
+      "enemies": [
+        "streptococcus"
+      ],
+      "intro": [
+        {"character": "sean", "text": "Lets do this!"}
+      ],
+      "outro": [
+        {"character": "sean", "text": "We did it!"},
+        {"character": "stage complete", "text": ""}
+      ]
+    },
+    {
+      "name": "3",
+      "background": 3,
+      "enemies": [
+        "streptococcus"
+      ],
+      "intro": [
+        {"character": "sean", "text": "Lets do this!"}
+      ],
+      "outro": [
+        {"character": "sean", "text": "We did it!"},
+        {"character": "stage complete", "text": ""}
+      ]
+    },
+    {
+      "name": "4",
+      "background": 3,
+      "enemies": [
+        "streptococcus"
+      ],
+      "intro": [
+        {"character": "sean", "text": "Lets do this!"}
+      ],
+      "outro": [
+        {"character": "sean", "text": "We did it!"},
+        {"character": "stage complete", "text": ""}
+      ]
+    },
+    {
+      "name": "5",
+      "background": 3,
+      "enemies": [
+        "streptococcus"
+      ],
+      "intro": [
+        {"character": "sean", "text": "Lets do this!"}
+      ],
+      "outro": [
+        {"character": "sean", "text": "We did it!"},
+        {"character": "stage complete", "text": ""}
+      ]
+    },
+    {
+      "name": "6",
+      "background": 3,
+      "enemies": [
+        "streptococcus"
+      ],
+      "intro": [
+        {"character": "sean", "text": "Lets do this!"}
+      ],
+      "outro": [
+        {"character": "sean", "text": "We did it!"},
+        {"character": "stage complete", "text": ""}
+      ]
+    },
+    {
+      "name": "7",
+      "background": 3,
+      "enemies": [
+        "streptococcus"
+      ],
+      "intro": [
+        {"character": "sean", "text": "Lets do this!"}
+      ],
+      "outro": [
+        {"character": "sean", "text": "We did it!"},
+        {"character": "stage complete", "text": ""}
+      ]
+    },
+    {
+      "name": "8",
+      "background": 3,
+      "enemies": [
+        "streptococcus"
+      ],
+      "intro": [
+        {"character": "sean", "text": "Lets do this!"}
+      ],
+      "outro": [
+        {"character": "sean", "text": "We did it!"},
+        {"character": "stage complete", "text": ""}
+      ]
+    },
+    {
+      "name": "Breaking Free!",
+      "background": 3,
+      "enemies": [
+        "streptococcus",
+        "nk-psycho",
+        "nk-psycho"
+      ],
+      "intro": [
+        {"character": "sean", "text": "Lets do this!"}
+      ],
+      "outro": [
+        {"character": "sean", "text": "We did it!"},
         {"character": "stage complete", "text": ""}
       ]
     }

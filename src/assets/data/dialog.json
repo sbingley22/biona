@@ -619,6 +619,79 @@
         "Was that real?!",
         "I need to get back to Sofia! I have to help her escape!"
       ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": "./special/sofia-sleeping.png",
+      "text": [
+        "Sofia? Can you hear me?",
+        "[No response but you know she's in there!]",
+        "You reach out to grab her hand.",
+        "Suddenly a spark jolts through your brain!"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": "./special/sofia-prison.png",
+      "text": [
+        "Thank god your still here."
+      ]
+    },
+    {      
+      "character": "sofia", "emotion": "happy", "background": "./special/sofia-prison.png",
+      "text": [
+        "You're back!",
+        "As soon as you left I collapsed and woke up back in this prison!"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "Let me get you out of there!",
+        "It looks like the path we cleared earlier leads to the way out.",
+        "Oh dear more pathogens in our way. Are you ready?"
+      ]
+    },
+    {      
+      "character": "sofia", "emotion": "angry", "background": "./special/sofia-prison.png",
+      "text": [
+        "I'd rather die than go back to that prison!",
+        "Bring it on!"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "Ok, here goes!"
+      ],
+      "actions": [
+        {"action": "set-stage", "value": "sofia"},
+        {"action": "go-to-dungeon-battle", "value": 1}
+      ]
+    }
+  ],
+  "day-22": [
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "This is really tiring me out!",
+        "I can go to Sofias bioverse any time I want. But I should take care to not overexert myself",
+        "If I need to heal I can sleep in for the day or ask the nurse for help",
+        "I should try to rescue Sofia as soon as I can.",
+        "I've got a bizzare feeling that it'll all come to a head in a weeks time!"
+      ]
+    }
+  ],
+  "day-29": [
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "I've got an uneasy feeling about today.",
+        "I have to break Sofia out by the end of today!",
+        "No backing down!"
+      ],
+      "actions": [
+        {"action": "set-stage", "value": "sofia"},
+        {"action": "go-to-dungeon-battle", "value": 9}
+      ]
     }
   ]
 }
