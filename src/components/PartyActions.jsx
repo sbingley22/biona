@@ -117,14 +117,18 @@ function PartyActions({ isSurvivalMode=false, setGameMode=null, turn, turnIndex,
       </div>
 
       {textInfo && textInfo.length > 0 ? 
-        <div 
-          id='info'
+        <div
+          id='info-container'
           onClick={handleTextClick}
         >
-          {textInfo[0].character && textInfo[0].character !== "turn end" && 
-            <h3>{convertCharacterName(textInfo[0].character)}</h3>
-          }
-          <p>{textInfo[0].text}</p>
+          <div 
+            id='info'
+          >
+            {textInfo[0].character && textInfo[0].character !== "turn end" && 
+              <h3>{convertCharacterName(textInfo[0].character)}</h3>
+            }
+            <p>{textInfo[0].text}</p>
+          </div>
         </div>
       :
         <div id='party-actions'>

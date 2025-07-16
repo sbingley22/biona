@@ -63,7 +63,7 @@ Todo:
 - ~~implement a leveling up system (unlock new attacks)~~
 - ~~make ui mobile friendly~~
 - ~~replace social links with things like talking to nurse increases healing, talking to boy increases energy, talking tactics with sofia increases level.~~
-- Make clicking anywhere advance dialog in battle mode.
+- ~~make clicking anywhere advance dialog in battle mode.~~
 - add some more pathogens
 - going forwards make all events trigger on new days. Forget talking to people for events. Too much of a pain in the ass making sure the player can only do that one event.
 - have final arena only unlock on last day and force player to fight it in event

@@ -5,10 +5,19 @@
   overflow: hidden;
 }
 
-#info {
+#info-container {
   position: absolute;
   bottom: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+  justify-content: end;
+}
+
+#info {
   width: 100%;
   min-height: 220px;
   display: flex;
