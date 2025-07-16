@@ -64,9 +64,11 @@ Todo:
 - ~~make ui mobile friendly~~
 - ~~replace social links with things like talking to nurse increases healing, talking to boy increases energy, talking tactics with sofia increases level.~~
 - ~~make clicking anywhere advance dialog in battle mode.~~
-- add some more pathogens
+- ~~add some more pathogens~~
+- ~~add dev mode day chooser~~
+- ~~have final arena only unlock on last day and force player to fight it in event~~
+- ~~make spacebar also click~~
 - going forwards make all events trigger on new days. Forget talking to people for events. Too much of a pain in the ass making sure the player can only do that one event.
-- have final arena only unlock on last day and force player to fight it in event
 - complete sofias dungeon
 - implement a shop
 - implement day routine behaviour (talking to characters, revising, earning money)

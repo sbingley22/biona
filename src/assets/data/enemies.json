@@ -1,4 +1,94 @@
 {
+  "ebv": {
+    "name": "Epstein Barr Virus",
+    "img-url": "./bionas/ebv/",
+    "stats": {
+      "health": 70,
+      "energy": 70
+    },
+    "actions": [
+      {
+        "name": "Inject",
+        "type": "physical",
+        "dmg": 20
+      },
+      {
+        "name": "Infect",
+        "type": "antibodies",
+        "multi": true,
+        "dmg": 10,
+        "cost": ["energy", 45, "health", 30],
+        "effect": {"type": "antibodies", "turns": 3, "dmg": 1}
+      }
+    ],
+    "weaknesses": [
+      "antibodies"
+    ],
+    "strengths": [
+      "ph", "ros", "physical", "poison"
+    ],
+    "statusEffects": []
+  },
+  "amatoxin": {
+    "name": "Amatoxin",
+    "img-url": "./bionas/amatoxin/",
+    "stats": {
+      "health": 60,
+      "energy": 30
+    },
+    "actions": [
+      {
+        "name": "Grab",
+        "type": "physical",
+        "dmg": 20
+      },
+      {
+        "name": "Poison Barb",
+        "type": "poison",
+        "multi": false,
+        "dmg": 10,
+        "cost": ["energy", 25, "health", 20],
+        "effect": {"type": "poison", "turns": 2, "dmg": 1}
+      }
+    ],
+    "weaknesses": [
+      "ph", "ros", "physical"
+    ],
+    "strengths": [
+      "poison"
+    ],
+    "statusEffects": []
+  },
+  "covid-19": {
+    "name": "Covid 19",
+    "img-url": "./bionas/covid-19/",
+    "stats": {
+      "health": 120,
+      "energy": 70
+    },
+    "actions": [
+      {
+        "name": "Poke",
+        "type": "physical",
+        "dmg": 20
+      },
+      {
+        "name": "Spike Protein",
+        "type": "physical",
+        "multi": true,
+        "dmg": 30,
+        "cost": ["energy", 45, "health", 70],
+        "effect": {"type": "ros", "turns": 1, "dmg": 30}
+      }
+    ],
+    "weaknesses": [
+      "antibodies"
+    ],
+    "strengths": [
+      "ph", "ros", "physical", "poison"
+    ],
+    "statusEffects": []
+  },
   "nk-psycho": {
     "name": "NK Psycho",
     "img-url": "./bionas/nk-cell-psycho/",
@@ -27,7 +117,7 @@
     "strengths": [
       "antibodies"
     ],
-    "statusEffects": [{ "type": "antibodies", "turns": 3, "dmg": 5}]
+    "statusEffects": []
   },
   "streptococcus": {
     "name": "Streptococcus",

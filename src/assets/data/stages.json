@@ -21,7 +21,7 @@
       "name": "easy 3",
       "background": 3,
       "enemies": [
-        "streptococcus",
+        "amatoxin",
         "hookworm",
         "streptococcus",
         "hookworm"
@@ -40,7 +40,7 @@
       "name": "medium 2",
       "background": 2,
       "enemies": [
-        "nk-psycho",
+        "ebv",
         "hookworm",
         "nk-psycho"
       ]
@@ -50,9 +50,37 @@
       "background": 3,
       "enemies": [
         "nk-psycho",
-        "streptococcus",
+        "ebv",
         "hookworm",
+        "amatoxin"
+      ]
+    },
+    {
+      "name": "hard 1",
+      "background": 1,
+      "enemies": [
+        "hookworm",
+        "streptococcus",
+        "covid-19"
+      ]
+    },
+    {
+      "name": "hard 2",
+      "background": 2,
+      "enemies": [
+        "ebv",
+        "covid-19",
         "nk-psycho"
+      ]
+    },
+    {
+      "name": "hard 3",
+      "background": 3,
+      "enemies": [
+        "nk-psycho",
+        "covid-19",
+        "amatoxin",
+        "ebv"
       ]
     }
   ],
@@ -84,7 +112,7 @@
       "background": 1,
       "enemies": [
         "nk-psycho",
-        "hookworm",
+        "covid-19",
         "nk-psycho"
       ],
       "intro": [
@@ -127,7 +155,8 @@
       "background": 1,
       "enemies": [
         "hookworm",
-        "streptococcus"
+        "streptococcus",
+        "ebv"
       ],
       "intro": [
         {"character": "sean", "text": "We should follow the light. That has to lead to a way out right?"},
@@ -239,6 +268,7 @@
     },
     {
       "name": "Breaking Free!",
+      "unlock-day": 29,
       "background": 3,
       "enemies": [
         "streptococcus",

@@ -19,7 +19,7 @@ export const useGameStore = create(
       })),
       getLocations: Object.keys(locationData),
 
-      day: 30,
+      day: 23,
       setDay: (newDay) => set(() => ({ day: newDay })),
       nextDay: () => set((state) => ({ day: state.day + 1 })),
       advanceDay: (days) => set((state) => ({ day: state.day + days })),
@@ -62,7 +62,7 @@ export const useGameStore = create(
       allies: ['sean', 'sofia', 'boy'],
       setAllies: (newAllies) => set(() => ({ allies: newAllies })),
       addAlly: (newAlly) => set((state) => ({ allies: [...state.allies, newAlly] })),
-      party: ['sean', 'sofia'],
+      party: ['sean'],
       setParty: (newParty) => set(() => { 
         const tempBionas = []
         newParty.forEach(member => {
@@ -76,14 +76,14 @@ export const useGameStore = create(
       }),
       partyStats: defaultPartyStats,
       setPartyStats: (newStats) => set(() => ({ partyStats: newStats })),
-      levelUpParty: () => set((state) => {
+      levelUpParty: (levels=1) => set((state) => {
         const tempPartyStats = {...state.partyStats}
 
         Object.keys(tempPartyStats).forEach((name) => {
           const member = tempPartyStats[name]
-          member.level += 1
-          member.maxHealth += 5
-          member.maxEnergy += 5
+          member.level += levels
+          member.maxHealth += 5 * levels
+          member.maxEnergy += 5 * levels
         })
 
         return {

@@ -6,6 +6,7 @@ import { findNonMatchingStrings } from '../utils/battleUtils'
 
 function BattlePrep({ isSurvivalMode=false, setGameMode=null }) {
   const handleAction = useGameStore((state) => state.handleAction)
+  const day = useGameStore((state) => state.day)
   const setMode = useGameStore((state) => state.setMode)
   const moveLocation = useGameStore((state) => state.moveLocation)
   const setArena = useGameStore((state) => state.setArena)
@@ -19,6 +20,7 @@ function BattlePrep({ isSurvivalMode=false, setGameMode=null }) {
   const [arenaList, setArenaList] = useState([])
   const [selectedSlot, setSelectedSlot] = useState(-1)
   const [availableAllies, setAvailableAllies] = useState([])
+  const [finalStageDay, setFinalStageDay] = useState(null)
 
   const stageLevel = stageLevels[stage]
 
@@ -38,6 +40,11 @@ function BattlePrep({ isSurvivalMode=false, setGameMode=null }) {
       })
     })
     setArenaList(tempArenaList)
+
+    if (tempArenaList[tempArenaList.length-1]["unlock-day"]) {
+      setFinalStageDay(tempArenaList[tempArenaList.length-1]["unlock-day"])
+      console.log("Unlock day:", tempArenaList[tempArenaList.length-1]["unlock-day"])
+    }
   }, [stage])
 
   const handleArenaClick = (index) => {
@@ -49,6 +56,10 @@ function BattlePrep({ isSurvivalMode=false, setGameMode=null }) {
     if (!a) {
       console.warn(`Couldn't find arena for ${stage} at ${index}`)
     }
+    if (a["unlock-day"] && a["unlock-day"] < day) {
+      console.warn("Not unlock day", day, a["unlock-day"])
+      return
+    } 
     setArena(a)
   }
 
@@ -89,13 +100,18 @@ function BattlePrep({ isSurvivalMode=false, setGameMode=null }) {
     <div id='battle-prep'>
       <div id='stage-selection'>
         <h3>{convertCharacterName(stage)}</h3>
-        {arenaList.map((a, index) => (
-          <button
+        {arenaList.map((a, index) => {
+          let style = ''
+          if (!isSurvivalMode) {
+            if (index > stageLevel) style = 'locked'
+            if (day !== finalStageDay && a["unlock-day"]) style = 'locked'
+          }
+          return (<button
             key={a.name}
             onClick={()=>handleArenaClick(index)}
-            className={index > stageLevel && !isSurvivalMode ? 'locked': ''}
-          >{a.name}</button>
-        ))}
+            className={style}
+          >{a.name}</button>)
+        })}
       </div>
 
       <div id='party-selection'>

@@ -10,7 +10,10 @@ function Game({ setGameMode }) {
   const background = useGameStore((state) => state.background)
   const day = useGameStore((state) => state.day)
   const mode = useGameStore((state) => state.mode)
+  const devMode = useGameStore((state) => state.devMode)
   const setDevMode = useGameStore((state) => state.setDevMode)
+  const setParty = useGameStore((state) => state.setParty)
+  const levelUpParty = useGameStore((state) => state.levelUpParty)
   const moveLocation = useGameStore((state) => state.moveLocation)
   const setDialog = useGameStore((state) => state.setDialog)
   const [showDayNotifier, setShowDayNotifier] = useState(false)
@@ -18,6 +21,11 @@ function Game({ setGameMode }) {
   useEffect(()=>{
     setDevMode(true)
   }, [])
+
+  useEffect(()=>{
+    setParty(['sean', 'sofia', 'boy'])
+    levelUpParty(10)
+  }, [devMode])
 
   useEffect(()=>{
     moveLocation('hospital-room')

@@ -12,6 +12,7 @@ function App() {
   //const [gameMode, setGameMode] = useState('story')
   //const [gameMode, setGameMode] = useState('battle')
 
+  // show install button
   useEffect(() => {
     const handler = (e) => {
       e.preventDefault()
@@ -30,8 +31,36 @@ function App() {
     }
   }, [])
 
+  // allow space for clicking
   useEffect(() => {
-    //console.log('App mounted');
+    const handleSpacebar = (e) => {
+      if (e.code === 'Space' || e.key === ' ') {
+        e.preventDefault()
+
+        const { clientX, clientY } = getMousePosition()
+        const el = document.elementFromPoint(clientX, clientY)
+        
+        if (el && typeof el.click === 'function') {
+          el.click()
+        }
+      }
+    }
+
+    let mouseX = 0;
+    let mouseY = 0;
+    const getMousePosition = () => ({ clientX: mouseX, clientY: mouseY });
+    const handleMouseMove = (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    }
+
+    window.addEventListener('keydown', handleSpacebar)
+    window.addEventListener('mousemove', handleMouseMove)
+
+    return () => {
+      window.removeEventListener('keydown', handleSpacebar)
+      window.removeEventListener('mousemove', handleMouseMove)
+    }
   }, [])
 
   const handleInstallClick = async () => {
