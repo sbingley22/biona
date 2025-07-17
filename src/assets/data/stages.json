@@ -123,6 +123,24 @@
         {"character": "sean", "text": "One step closer."},
         {"character": "stage complete", "text": ""}
       ]
+    },
+    {
+      "name": "the-end",
+      "unlock-day": 300,
+      "background": 3,
+      "enemies": [
+        "nk-psycho",
+        "covid-19",
+        "nk-psycho",
+        "covid-19"
+      ],
+      "intro": [
+        {"character": "sean", "text": "This is it. Do or die."}
+      ],
+      "outro": [
+        {"character": "sean", "text": "I did it!"},
+        {"character": "stage complete", "text": ""}
+      ]
     }
   ],
 
@@ -165,13 +183,37 @@
       "outro": [
         {"character": "sean", "text": "I think we're getting somewhere."},
         {"character": "sofia", "text": "Hopefully thats the last of those monsters."},
+        {"character": "exit battle mode", "text": ""}
+      ],
+      "actions": [
+        {"action": "leave-battle-mode"}
+      ]
+    },
+    {
+      "name": "stepping forwards",
+      "background": 3,
+      "enemies": [
+        "streptococcus",
+        "hookworm",
+        "streptococcus",
+        "hookworm"
+      ],
+      "intro": [
+        {"character": "sofia", "text": "More of them!"},
+        {"character": "sean", "text": "Get ready!"}
+      ],
+      "outro": [
+        {"character": "sofia", "text": "We did it!"},
         {"character": "stage complete", "text": ""}
       ]
     },
     {
-      "name": "2",
-      "background": 3,
+      "name": "pushing through",
+      "background": 2,
       "enemies": [
+        "streptococcus",
+        "ebv",
+        "hookworm",
         "streptococcus"
       ],
       "intro": [
@@ -183,104 +225,82 @@
       ]
     },
     {
-      "name": "3",
-      "background": 3,
+      "name": "Can't lock me away!",
+      "background": 1,
       "enemies": [
-        "streptococcus"
+        "streptococcus",
+        "ebv",
+        "hookworm",
+        "ebv"
       ],
       "intro": [
-        {"character": "sean", "text": "Lets do this!"}
+        {"character": "sofia", "text": "You'll never lock me away again!"}
       ],
       "outro": [
-        {"character": "sean", "text": "We did it!"},
+        {"character": "sofia", "text": "That was a close one!"},
         {"character": "stage complete", "text": ""}
       ]
     },
     {
-      "name": "4",
+      "name": "I can see light!",
       "background": 3,
       "enemies": [
-        "streptococcus"
+        "streptococcus",
+        "ebv",
+        "hookworm"
       ],
       "intro": [
-        {"character": "sean", "text": "Lets do this!"}
+        {"character": "sofia", "text": "It's getting brighter and brigher!"},
+        {"character": "sean", "text": "We can't be far away from escaping this place!"}
       ],
       "outro": [
-        {"character": "sean", "text": "We did it!"},
+        {"character": "sean", "text": "Almost there"},
         {"character": "stage complete", "text": ""}
       ]
     },
     {
-      "name": "5",
-      "background": 3,
+      "name": "the final cage",
+      "background": 2,
       "enemies": [
+        "ebv",
+        "hookworm",
+        "ebv",
         "streptococcus"
       ],
       "intro": [
-        {"character": "sean", "text": "Lets do this!"}
+        {"character": "sean", "text": "If we can bust out of this cell we'll be free."},
+        {"character": "sofia", "text": "I'll believe it when I see it. This can't be just a dream!"}
       ],
       "outro": [
-        {"character": "sean", "text": "We did it!"},
-        {"character": "stage complete", "text": ""}
-      ]
-    },
-    {
-      "name": "6",
-      "background": 3,
-      "enemies": [
-        "streptococcus"
-      ],
-      "intro": [
-        {"character": "sean", "text": "Lets do this!"}
-      ],
-      "outro": [
-        {"character": "sean", "text": "We did it!"},
-        {"character": "stage complete", "text": ""}
-      ]
-    },
-    {
-      "name": "7",
-      "background": 3,
-      "enemies": [
-        "streptococcus"
-      ],
-      "intro": [
-        {"character": "sean", "text": "Lets do this!"}
-      ],
-      "outro": [
-        {"character": "sean", "text": "We did it!"},
-        {"character": "stage complete", "text": ""}
-      ]
-    },
-    {
-      "name": "8",
-      "background": 3,
-      "enemies": [
-        "streptococcus"
-      ],
-      "intro": [
-        {"character": "sean", "text": "Lets do this!"}
-      ],
-      "outro": [
-        {"character": "sean", "text": "We did it!"},
+        {"character": "sean", "text": "One more stage!"},
+        {"character": "sofia", "text": "Let's make sure we are well prepared for it!"},
+        {"character": "sofia", "text": "This might be my only chance!"},
         {"character": "stage complete", "text": ""}
       ]
     },
     {
       "name": "Breaking Free!",
       "unlock-day": 29,
-      "background": 3,
+      "background": 1,
       "enemies": [
         "streptococcus",
-        "nk-psycho",
+        "ebv",
         "nk-psycho"
       ],
       "intro": [
-        {"character": "sean", "text": "Lets do this!"}
+        {"character": "sean", "text": "These are the last pathogens to stand in our way."},
+        {"character": "sean", "text": "Give it everything you've got! Don't hold back!"},
+        {"character": "sofia", "text": "You don't have to tell me that!"}
       ],
       "outro": [
-        {"character": "sean", "text": "We did it!"},
-        {"character": "stage complete", "text": ""}
+        {"character": "sean", "text": "Did we do it?"},
+        {"character": "sean", "text": "Sofia? SOFIA!"},
+        {"character": "sean", "text": "Where did she go?"},
+        {"character": "sean", "text": "So tired..."},
+        {"character": "exit battle mode", "text": ""}
+      ],
+      "actions": [
+        {"action": "leave-battle-mode"}
       ]
     }
   ]

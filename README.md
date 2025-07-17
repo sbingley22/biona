@@ -68,10 +68,12 @@ Todo:
 - ~~add dev mode day chooser~~
 - ~~have final arena only unlock on last day and force player to fight it in event~~
 - ~~make spacebar also click~~
-- going forwards make all events trigger on new days. Forget talking to people for events. Too much of a pain in the ass making sure the player can only do that one event.
-- complete sofias dungeon
+- ~~make all new events trigger on new days. No talking to people for events.~~
+- ~~complete sofias dungeon~~
+- complete Sofia plot line.
+- implement currency
+- earn money by helping clean the wards (takes one day)
 - implement a shop
 - implement day routine behaviour (talking to characters, revising, earning money)
-- complete Sofia plot line.
 - complete Havier plot line.
 - complete Mystery plot line.

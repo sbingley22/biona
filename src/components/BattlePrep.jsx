@@ -36,14 +36,14 @@ function BattlePrep({ isSurvivalMode=false, setGameMode=null }) {
       tempArenaList.push({
         level: index,
         name: sa.name,
-        unlocked: true
+        "unlock-day": sa["unlock-day"]
       })
     })
     setArenaList(tempArenaList)
 
     if (tempArenaList[tempArenaList.length-1]["unlock-day"]) {
       setFinalStageDay(tempArenaList[tempArenaList.length-1]["unlock-day"])
-      console.log("Unlock day:", tempArenaList[tempArenaList.length-1]["unlock-day"])
+      //console.log("Unlock day:", tempArenaList[tempArenaList.length-1]["unlock-day"])
     }
   }, [stage])
 
@@ -56,7 +56,7 @@ function BattlePrep({ isSurvivalMode=false, setGameMode=null }) {
     if (!a) {
       console.warn(`Couldn't find arena for ${stage} at ${index}`)
     }
-    if (a["unlock-day"] && a["unlock-day"] < day) {
+    if (a["unlock-day"] && day < a["unlock-day"]) {
       console.warn("Not unlock day", day, a["unlock-day"])
       return
     } 
@@ -136,9 +136,9 @@ function BattlePrep({ isSurvivalMode=false, setGameMode=null }) {
         <button onClick={()=>setSelectedSlot(-1)}>Cancel</button>
       </div>}
 
-      <button id='leave-dungeon' onClick={handleLeave}>
+      {finalStageDay !== day && <button id='leave-dungeon' onClick={handleLeave}>
         Leave Bionaverse
-      </button>
+      </button>}
     </div>
   )
 }

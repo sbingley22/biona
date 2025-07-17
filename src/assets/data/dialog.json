@@ -690,7 +690,44 @@
       ],
       "actions": [
         {"action": "set-stage", "value": "sofia"},
-        {"action": "go-to-dungeon-battle", "value": 9}
+        {"action": "go-to-dungeon", "value": 9}
+      ]
+    }
+  ],
+  "day-30": [
+    {
+      "character": "nurse", "emotion": "happy", "background": null,
+      "text": [
+        "Wake up Mystery man! Wake up!",
+        "You'll never believe it!",
+        "Sofia has woke up!!!",
+        "After 10 years she's awake haha!",
+        "Bizzarely she wants to see you?!",
+        "I guess talking to her in her sleep did work after all.",
+        "Well? Say something!"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "I err... can't believe it.",
+        "wow!",
+        "[The nurse wisks you off to ward A]"
+      ],
+      "actions": [{"action": "move-location", "value": "hospital-ward-b"}]
+    },
+    {
+      "character": "doctor", "emotion": "idle", "background": null,
+      "text": [
+        "We think your immune system just finally go the upper hand on whatever was keeping you down.",
+        "Your B-Cell and Natural Killer Cell counts are way up",
+        "Yeah that's probably it!"
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "idle", "background": "./special/sofia-bed.png",
+      "text": [
+        "Mystery, is that you?"
       ]
     }
   ]

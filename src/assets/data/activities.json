@@ -42,7 +42,7 @@
       "character": "nurse",
       "conditions": {
         "days": [
-          [30, 370]
+          [23, 370]
         ]
       },
       "actions": [
@@ -66,7 +66,7 @@
       "character": "sofia",
       "conditions": {
         "days": [
-          [30,345]
+          [31,345]
         ]
       },
       "actions": [
@@ -86,7 +86,7 @@
       "character": "boy",
       "conditions": {
         "days": [
-          [25,345]
+          [50,345]
         ] 
       },
       "actions": [
@@ -102,7 +102,7 @@
       "character": "cat",
       "conditions": {
         "days": [
-          [50,375]
+          [25,375]
         ] 
       },
       "actions": [

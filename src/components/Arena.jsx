@@ -14,6 +14,7 @@ function Arena({ isSurvivalMode=false, setGameMode=null }) {
   const setPartyStats = useGameStore((state) => state.setPartyStats)
   const bionas = useGameStore((state) => state.bionas)
   const convertCharacterName = useGameStore((state) => state.convertCharacterName)
+  const devMode = useGameStore((state) => state.devMode)
 
   const [totalTurns, setTotalTurns] = useState(0)
   const [turn, setTurn] = useState(true)
@@ -144,12 +145,25 @@ function Arena({ isSurvivalMode=false, setGameMode=null }) {
     }
     // enemy turn
     else {
+      const turnTime = devMode ? 5 : 800
       setTimeout(()=>{
         const skipTurn = handleStatusEffects(false)
         if (!skipTurn) handleAiTurn(enemies[turnIndex], turnIndex)
-      }, 800)
+      }, turnTime)
     }
   }, [turnIndex])
+
+  // try to auto select new enemy.
+  useEffect(()=>{
+    if (selectedEnemy !== -1) return
+    for (let i = 0; i < enemies.length; i++) {
+      const enemy = enemies[i];
+      if (enemy.stats.health > 0) {
+        setSelectedEnemy(i)
+        return
+      }
+    }
+  }, [selectedEnemy])
 
   const handleStatusEffects = (ally=true) => {
     if (totalTurns === 0) return false // skip so you don't die immidiately
