@@ -729,6 +729,241 @@
       "text": [
         "Mystery, is that you?"
       ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "Sofia?",
+        "It worked!"
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "happy", "background": "./special/sofia-bed.png",
+      "text": [
+        "You’re real. I wasn’t sure. Some days I thought you were just a dream.",
+        "But you were always there. Always fighting for me."
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": "./special/sofia-bed.png",
+      "text": [
+        "I didn't know if you'd remember anything...",
+        "But yeah. I was there.",
+        "I saw what you were fighting. That prison. It was... brutal."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "sad", "background": "./special/sofia-bed.png",
+      "text": [
+        "I remember flashes. Shadows. And your voice.",
+        "You kept talking to me. I think... it helped me stay anchored."
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": "./special/sofia-bed.png",
+      "text": [
+        "Well... I didn’t exactly have a script.",
+        "But I guess something worked, huh?"
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "happy", "background": "./special/sofia-bed.png",
+      "text": [
+        "It did. You did.",
+        "So... what now?"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": "./special/sofia-bed.png",
+      "text": [
+        "Now we both get to wake up.",
+        "Together."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "idle", "background": "./special/sofia-bed.png",
+      "text": [
+        "I'd like that.",
+        "Let's start over. Properly, this time.",
+        "Hi, I'm Sofia."
+      ]
+    },
+    {
+      "character": "sean", "emotion": "happy", "background": "./special/sofia-bed.png",
+      "text": [
+        "Hey, Sofia.",
+        "I'm err ... well I actually don't know. But... I guess people have started calling me Mystery."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "happy", "background": "./special/sofia-bed.png",
+      "text": [
+        "Mystery, huh? That fits.",
+        "Nice to finally meet you for real, Mystery man."
+      ]
+    },
+    {
+      "character": "sean", "emotion": "happy", "background": "./special/sofia-bed.png",
+      "text": [
+        "You too, Sleeping Beauty.",
+        "... oh man that was cheesey!",
+        "I'm sorry.",
+        "[Suddenly you start feeling dizzy and stumble]"
+      ]
+    },
+    {
+      "character": "nurse", "emotion": "idle", "background": null,
+      "text": [
+        "[The nurse suddenly appears. Has she been listening this entire time?]",
+        "Lets get you back to bed.",
+        "You shouldn't over exert yourself with that tumor."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "sad", "background": null,
+      "text": [
+        "Brain tumor?",
+        "Don't tell me..."
+      ]
+    },
+    {
+      "character": "nurse", "emotion": "sad", "background": null,
+      "text": [
+        "Oh yeah. You wouldn't know.",
+        "Mr Mystery is here with his own problems.",
+        "[The nurse explains your situation to Sofia then helps you back to your bed]"
+      ],
+      "actions": [{"action": "next-day"}]
     }
+  ],
+  "day-31": [
+    {
+      "character": "sofia", "emotion": "idle", "background": null,
+      "text": [
+        "Hey. You awake?"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "Mmm... kinda.",
+        "Feels like I got hit by a truck... then hugged by it?"
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "happy", "background": null,
+      "text": [
+        "You look better than yesterday.",
+        "Less mystery man, more sleepy puppy."
+      ]
+    },
+    {
+      "character": "sean", "emotion": "happy", "background": null,
+      "text": [
+        "Wow, thanks. That’s the confidence boost I needed.",
+        "You always this charming after ten years in a coma?"
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "happy", "background": null,
+      "text": [
+        "Only for people who fight dream demons on my behalf.",
+        "Seriously though... how *did* you get in there?"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "Honestly? I don’t know exactly.",
+        "I think it has something to do with the tumor in my head."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "sad", "background": null,
+      "text": [
+        "So all that... the dream realm, the battles... it was real, but only because your brain is breaking?"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "Yeah. Lucky me, huh?",
+        "Turned my slow death into a fantasy co-op game."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "happy", "background": null,
+      "text": [
+        "Then maybe we can beat it the same way.",
+        "Figure out how you crossed over... go back in... and fight *your* monsters now."
+      ]
+    },
+    {
+      "character": "sean", "emotion": "happy", "background": null,
+      "text": [
+        "You want to help me?",
+        "We barely know each other outside of nightmares and giant dream bacteria."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "idle", "background": null,
+      "text": [
+        "Well, you *did* spend your days talking to me while I was unconscious.",
+        "aaaand helped me brake out of that coma.",
+        "Feels like I owe you at least one life-saving adventure."
+      ]
+    },
+    {
+      "character": "sean", "emotion": "happy", "background": null,
+      "text": [
+        "I suppose it's only fair."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "happy", "background": null,
+      "text": [
+        "Then it’s settled. We find a way back in, and we fix you too."
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "Alright... Operation: Dream Dive. I’m in.",
+        "[You smile at her, but your vision starts to blur.]",
+        "Just... give me five minutes to nap first..."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "sad", "background": null,
+      "text": [
+        "Sean?",
+        "Hey—are you okay?"
+      ]
+    },
+    {
+      "character": "nurse", "emotion": "idle", "background": null,
+      "text": [
+        "[The nurse rushes in, checking your vitals.]",
+        "Don’t worry, this happens when he overexerts. He’ll be fine.",
+        "He just needs rest. Again."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "sad", "background": null,
+      "text": [
+        "Get some sleep, Mystery man.",
+        "We’ve got work to do when you wake up."
+      ],
+      "actions": [{"action": "next-day"}]
+    }
+  ],
+  "day-32": [
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "[The mom from across visits her boy with more treats, the boys in good spirits and asks you to play football with him. You chat to sofia some more. Suddenly the boy becomes massively ill again. You vow to try to heal him with sofia tomorrow.]"
+      ]
+    }
+
   ]
 }

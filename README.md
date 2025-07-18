@@ -70,7 +70,7 @@ Todo:
 - ~~make spacebar also click~~
 - ~~make all new events trigger on new days. No talking to people for events.~~
 - ~~complete sofias dungeon~~
-- complete Sofia plot line.
+- ~~complete Sofia plot line.~~
 - implement currency
 - earn money by helping clean the wards (takes one day)
 - implement a shop
