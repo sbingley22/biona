@@ -279,7 +279,7 @@
       "emotion": "idle",
       "background": null,
       "text": [
-        "Oh, it looks like little Havier wants to play football again.",
+        "Oh, it looks like little Javi wants to play football again.",
         "Well Man of Mystery you get back to bed now and get some rest!"
       ],
       "actions": [{"action": "next-day"}]
@@ -319,7 +319,7 @@
       "text": [
         "Guess who's got your favorite treats...",
         "Oh my, I'm sorry. I must have got the wrong bed.",
-        "I would give you a sweetie to make up for it but these are all for my son Havier.",
+        "I would give you a sweetie to make up for it but these are all for my son Javi.",
         "He loves them so much he'd hate it if I gave any away hehe!",
         "[The woman opens the curtain to the bed across from you]",
         "Guess who's got your favorite treats!"
@@ -392,7 +392,7 @@
     {
       "character": "hmum", "emotion": "idle", "background": null,
       "text": [
-        "What have I told you Havier? These are for you and for you only.",
+        "What have I told you Javi? These are for you and for you only.",
         "No football until you finish them!",
         "And you doctor. I would expect better than trying to take candy from a child!"
       ]
@@ -406,7 +406,7 @@
     {
       "character": "doctor", "emotion": "happy", "background": null,
       "text": [
-        "Anyway, you're looking well Havier!",
+        "Anyway, you're looking well Javi!",
         "You know we just might be ready to let you home by the end of tomorrow!"
       ]
     },
@@ -437,7 +437,7 @@
     {
       "character": "nurse", "emotion": "sad", "background": null,
       "text": [
-        "Poor Havier has fallen ill again, we don't know why",
+        "Poor Javi has fallen ill again, we don't know why",
         "Please excuse me."
       ]
     },
@@ -494,7 +494,7 @@
     {
       "character": "sean", "emotion": "idle", "background": null,
       "text": [
-        "[You wake up to see Havier sleeping or possibly unconcious with his mum dutifully beside him also asleep.]",
+        "[You wake up to see Javi sleeping or possibly unconcious with his mum dutifully beside him also asleep.]",
         "I should find out whats going on with him",
         "I don't want to disturb his resting mum.",
         "I should go find that nurse"
@@ -560,7 +560,7 @@
     {
       "character": "sean", "emotion": "idle", "background": null,
       "text": [
-        "[The next few days you spend mostly sleeping. Havier still hasn't woken.]",
+        "[The next few days you spend mostly sleeping. Javi still hasn't woken.]",
         "I need to get up and move around!"
       ]
     },
@@ -959,11 +959,382 @@
   ],
   "day-32": [
     {
+      "character": "hmum", "emotion": "idle", "background": null,
+      "text": [
+        "Hows my special boy today?",
+        "Whoops, sorry, wrong bed, haha!"
+      ]
+    },
+    {
       "character": "sean", "emotion": "idle", "background": null,
       "text": [
-        "[The mom from across visits her boy with more treats, the boys in good spirits and asks you to play football with him. You chat to sofia some more. Suddenly the boy becomes massively ill again. You vow to try to heal him with sofia tomorrow.]"
+        "[How does she keep getting it muddled up?]",
+        "No problem. The nurse tells me Javi is doing much better!"
       ]
+    },
+    {
+      "character": "hmum", "emotion": "idle", "background": null,
+      "text": [
+        "You think? I'm not so sure.",
+        "Anyway, I've brought him his favourite sweets. That'll be sure to pick him right up!",
+        "Guess whos got your favorite sweeties?"
+      ]
+    },
+    {
+      "character": "boy", "emotion": "happy", "background": null,
+      "text": [
+        "All right!",
+        "The doctor says I'm doing much better again.",
+        "Maybe I'll get to go home soon!"
+      ]
+    },
+    {
+      "character": "hmum", "emotion": "idle", "background": null,
+      "text": [
+        "Don't get ahead of yourself boy.",
+        "You still look sick to me!"
+      ]
+    },
+    {
+      "character": "boy", "emotion": "happy", "background": null,
+      "text": [
+        "Well I don't feel it!",
+        "Hey Mr!"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "Who me?"
+      ]
+    },
+    {
+      "character": "boy", "emotion": "happy", "background": null,
+      "text": [
+        "Yeah you. Mystery Man right? Wanna go play some football?",
+        "Just some heads and v's in the garden. I know you can't do too much exercise."
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "[I surely have enough energy for a little heads and vs. Besides, he's so excited I don't want to let him down.]",
+        "Sure, I'll play!"
+      ]
+    },
+    {
+      "character": "boy", "emotion": "happy", "background": null,
+      "text": [
+        "All right!"
+      ]
+    },
+    {
+      "character": "hmum", "emotion": "idle", "background": null,
+      "text": [
+        "Stop harrassing the nice young man Javi.",
+        "Besides you're not doing anything until you've had your lunch"
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "happy", "background": null,
+      "text": [
+        "You're awake again!"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "happy", "background": null,
+      "text": [
+        "Barely. You try recovering when everyone keeps calling you 'mystery man'.",
+        "I’m starting to think that *is* my real name."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "happy", "background": null,
+      "text": [
+        "Well, I *was* going to invite you back into the realm of dreams, but now I’m not so sure you’re up for it, Mr. Sass."
+      ]
+    },
+    {
+      "character": "sean", "emotion": "happy", "background": null,
+      "text": [
+        "Okay okay. Serious face.",
+        "So... you really want to try it? Go back in?"
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "idle", "background": null,
+      "text": [
+        "I do. If there's a chance we can use that place to heal you—or anyone else—we should try."
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "Agreed. But we’re going to need a plan. Controlled entry. Focus.",
+        "Maybe—"
+      ]
+    },
+    {
+      "character": "boy", "emotion": "sad", "background": null,
+      "text": [
+        "...Mom... I feel... dizzy..."
+      ]
+    },
+    {
+      "character": "hmum", "emotion": "sad", "background": null,
+      "text": [
+        "Javi? Javi?? Someone help!!"
+      ]
+    },
+    {
+      "character": "nurse", "emotion": "idle", "background": null,
+      "text": [
+        "[The nurse rushes in and checks his pulse.]",
+        "He's crashing—get the doctor, now!"
+      ]
+    },
+    {
+      "character": "doctor", "emotion": "idle", "background": null,
+      "text": [
+        "[The doctor runs in, barking instructions to the nurse.]",
+        "Get the oxygen ready. We need to stabilize him. No delays."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "sad", "background": null,
+      "text": [
+        "No... not the boy..."
+      ]
+    },
+    {
+      "character": "sean", "emotion": "sad", "background": null,
+      "text": [
+        "He was just talking a second ago..."
+      ]
+    },
+    {
+      "character": "doctor", "emotion": "idle", "background": null,
+      "text": [
+        "Vitals are stabilizing. That was close."
+      ]
+    },
+    {
+      "character": "nurse", "emotion": "idle", "background": null,
+      "text": [
+        "He’ll need rest. Let’s keep him under observation tonight."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "sad", "background": null,
+      "text": [
+        "We have to help him."
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "Yeah. Tomorrow... we go in.",
+        "We find out what's haunting him... and we stop it."
+      ],
+      "actions": [{"action": "next-day"}]
     }
+  ],
+  "day-33": [
+    {
+      "character": "sofia", "emotion": "idle", "background": null,
+      "text": [
+        "Wake up... wake up."
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "... I'm awake ..."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "idle", "background": null,
+      "text": [
+        "You ready?"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "Yeah just give me a sec."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "idle", "background": null,
+      "text": [
+        "So how we guna do this?"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "We'll, when I did it with you I had to hold your hand.",
+        "Then I concentrated really hard on the other place.",
+        "Then boom. I was there."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "idle", "background": null,
+      "text": [
+        "Okay lets quickly give it a try whilst the nurses are gone!",
+        "[You move to the seats on each side of the boys bed and each grab one of his hands.]"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "Okay. Now focus ... focus!"
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "happy", "background": "./biona-boy (1).jpg",
+      "text": [
+        "... woah!",
+        "You did it!!!"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "I did?!",
+        "I'm still not used to it"
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "idle", "background": null,
+      "text": [
+        "Where is everyone?",
+        "No pathogens, no boy. Just a big empty football pitch."
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "We should look around, he'll be here somewhere."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "idle", "background": "./biona-boy (3).jpg",
+      "text": [
+        "We've been walking around for ages...",
+        "What's going on?"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "I don't know why you're asking me?!",
+        "Like I know how any of this works!",
+        "Wait...",
+        "Over there on the substitutes bench!"
+      ]
+    },
+    {
+      "character": "boy", "emotion": "sad", "background": null,
+      "text": [
+        "...",
+        "huh!?",
+        "What are you guys doing in my dream."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "happy", "background": null,
+      "text": [
+        "Javi! It's a pleasure to meet you.",
+        "Well I should explain. You see it's like, err ... mystery?"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "Errm ... well see we've come here to help you out.",
+        "Like, look at it like this. Somethings keeping you sick.",
+        "Until you face up to it and beat it, you'll stay sick",
+        "and we're here to help you."
+      ]
+    },
+    {
+      "character": "boy", "emotion": "happy", "background": null,
+      "text": [
+        "Really?! You guys would help me? That's awesome!",
+        "But who do we need to beat?",
+        "It's just me alone on this football pitch always..."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "idle", "background": null,
+      "text": [
+        "Well I'm not sure but somethings got to be holding you here!",
+        "First we find out what it is!"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "Look at it this way!",
+        "It's half time. Our teams 2-0 down.",
+        "But now we're coming on as super subs to turn the whole game around!"
+      ]
+    },
+    {
+      "character": "boy", "emotion": "happy", "background": null,
+      "text": [
+        "Alright!",
+        "Lets go get 'em!"
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "idle", "background": null,
+      "text": [
+        "That's the spirit!",
+        "Now we just need to find them!"
+      ]
+    },
+    {
+      "character": "doctor", "emotion": "idle", "background": null,
+      "text": [
+        "What are they doing here?",
+        "Nurse wake them up and return them to there beds!"
+      ]
+    },
+    {
+      "character": "nurse", "emotion": "idle", "background": "./hospital-ward-b",
+      "text": [
+        "Wakey wakey!",
+        "...",
+        "Awww, I almost didn't want to wake you. You're both so cute, making sure Javi has company!",
+        "But I'm afraid the doctor must seen the boy now.",
+        "And his mother can keep him company for the rest of the night."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "angry", "background": null,
+      "text": [
+        "But we were just..."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "sad", "background": null,
+      "text": [
+        "oh never mind.",
+        "Well come back as soon as possible, right Mystery?"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "Yeah!",
+        "You hear that Javi? We'll be right back!"
+      ],
+      "actions": [{"action": "next-day"}]
+    }
+  ],
+  "day-34" : [
 
   ]
 }
