@@ -936,7 +936,7 @@
     {
       "character": "sofia", "emotion": "sad", "background": null,
       "text": [
-        "Sean?",
+        "M?",
         "Hey—are you okay?"
       ]
     },
@@ -1303,7 +1303,7 @@
       ]
     },
     {
-      "character": "nurse", "emotion": "idle", "background": "./hospital-ward-b",
+      "character": "nurse", "emotion": "idle", "background": "./hospital-ward-b.jpeg",
       "text": [
         "Wakey wakey!",
         "...",
@@ -1335,6 +1335,30 @@
     }
   ],
   "day-34" : [
+    {
+      "character": "sofia", "emotion": "idle", "background": null,
+      "text": [
+        "Wakey wakey! No time to lose.",
+        "Lets get in that place as soon as possible. Who knows how much time we have."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "idle", "background": null,
+      "text": [
+        "Wakey wakey! No time to lose.",
+        "Lets get in that place as soon as possible. Who knows how much time we have."
+      ]
+    },
 
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        ""
+      ],
+      "actions": [
+        {"action": "set-stage", "value": "boy"},
+        {"action": "go-to-dungeon", "value": 0}
+      ]
+    }
   ]
 }

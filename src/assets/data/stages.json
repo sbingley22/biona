@@ -303,5 +303,170 @@
         {"action": "leave-battle-mode"}
       ]
     }
+  ],
+
+  "boy": [
+    {
+      "name": "Empty field",
+      "background": 2,
+      "enemies": [
+        "amatoxin",
+        "hookworm"
+      ],
+      "intro": [
+        {"character": "boy", "text": "How are we supposed to beat that? I'm scared."},
+        {"character": "sofia", "text": "Don't worry, we'll show you how!"},
+        {"character": "sean", "text": "Your body is strong Javi. So is your immune system. Use it to your advantage!"}
+      ],
+      "outro": [
+        {"character": "boy", "text": "All right!!! We did it!!!"},
+        {"character": "sofia", "text": "See? Theres nothing that can stop us when we work together!"},
+        {"character": "sean", "text": "That's 1 nill to us!"},
+        {"character": "sean", "text": "Guys, this has really took it out of me! I'm going to have to call it a day."},
+        {"character": "sofia", "text": "We'll be back. I promise!"},
+        {"character": "boy", "text": "K! I'll be waiting!"},
+        {"character": "exit battle mode", "text": ""}
+      ],
+      "actions": [
+        {"action": "leave-battle-mode"}
+      ]
+    },
+    {
+      "name": "Warm up",
+      "background": 1,
+      "enemies": [
+        "hookworm",
+        "streptococcus",
+        "amatoxin"
+      ],
+      "intro": [
+        {"character": "sean", "text": "We're back! You ready?"},
+        {"character": "boy", "text": "I knew you guys would come! Sure am!"},
+        {"character": "sofia", "text": "No time to lose. Lets get you out of here!"}
+      ],
+      "outro": [
+        {"character": "sean", "text": "Yeah! That's 2 - 0"},
+        {"character": "sofia", "text": "Wow, I'm breaking a sweat. How you holding up Javi?"},
+        {"character": "boy", "text": "I think I'm getting used to it now guys!"},
+        {"character": "exit battle mode", "text": ""}
+      ],
+      "actions": [
+        {"action": "leave-battle-mode"}
+      ]
+    },
+    {
+      "name": "Kick around",
+      "background": 3,
+      "enemies": [
+        "amatoxin",
+        "hookworm",
+        "streptococcus",
+        "amatoxin"
+      ],
+      "intro": [
+        {"character": "sofia", "text": "More of them!"},
+        {"character": "sean", "text": "Get ready!"},
+        {"character": "boy", "text": "Ready!"}
+      ],
+      "outro": [
+        {"character": "boy", "text": "We did it!"},
+        {"character": "stage complete", "text": ""}
+      ]
+    },
+    {
+      "name": "First Half",
+      "background": 2,
+      "enemies": [
+        "amatoxin",
+        "ebv",
+        "hookworm",
+        "streptococcus"
+      ],
+      "intro": [
+        {"character": "boy", "text": "Lets do this!"}
+      ],
+      "outro": [
+        {"character": "boy", "text": "We did it!"},
+        {"character": "stage complete", "text": ""}
+      ]
+    },
+    {
+      "name": "Second Half",
+      "background": 1,
+      "enemies": [
+        "streptococcus",
+        "amatoxin",
+        "amatoxin",
+        "ebv"
+      ],
+      "intro": [
+        {"character": "boy", "text": "You pathogens got nothing on us!"}
+      ],
+      "outro": [
+        {"character": "boy", "text": "You're not singing any more! Haha!"},
+        {"character": "stage complete", "text": ""}
+      ]
+    },
+    {
+      "name": "Extra Time",
+      "background": 3,
+      "enemies": [
+        "streptococcus",
+        "ebv",
+        "amatoxin"
+      ],
+      "intro": [
+        {"character": "sofia", "text": "One more push!"}
+      ],
+      "outro": [
+        {"character": "sean", "text": "We're getting close."},
+        {"character": "stage complete", "text": ""}
+      ]
+    },
+    {
+      "name": "Penalties",
+      "background": 2,
+      "enemies": [
+        "amatoxin",
+        "amatoxin",
+        "ebv",
+        "streptococcus"
+      ],
+      "intro": [
+        {"character": "sean", "text": ""},
+        {"character": "sofia", "text": ""}
+      ],
+      "outro": [
+        {"character": "sean", "text": "One more stage!"},
+        {"character": "sofia", "text": "Let's make sure we are well prepared for it!"},
+        {"character": "boy", "text": "Yeah. Lets make sure we do it right."},
+        {"character": "stage complete", "text": ""}
+      ]
+    },
+    {
+      "name": "The cup final!",
+      "unlock-day": 40,
+      "background": 1,
+      "enemies": [
+        "amatoxin",
+        "amatoxin",
+        "amatoxin",
+        "amatoxin"
+      ],
+      "intro": [
+        {"character": "sean", "text": "Amatoxins again!"},
+        {"character": "sean", "text": "It can only mean one thing."},
+        {"character": "sofia", "text": "Shhh. Save it for later."}
+      ],
+      "outro": [
+        {"character": "sean", "text": "Did we do it?"},
+        {"character": "sean", "text": "Sofia? Javi!?"},
+        {"character": "sean", "text": "So tired..."},
+        {"character": "exit battle mode", "text": ""}
+      ],
+      "actions": [
+        {"action": "leave-battle-mode"}
+      ]
+    }
   ]
 }
