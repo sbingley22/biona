@@ -690,7 +690,7 @@
       ],
       "actions": [
         {"action": "set-stage", "value": "sofia"},
-        {"action": "go-to-dungeon", "value": 9}
+        {"action": "go-to-dungeon", "value": 8}
       ]
     }
   ],
@@ -1343,22 +1343,674 @@
       ]
     },
     {
-      "character": "sofia", "emotion": "idle", "background": null,
+      "character": "sean", "emotion": "idle", "background": null,
       "text": [
-        "Wakey wakey! No time to lose.",
-        "Lets get in that place as soon as possible. Who knows how much time we have."
+        "Right!",
+        "Let's go there now!",
+        "[You head over to Javis bed, grab a hand each and ...]"
       ]
     },
-
+    {
+      "character": "sofia", "emotion": "idle", "background": "./biona-boy (2).jpg",
+      "text": [
+        "There he is!"
+      ]
+    },
+    {
+      "character": "boy", "emotion": "idle", "background": null,
+      "text": [
+        "Hey guys!",
+        "Took you long enough."
+      ]
+    },
     {
       "character": "sean", "emotion": "idle", "background": null,
       "text": [
-        ""
+        "Yeah, sorry about that.",
+        "We need to get you out of here as soon as possible. You ready?"
+      ]
+    },
+    {
+      "character": "boy", "emotion": "idle", "background": null,
+      "text": [
+        "Yeah!",
+        "So what do we do now"
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "idle", "background": "./biona-boy (2).jpg",
+      "text": [
+        "We need to find a way out of here.",
+        "Whos that coming down the tunnel?"
+      ]
+    },
+    {
+      "character": "boy", "emotion": "idle", "background": null,
+      "text": [
+        "They don't look friendly!"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "Get ready! Here they come!"
       ],
       "actions": [
         {"action": "set-stage", "value": "boy"},
-        {"action": "go-to-dungeon", "value": 0}
+        {"action": "go-to-dungeon-battle", "value": 0}
       ]
+    }
+  ],
+  "day-35": [
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "No time to lose. Lets help the boy out!"
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "idle", "background": null,
+      "text": [
+        "Yeah, who knows how long we've got?"
+      ]
+    }
+  ],
+  "day-38": [
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "Don't you think we've been fighting a lot of amatoxin?"
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "idle", "background": null,
+      "text": [
+        "That's a poison right?"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "Yeah I think it's a poison in mushrooms."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "idle", "background": null,
+      "text": [
+        "But how would he be getting mushroom poison over and over?",
+        "No matter, we have to get him out!"
+      ]
+    }
+  ],
+  "day-39": [
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "Yeah, sorry about that.",
+        "We need to get you out of here as soon as possible. You ready?"
+      ],
+      "actions": [
+        {"action": "set-stage", "value": "boy"},
+        {"action": "go-to-dungeon", "value": 8}
+      ]
+    }
+  ],
+  "day-40": [
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "Did it work?"
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "sad", "background": null,
+      "text": [
+        "I... I don't think so.",
+        "He's still unconcious.",
+        "I thought we did everything!"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "We must be missing something.",
+        "Why?"
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "idle", "background": null,
+      "text": [
+        "His mums not here today. I think she said she's food shopping.",
+        "We should go over to his bed and try again."
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": "./hospital-ward-b.jpeg",
+      "text": [
+        "[You try going back in but it just doesn't work]",
+        "Common, why is this not working???"
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "sad", "background": null,
+      "text": [
+        "Lets stop and think.",
+        "I can't stop going over the fact that there was so much poisoon in his body."
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "Yeah… that black sludge we kept seeing. It wasn’t like the others.",
+        "It didn’t act like a virus. It just… spread."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "sad", "background": null,
+      "text": [
+        "Exactly. And the way it clung to everything… it reminded me of toxin binding.",
+        "Like his whole system was shutting down."
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "You don’t think… someone poisoned him?"
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "sad", "background": null,
+      "text": [
+        "It’s a horrible thought… but it adds up.",
+        "Amatoxins bind at a cellular level. We might’ve cleared the damage, but if it’s still being introduced—"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "angry", "background": null,
+      "text": [
+        "The sweets.",
+        "His mum brings him sweets every day."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "angry", "background": null,
+      "text": [
+        "We need to get them. Right now."
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "[You search the drawers near Havier’s bed and find a half-open packet of sweets]",
+        "These?"
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "idle", "background": null,
+      "text": [
+        "Yeah. Don’t touch them with your bare hands.",
+        "We need to get these to the doctors. Let them run toxicology."
+      ]
+    },
+    {
+      "character": "doctor", "emotion": "idle", "background": null,
+      "text": [
+        "[The doctor enters the room, surprised by your urgency.]",
+        "What’s going on?"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "We think Havier’s been poisoned. These sweets might be the source.",
+        "Please test them. We’re not crazy."
+      ]
+    },
+    {
+      "character": "doctor", "emotion": "idle", "background": null,
+      "text": [
+        "[The doctor takes the sweets, his expression growing serious.]",
+        "Understood. I’ll get the lab to run a panel immediately.",
+        "If there’s poison in here, we’ll find it."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "sad", "background": null,
+      "text": [
+        "I hope we’re wrong."
+      ]
+    },
+    {
+      "character": "sean", "emotion": "sad", "background": null,
+      "text": [
+        "Yeah... but if we’re right, we might’ve just saved his life."
+      ],
+      "actions": [{"action": "next-day"}]
+    }
+  ],
+  "day-41": [
+    {
+      "character": "nurse", "emotion": "happy", "background": null,
+      "text": [
+        "Wake up!",
+        "The boy's doing better than ever, see for yourself!"
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "angry", "background": null,
+      "text": [
+        "That's great news! But that means..."
+      ]
+    },
+    {
+      "character": "hmum", "emotion": "idle", "background": "./hospital-ward-b.jpeg",
+      "text": [
+        "[Suddenly you hear her voice from across the room.]",
+        "Guess who's got a fresh bag of sweets for you."
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "Wait—don’t give him those."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "angry", "background": null,
+      "text": [
+        "Where did you get them? The same place as before?"
+      ]
+    },
+    {
+      "character": "hmum", "emotion": "idle", "background": null,
+      "text": [
+        "Same little shop. He's always loved them."
+      ]
+    },
+    {
+      "character": "nurse", "emotion": "idle", "background": null,
+      "text": [
+        "We need to take those, please. Just for a moment."
+      ]
+    },
+    {
+      "character": "hmum", "emotion": "angry", "background": null,
+      "text": [
+        "Why? I bring him sweets every day! It's what he looks forward to!"
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "sad", "background": null,
+      "text": [
+        "And every day he got worse.",
+        "Until the day you didn’t bring any."
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "We’re not accusing you of anything. We just want to understand.",
+        "Is there any chance you didn’t know they were making him sick?"
+      ]
+    },
+    {
+      "character": "hmum", "emotion": "sad", "background": null,
+      "text": [
+        "I... I don't know. Maybe they changed the ingredients or something? I just wanted him to get better."
+      ]
+    },
+    {
+      "character": "nurse", "emotion": "idle", "background": null,
+      "text": [
+        "You’ve been bringing them for months, even when doctors advised against sugar due to his condition."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "angry", "background": null,
+      "text": [
+        "Did you want him to stay sick?"
+      ]
+    },
+    {
+      "character": "hmum", "emotion": "angry", "background": null,
+      "text": [
+        "He needed me! He was better when I was in control!"
+      ]
+    },
+    {
+      "character": "doctor", "emotion": "idle", "background": null,
+      "text": [
+        "[The doctor enters, holding a clipboard.]",
+        "Toxicology report confirms the sweets contained amatoxin. Enough to cause liver failure over time.",
+        "We've alerted the authorities."
+      ]
+    },
+    {
+      "character": "hmum", "emotion": "angry", "background": null,
+      "text": [
+        "You don’t understand! I’m the only one who cared for him!"
+      ]
+    },
+    {
+      "character": "nurse", "emotion": "sad", "background": null,
+      "text": [
+        "That’s not care. That’s control."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "sad", "background": null,
+      "text": [
+        "It's Munchausen by proxy..."
+      ]
+    },
+    {
+      "character": "sean", "emotion": "sad", "background": null,
+      "text": [
+        "She was keeping him sick... just to stay needed..."
+      ]
+    },
+    {
+      "character": "doctor", "emotion": "idle", "background": null,
+      "text": [
+        "[Security staff enter and gently escort the mother away as she continues shouting incoherently.]"
+      ]
+    },
+    {
+      "character": "boy", "emotion": "sad", "background": null,
+      "text": [
+        "...Where’s my mum?"
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "sad", "background": null,
+      "text": [
+        "She’s not well, Javi. But you’re safe now."
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "We’re here, alright? We’ve got your back."
+      ]
+    },
+    {
+      "character": "nurse", "emotion": "happy", "background": null,
+      "text": [
+        "And you’ve got a whole team that’s going to help you get stronger. Properly this time."
+      ]
+    },
+    {
+      "character": "boy", "emotion": "sad", "background": null,
+      "text": [
+        "Thanks... Mystery Man."
+      ]
+    },
+    {
+      "character": "sean", "emotion": "happy", "background": null,
+      "text": [
+        "Anytime, kid."
+      ],
+      "actions": [{"action": "next-day"}]
+    }
+  ],
+  "day-42": [
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "You know what today needs?"
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "idle", "background": null,
+      "text": [
+        "Please say ice cream."
+      ]
+    },
+    {
+      "character": "sean", "emotion": "happy", "background": null,
+      "text": [
+        "Better. Football."
+      ]
+    },
+    {
+      "character": "boy", "emotion": "happy", "background": null,
+      "text": [
+        "YES!"
+      ]
+    },
+    {
+      "character": "nurse", "emotion": "happy", "background": null,
+      "text": [
+        "Football? In the hospital garden? Do you have clearance for that, Mr Mystery?"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "happy", "background": null,
+      "text": [
+        "I have clearance from the Ministry of Fun. That counts, right?"
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "happy", "background": null,
+      "text": [
+        "Come on, Nurse. You in?"
+      ]
+    },
+    {
+      "character": "nurse", "emotion": "happy", "background": null,
+      "text": [
+        "Well... I suppose if it’s for morale.",
+        "But if I twist an ankle, you’re filling out my paperwork."
+      ]
+    },
+    {
+      "character": "boy", "emotion": "happy", "background": null,
+      "text": [
+        "Let’s goooo!"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "happy", "background": "./hospital-garden.png",
+      "text": [
+        "[You head outside. The sun is out, the grass is soft, and someone has scrounged up an old football.]",
+        "Okay. Teams?"
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "happy", "background": null,
+      "text": [
+        "Me and Javi versus you and the nurse."
+      ]
+    },
+    {
+      "character": "nurse", "emotion": "happy", "background": null,
+      "text": [
+        "You’re going down, kids."
+      ]
+    },
+    {
+      "character": "boy", "emotion": "happy", "background": null,
+      "text": [
+        "Not a chance!"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "happy", "background": null,
+      "text": [
+        "Alright, let’s kick off!"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "[The game begins. Javi immediately does a surprise spin move and almost trips Sofia.]",
+        "[The nurse accidentally kicks the ball into a flowerbed.]",
+        "[Sean slips while doing a dramatic dive and lands flat on his back.]",
+        "[Everyone is laughing.]"
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "happy", "background": null,
+      "text": [
+        "You okay down there, Mystery Man?"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "happy", "background": null,
+      "text": [
+        "I'm not sure I have bones anymore!"
+      ]
+    },
+    {
+      "character": "boy", "emotion": "happy", "background": null,
+      "text": [
+        "Goal! That counts, right?"
+      ]
+    },
+    {
+      "character": "nurse", "emotion": "happy", "background": null,
+      "text": [
+        "I didn't see it. I was busy chasing the ball out of a bush."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "happy", "background": null,
+      "text": [
+        "I saw it. One-nil to us!"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "happy", "background": null,
+      "text": [
+        "You know what?",
+        "Totally worth the bruised dignity."
+      ]
+    },
+    {
+      "character": "boy", "emotion": "happy", "background": null,
+      "text": [
+        "Best day ever."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "happy", "background": null,
+      "text": [
+        "We’ll do it again tomorrow."
+      ]
+    },
+    {
+      "character": "sean", "emotion": "happy", "background": null,
+      "text": [
+        "If I survive the night."
+      ]
+    },
+    {
+      "character": "nurse", "emotion": "happy", "background": null,
+      "text": [
+        "No promises. But I’ll bring the ice packs."
+      ],
+      "actions": [{"action": "next-day"}]
+    }
+  ],
+  "day-43": [
+    {
+      "character": "sean", "emotion": "happy", "background": null,
+      "text": [
+        "[The next week you spend goofing around with Javi and the rest of the gang.]",
+        "[You're actually getting quite good at football now.]"
+      ],
+      "actions": [{"action": "advance-day", "value": 7}]
+    }
+  ],
+  "day-50": [
+    {
+      "character": "nurse", "emotion": "sad", "background": null,
+      "text": [
+        "Sean... I'm afraid I have some difficult news.",
+        "The tumor’s growing again. Rapidly.",
+        "The doctors estimate... you may have less than ten days."
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "[You knew something felt off this morning. The headaches, the dizziness. But hearing it out loud... it still hits hard.]",
+        "Okay. Thanks for telling me."
+      ]
+    },
+    {
+      "character": "nurse", "emotion": "sad", "background": null,
+      "text": [
+        "I'm so sorry. We'll do everything we can to keep you comfortable."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "sad", "background": null,
+      "text": [
+        "[She enters the room just in time to hear the last part.]",
+        "No. That’s not good enough.",
+        "We’re not giving up."
+      ]
+    },
+    {
+      "character": "boy", "emotion": "angry", "background": null,
+      "text": [
+        "Yeah! You helped me when no one else could.",
+        "Now it’s our turn to help you, Mr Mystery."
+      ]
+    },
+    {
+      "character": "sean", "emotion": "idle", "background": null,
+      "text": [
+        "You guys... I don’t know if it’ll even work.",
+        "What if I’m not strong enough anymore?"
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "happy", "background": null,
+      "text": [
+        "Then we’ll be strong enough for you.",
+        "You don’t have to fight alone."
+      ]
+    },
+    {
+      "character": "boy", "emotion": "happy", "background": null,
+      "text": [
+        "Yeah! We’re a team, remember?"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "happy", "background": null,
+      "text": [
+        "Okay then.",
+        "Tomorrow… we go back in. And we take the fight straight to it.",
+        "To the heart of the tumor."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "idle", "background": null,
+      "text": [
+        "We’ll need a plan. Supplies. Rest."
+      ]
+    },
+    {
+      "character": "boy", "emotion": "idle", "background": null,
+      "text": [
+        "And snacks. Definitely snacks."
+      ]
+    },
+    {
+      "character": "sean", "emotion": "happy", "background": null,
+      "text": [
+        "Alright. One last mission, huh?"
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "happy", "background": null,
+      "text": [
+        "The most important one yet."
+      ],
+      "actions": [{"action": "next-day"}]
     }
   ]
 }
