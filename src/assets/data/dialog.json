@@ -2012,5 +2012,46 @@
       ],
       "actions": [{"action": "next-day"}]
     }
+  ],
+  "day-51": [
+    {
+      "character": "sean", "emotion": "sad", "background": null,
+      "text": [
+        "[You wake up to the gang already surrounding your bed.]",
+        "[You're so tired]",
+        "Hey guys.",
+        "Can we maybe do it another day, I just need to sleep."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "sad", "background": null,
+      "text": [
+        "I know you're tired but...",
+        "We can't leave it any longer",
+        "You're only going to get more tired!",
+        "[She reaches out and grabs your hand]",
+        "We'll be right there with you."
+      ]
+    },
+    {
+      "character": "boy", "emotion": "sad", "background": null,
+      "text": [
+        "Yeah. We can pick up the slack.",
+        "Please Mr Mystery!",
+        "We need to go as soon as!"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "sad", "background": null,
+      "text": [
+        "You're right guys.",
+        "I can't keep putting it off",
+        "[You grab hold of Sofia and Javi's hands.]"
+      ],
+      "actions": [
+        {"action": "set-stage", "value": "sean"},
+        {"action": "go-to-dungeon", "value": 2}
+      ]
+    }
   ]
 }

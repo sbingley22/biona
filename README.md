@@ -71,9 +71,9 @@ Todo:
 - ~~make all new events trigger on new days. No talking to people for events.~~
 - ~~complete sofias dungeon~~
 - ~~complete Sofia plot line.~~
-- implement currency
-- earn money by helping clean the wards (takes one day)
-- implement a shop
-- implement day routine behaviour (talking to characters, revising, earning money)
-- complete Havier plot line.
+- ~~complete Havier plot line.~~
 - complete Mystery plot line.
+- implement currency
+- implement a shop
+- earn money by helping clean the wards (takes one day)
+- implement day routine behaviour (talking to characters, revising, earning money)

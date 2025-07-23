@@ -87,7 +87,7 @@
 
   "sean": [
     {
-      "name": "begining",
+      "name": "Begining",
       "background": 2,
       "enemies": [
         "hookworm",
@@ -108,16 +108,17 @@
       ]
     },
     {
-      "name": "begining-of-the-end",
+      "name": "Begining of the end",
       "background": 1,
       "enemies": [
-        "nk-psycho",
+        "ebv",
         "covid-19",
-        "nk-psycho"
+        "hookworm"
       ],
       "intro": [
         {"character": "sean", "text": "I can't run any longer."},
-        {"character": "nk-cell", "text": "Those natural killer cells are traitors but they are weak and deranged. I can deal with them."}
+        {"character": "sofia", "text": "Yeah, no more running."},
+        {"character": "boy", "text": "What you guys tired? I can run all day!"}
       ],
       "outro": [
         {"character": "sean", "text": "One step closer."},
@@ -125,8 +126,45 @@
       ]
     },
     {
-      "name": "the-end",
-      "unlock-day": 300,
+      "name": "To the brain!",
+      "background": 3,
+      "enemies": [
+        "nk-psycho",
+        "covid-19"
+      ],
+      "intro": [
+        {"character": "sofia", "text": "We need to get to the brain. That's the source of the problem!"},
+        {"character": "sean", "text": "Why do we keep fighting those weird looking nk cells. Aren't they supposed to be on our side?"},
+        {"character": "nk-cell", "text": "Those natural killer cells are traitors but they are weak and deranged. I can deal with them."}
+      ],
+      "outro": [
+        {"character": "sean", "text": "We're almost there."},
+        {"character": "sean", "text": "I ... feel so weak"},
+        {"character": "sofia", "text": "Then no time to lose!"},
+        {"character": "stage complete", "text": ""}
+      ]
+    },
+    {
+      "name": "Tumour Termoil",
+      "background": 2,
+      "enemies": [
+        "nk-psycho",
+        "covid-19",
+        "ebv"
+      ],
+      "intro": [
+        {"character": "sofia", "text": "This is it. The tumor lives here."},
+        {"character": "sean", "text": "Quick enemies ahead!"}
+      ],
+      "outro": [
+        {"character": "sofia", "text": "We're doing it. We're choping this tumor up!"},
+        {"character": "sean", "text": "... yeah..."},
+        {"character": "stage complete", "text": ""}
+      ]
+    },
+    {
+      "name": "The End",
+      "unlock-day": 55,
       "background": 3,
       "enemies": [
         "nk-psycho",
@@ -135,11 +173,18 @@
         "covid-19"
       ],
       "intro": [
-        {"character": "sean", "text": "This is it. Do or die."}
+        {"character": "sean", "text": "This is it. Do or die."},
+        {"character": "sofia", "text": "We're with you all the way!"},
+        {"character": "boy", "text": "Hell yeah!"}
       ],
       "outro": [
-        {"character": "sean", "text": "I did it!"},
-        {"character": "stage complete", "text": ""}
+        {"character": "sean", "text": "We did it!"},
+        {"character": "sean", "text": "Guys???"},
+        {"character": "sean", "text": "...guys!?"},
+        {"character": "exit battle mode", "text": ""}
+      ],
+      "actions": [
+        {"action": "leave-battle-mode"}
       ]
     }
   ],
