@@ -19,7 +19,7 @@ export const useGameStore = create(
       })),
       getLocations: Object.keys(locationData),
 
-      day: 42,
+      day: 1,
       setDay: (newDay) => set(() => ({ day: newDay })),
       nextDay: () => set((state) => ({ day: state.day + 1 })),
       advanceDay: (days) => set((state) => ({ day: state.day + days })),
@@ -155,6 +155,10 @@ export const useGameStore = create(
           const a = stages[state.stage][action.value]
           if (!a) console.warn(`Couldn't find arena for ${state.stage} at ${action.value}`)
           state.setArena(a)
+        }
+        else if (a === 'credits') {
+          state.setDay(1)
+          window.location.reload()
         }
         return {}
       }),

@@ -34,7 +34,7 @@ function Game({ setGameMode }) {
     setShowDayNotifier(true)
     const timer1 = setTimeout(() => {
       setShowDayNotifier(false)
-    }, 200)
+    }, 1000)
 
     const newDialog = dialogData[`day-${day}`]
     if (!newDialog) return

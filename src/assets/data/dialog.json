@@ -2053,5 +2053,323 @@
         {"action": "go-to-dungeon", "value": 2}
       ]
     }
+  ],
+  "day-55": [
+    {
+      "character": "sean", "emotion": "sad", "background": null,
+      "text": [
+        "[You wake up to the gang already surrounding your bed.]",
+        "[You're even more tired]",
+        "[You tomorrow won't have the energy to open your eyes.]",
+        "Hey guys.",
+        "Tonights the night. I can't go on another day like this."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "sad", "background": null,
+      "text": [
+        "Then we do it tonight!",
+        "We go all the way. We're not coming out without you!",
+        "[She reaches out and grabs your hand]"
+      ]
+    },
+    {
+      "character": "boy", "emotion": "sad", "background": null,
+      "text": [
+        "Yeah. We all come out, or non of us do!",
+        "[He grabs your hand]"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "sad", "background": null,
+      "text": [
+        "Thanks guys.",
+        "[You use the last of your strength to go to the biona realm.]"
+      ],
+      "actions": [
+        {"action": "set-stage", "value": "sean"},
+        {"action": "go-to-dungeon", "value": 5}
+      ]
+    }
+  ],
+  "day-56": [
+    {
+      "character": "sean", "emotion": "happy", "background": null,
+      "text": [
+        "[You jolt awake, gasping for air.]",
+        "[Your head feels... lighter. The crushing pressure is gone.]",
+        "Is it... is it over?"
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "happy", "background": null,
+      "text": [
+        "[Sofia throws her arms around you, tears streaming down her face but smiling wide.]",
+        "We did it! We actually did it!"
+      ]
+    },
+    {
+      "character": "boy", "emotion": "happy", "background": null,
+      "text": [
+        "I knew we could beat it!",
+        "You’re not Mr Mystery anymore — you’re Mr Invincible!"
+      ]
+    },
+    {
+      "character": "nurse", "emotion": "happy", "background": null,
+      "text": [
+        "Careful, careful! We still need to check the scans to be sure, okay?",
+        "But... I’ve never seen you look this good in months, Sean."
+      ]
+    },
+    {
+      "character": "sean", "emotion": "happy", "background": null,
+      "text": [
+        "Feels like I’ve got my life back already.",
+        "But yeah... we’ll wait for the scan to make it official."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "happy", "background": null,
+      "text": [
+        "Official or not — we’re celebrating tonight."
+      ]
+    },
+    {
+      "character": "boy", "emotion": "happy", "background": null,
+      "text": [
+        "Yeah! I’ll grab all the pudding cups from the canteen!"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "happy", "background": null,
+      "text": [
+        "[That night, the four of you gather in the common room.]",
+        "[There’s cheap snacks, juice boxes, and so much laughter.]",
+        "[For the first time, the hospital doesn’t feel like a prison — it feels like home.]"
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "happy", "background": null,
+      "text": [
+        "Okay, funniest hospital story — go!"
+      ]
+    },
+    {
+      "character": "boy", "emotion": "happy", "background": null,
+      "text": [
+        "The time I put jelly in the nurse’s gloves so it squished everywhere!"
+      ]
+    },
+    {
+      "character": "nurse", "emotion": "angry", "background": null,
+      "text": [
+        "THAT WAS YOU?!"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "happy", "background": null,
+      "text": [
+        "[The others tell some belly busting stories]",
+        "[You’re laughing so hard you nearly fall off your chair.]",
+        "Wow, this has been the best night ever."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "idle", "background": null,
+      "text": [
+        "[As midnight comes, everyone drifts off to their own rooms.]",
+        "Tomorrow we’ll know for sure."
+      ],
+      "actions": [{"action": "next-day"}]
+    }
+  ],
+  "day-57": [
+    {
+      "character": "doctor", "emotion": "happy", "background": null,
+      "text": [
+        "[The doctor enters the room holding a clipboard, barely able to hide a smile.]",
+        "Sean… the scan came back.",
+        "The tumor’s gone. Completely. You’re clear."
+      ]
+    },
+    {
+      "character": "sean", "emotion": "happy", "background": null,
+      "text": [
+        "[Your chest tightens, not from pain — but relief.]",
+        "Gone?",
+        "You mean… I’m going to live?"
+      ]
+    },
+    {
+      "character": "doctor", "emotion": "happy", "background": null,
+      "text": [
+        "You’re going to live."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "happy", "background": null,
+      "text": [
+        "[She bursts into tears, hugging you tightly.]",
+        "We did it, Mystery. We actually did it!"
+      ]
+    },
+    {
+      "character": "boy", "emotion": "happy", "background": null,
+      "text": [
+        "Does this mean… we can all go home now?"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "happy", "background": null,
+      "text": [
+        "Yeah, Javi. But we’re not going separate ways anymore.",
+        "If you’ll let us… we want to be your family."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "happy", "background": null,
+      "text": [
+        "We’ve already talked about it. You’re ours, if you want to be."
+      ]
+    },
+    {
+      "character": "boy", "emotion": "happy", "background": null,
+      "text": [
+        "[Javi’s eyes widen as tears stream down his face.]",
+        "You mean… you’re adopting me?"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "happy", "background": null,
+      "text": [
+        "If you’ll have us."
+      ]
+    },
+    {
+      "character": "boy", "emotion": "happy", "background": null,
+      "text": [
+        "[He dives into both of your arms, sobbing and laughing at the same time.]",
+        "Yes! A thousand times yes!"
+      ]
+    },
+    {
+      "character": "nurse", "emotion": "happy", "background": null,
+      "text": [
+        "[The nurse wipes a tear from her eye, smiling warmly.]",
+        "Well, looks like I’m going to miss you three troublemakers."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "idle", "background": null,
+      "text": [
+        "We’ll visit. Promise.",
+        "Couldn’t have done this without you."
+      ]
+    },
+    {
+      "character": "sean", "emotion": "happy", "background": null,
+      "text": [
+        "This isn’t goodbye. Just… see you later."
+      ]
+    },
+    {
+      "character": "boy", "emotion": "happy", "background": null,
+      "text": [
+        "Best. Family. Ever."
+      ],
+      "actions": [{"action": "advance-day", "value": 100}]
+    }
+  ],
+  "day-157": [
+    {
+      "character": "nurse", "emotion": "happy", "background": "./biona-boy (2).jpg",
+      "text": [
+        "[You pull up to a cozy little house, music and laughter spilling out onto the street.]",
+        "[It’s been months since you saw them last — and you can’t wait to see how they’ve settled in.]",
+        "Anybody home?"
+      ]
+    },
+    {
+      "character": "boy", "emotion": "happy", "background": null,
+      "text": [
+        "[The door swings open and Javi rushes out, now taller and healthier than ever.]",
+        "Nurse! You came!!!"
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "happy", "background": null,
+      "text": [
+        "[She appears behind him, smiling wide.]",
+        "Of course she came. You think we’d have a party without her?"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "happy", "background": null,
+      "text": [
+        "[Sean comes out carrying a football.]",
+        "Alright, everyone — same rules as last time.",
+        "First to three goals wins!"
+      ]
+    },
+    {
+      "character": "nurse", "emotion": "happy", "background": null,
+      "text": [
+        "[You can’t help but laugh, rolling up your sleeves.]",
+        "Oh, it’s on."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "happy", "background": null,
+      "text": [
+        "[The game begins in chaos. Sofia slips in the mud, Javi steals the ball, and Sean trips over his own feet.]",
+        "[Everyone’s laughing too hard to care who’s winning.]"
+      ]
+    },
+    {
+      "character": "boy", "emotion": "happy", "background": null,
+      "text": [
+        "Goal!!!",
+        "That’s 2–1 to us!"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "angry", "background": null,
+      "text": [
+        "You’re cheating! I swear you’re cheating!"
+      ]
+    },
+    {
+      "character": "nurse", "emotion": "happy", "background": null,
+      "text": [
+        "Hey, don’t blame us if you’re slow, old man!"
+      ]
+    },
+    {
+      "character": "sean", "emotion": "happy", "background": null,
+      "text": [
+        "[After the match, you all collapse onto the grass, breathless and grinning.]",
+        "Okay… fine. You guys win."
+      ]
+    },
+    {
+      "character": "sofia", "emotion": "happy", "background": null,
+      "text": [
+        "Same time next year?"
+      ]
+    },
+    {
+      "character": "nurse", "emotion": "happy", "background": null,
+      "text": [
+        "Wouldn’t miss it for the world."
+      ]
+    },
+    {
+      "character": "boy", "emotion": "happy", "background": null,
+      "text": [
+        "Best. Family. Ever."
+      ],
+      "actions": [{"action": "credits"}]
+    }
   ]
 }
