@@ -11,7 +11,6 @@ function Game({ setGameMode }) {
   const day = useGameStore((state) => state.day)
   const mode = useGameStore((state) => state.mode)
   const devMode = useGameStore((state) => state.devMode)
-  const setDevMode = useGameStore((state) => state.setDevMode)
   const setParty = useGameStore((state) => state.setParty)
   const levelUpParty = useGameStore((state) => state.levelUpParty)
   const moveLocation = useGameStore((state) => state.moveLocation)
@@ -19,10 +18,7 @@ function Game({ setGameMode }) {
   const [showDayNotifier, setShowDayNotifier] = useState(false)
 
   useEffect(()=>{
-    setDevMode(true)
-  }, [])
-
-  useEffect(()=>{
+    if (!devMode) return
     setParty(['sean', 'sofia', 'boy'])
     levelUpParty(10)
   }, [devMode])

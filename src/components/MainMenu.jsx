@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Options from "./Options"
 
 const styles = {
   "main-menu-container": {
@@ -32,6 +33,7 @@ const styles = {
 
 function MainMenu({ setGameMode }) {
   const [howToPlay, setHowToPlay] = useState(false)
+  const [showOptions, setShowOptions] = useState(false)
 
   const handleStoryClick = () => {
     setGameMode("story")
@@ -45,9 +47,8 @@ function MainMenu({ setGameMode }) {
     setHowToPlay(true)
   }
 
-  const handleResetClick = () => {
-    localStorage.removeItem('game-storage')
-    window.location.reload()
+  const handleOptionsClick = () => {
+    setShowOptions(!showOptions)
   }
 
   const returnToMain = () => {
@@ -80,9 +81,10 @@ function MainMenu({ setGameMode }) {
           <button onClick={()=>handleStoryClick()}>Story</button>
           <button onClick={()=>handleBattleClick()}>Battle Mode</button>
           <button onClick={()=>handleHowToClick()}>How to Play</button>
-          <button onClick={()=>handleResetClick()}>Reset Data</button>
+          <button onClick={()=>handleOptionsClick()}>Options</button>
         </div>
       }
+      {showOptions && <Options setShowOptions={setShowOptions} />}
     </div>
   )
 }

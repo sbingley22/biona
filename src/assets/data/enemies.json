@@ -10,7 +10,7 @@
       {
         "name": "Inject",
         "type": "physical",
-        "dmg": 20
+        "dmg": 15
       },
       {
         "name": "Infect",
@@ -18,7 +18,7 @@
         "multi": true,
         "dmg": 10,
         "cost": ["energy", 45, "health", 30],
-        "effect": {"type": "antibodies", "turns": 3, "dmg": 1}
+        "effect": {"type": "antibodies", "turns": 1, "dmg": 1}
       }
     ],
     "weaknesses": [
@@ -40,7 +40,7 @@
       {
         "name": "Grab",
         "type": "physical",
-        "dmg": 20
+        "dmg": 18
       },
       {
         "name": "Poison Barb",
@@ -48,7 +48,7 @@
         "multi": false,
         "dmg": 10,
         "cost": ["energy", 25, "health", 20],
-        "effect": {"type": "poison", "turns": 2, "dmg": 1}
+        "effect": {"type": "poison", "turns": 1, "dmg": 1}
       }
     ],
     "weaknesses": [
@@ -63,7 +63,7 @@
     "name": "Covid 19",
     "img-url": "./bionas/covid-19/",
     "stats": {
-      "health": 120,
+      "health": 100,
       "energy": 70
     },
     "actions": [
@@ -76,9 +76,9 @@
         "name": "Spike Protein",
         "type": "physical",
         "multi": true,
-        "dmg": 30,
+        "dmg": 20,
         "cost": ["energy", 45, "health", 70],
-        "effect": {"type": "ros", "turns": 1, "dmg": 30}
+        "effect": {"type": "ros", "turns": 1, "dmg": 10}
       }
     ],
     "weaknesses": [
@@ -138,7 +138,7 @@
         "multi": "true",
         "dmg": 10,
         "cost": ["energy", 25, "health", 5],
-        "effect": {"type": "ph", "turns": 2, "dmg": 4}
+        "effect": {"type": "ph", "turns": 1, "dmg": 4}
       }
     ],
     "weaknesses": [
@@ -168,7 +168,7 @@
         "multi": "true",
         "dmg": 10,
         "cost": ["energy", 25, "health", 5],
-        "effect": {"type": "ph", "turns": 2, "dmg": 4}
+        "effect": {"type": "ph", "turns": 1, "dmg": 4}
       }
     ],
     "weaknesses": [

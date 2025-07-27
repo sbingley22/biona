@@ -138,8 +138,8 @@ function PartyActions({ isSurvivalMode=false, setGameMode=null, turn, turnIndex,
           </div>}
           {turn && bionas.map((bio, i) => {
             if (i !== turnIndex) return null
+            //console.log(bio, bionas, party, party[i])
             const level = partyStats[party[i]].level
-            //console.log(bio, party[i], level)
             return (
               <div key={'bio' + i} className='biona-actions'>
                 {bio.actions.map(ba => (

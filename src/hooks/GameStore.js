@@ -19,7 +19,7 @@ export const useGameStore = create(
       })),
       getLocations: Object.keys(locationData),
 
-      day: 1,
+      day: 20,
       setDay: (newDay) => set(() => ({ day: newDay })),
       nextDay: () => set((state) => ({ day: state.day + 1 })),
       advanceDay: (days) => set((state) => ({ day: state.day + days })),
@@ -91,7 +91,7 @@ export const useGameStore = create(
         }
       }),
 
-      bionas: [alliesData['nk-cell'], alliesData['b-cell']],
+      bionas: [alliesData['nk-cell']],
       setBionas: (newBionas) => set(() => ({ bionas: newBionas })),
 
       inventory: {
@@ -155,6 +155,12 @@ export const useGameStore = create(
           const a = stages[state.stage][action.value]
           if (!a) console.warn(`Couldn't find arena for ${state.stage} at ${action.value}`)
           state.setArena(a)
+        }
+        else if (a === 'add-ally') {
+          //state.addAlly(action.value)
+          const tempParty = [...state.party]
+          tempParty.push(action.value)
+          state.setParty(tempParty)
         }
         else if (a === 'credits') {
           state.setDay(1)

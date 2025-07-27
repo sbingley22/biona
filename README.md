@@ -73,7 +73,7 @@ Todo:
 - ~~complete Sofia plot line.~~
 - ~~complete Havier plot line.~~
 - ~~complete Mystery plot line.~~
-- add options screen that allows toggling of dev/cheat mode
+- ~~add options screen that allows toggling of dev/cheat mode~~
 - play through the whole game without dev mode and make balance changes.
 - implement currency
 - implement a shop

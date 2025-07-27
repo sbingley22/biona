@@ -608,6 +608,7 @@
       ],
       "actions": [
         {"action": "set-stage", "value": "sofia"},
+        {"action": "add-ally", "value": "sofia"},
         {"action": "go-to-dungeon-battle", "value": 0}
       ]
     }
@@ -1397,6 +1398,7 @@
       ],
       "actions": [
         {"action": "set-stage", "value": "boy"},
+        {"action": "add-ally", "value": "boy"},
         {"action": "go-to-dungeon-battle", "value": 0}
       ]
     }

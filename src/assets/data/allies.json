@@ -11,7 +11,7 @@
         "level": 0,
         "name": "Stab",
         "type": "physical",
-        "dmg": 10,
+        "dmg": 20,
         "description": "Slash one enemy for 10 damage."
       },
       {
@@ -20,7 +20,7 @@
         "type": "poison",
         "dmg": 5,
         "cost": ["energy", 25],
-        "effect": {"type": "poison", "turns": 2, "dmg": 2},
+        "effect": {"type": "poison", "turns": 3, "dmg": 2},
         "description": "Poison your opponent for 2 turns. Costs 25 energy"
       },
       {
@@ -38,9 +38,9 @@
         "name": "Acidity",
         "type": "ph",
         "multi": true,
-        "dmg": 15,
+        "dmg": 35,
         "cost": ["energy", 25, "health", 30],
-        "effect": {"type": "ph", "turns": 2, "dmg": 20},
+        "effect": {"type": "ph", "turns": 2, "dmg": 30},
         "description": "Coat the environment in acid for 2 turns dealing aditional damage. Costs 25 energy, 30 health."
       }
     ],
@@ -63,7 +63,7 @@
         "level": 0,
         "name": "Shoot",
         "type": "physical",
-        "dmg": 15,
+        "dmg": 35,
         "description": "Blast a single combatent for 15 damage."
       },
       {
