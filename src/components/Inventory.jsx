@@ -6,7 +6,6 @@ function Inventory ({ setShowInventory, turnIndex, setTextInfo }) {
   const party = useGameStore((state) => state.party)
   const partyStats = useGameStore((state) => state.partyStats)
   const setPartyStats = useGameStore((state) => state.setPartyStats)
-  const bionas = useGameStore((state) => state.bionas)
   const inventory = useGameStore((state) => state.inventory)
   const removeItem = useGameStore((state) => state.removeItem)
 

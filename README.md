@@ -74,7 +74,7 @@ Todo:
 - ~~complete Havier plot line.~~
 - ~~complete Mystery plot line.~~
 - ~~add options screen that allows toggling of dev/cheat mode~~
-- play through the whole game without dev mode and make balance changes.
+- ~~play through the whole game without dev mode and make balance changes.~~
 - implement currency
 - implement a shop
 - earn money by helping clean the wards (takes one day)

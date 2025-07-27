@@ -145,7 +145,7 @@ function Arena({ isSurvivalMode=false, setGameMode=null }) {
     }
     // enemy turn
     else {
-      const turnTime = devMode ? 5 : 800
+      const turnTime = devMode ? 5 : 500
       setTimeout(()=>{
         const skipTurn = handleStatusEffects(false)
         if (!skipTurn) handleAiTurn(enemies[turnIndex], turnIndex)

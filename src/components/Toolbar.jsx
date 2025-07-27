@@ -61,8 +61,7 @@ function Toolbar({ setGameMode }) {
       <div id='main'>
         <div id='opener' onClick={handleOpenerClick}></div>
         <div id='container' className={containerOpen ? '' : 'hidden'}>
-          <button onClick={()=>setSubMenu('locations')}>Locations</button>
-          <button>Inventory</button>
+          {/* <button onClick={()=>setSubMenu('locations')}>Locations</button> */}
           <button onClick={()=>handleOptionsClick()}>Options</button>
           <button onClick={()=>handleRestart()}>Restart</button>
         </div>

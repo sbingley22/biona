@@ -17,6 +17,8 @@
 
 #container {
   display: flex;
+  justify-content: end;
+  align-items: end;
   width: 100%;
 }
 #container.hidden {
@@ -52,8 +54,8 @@
 
   #container {
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    justify-content: end;
+    align-items: end;
   }
 
   #opener {
