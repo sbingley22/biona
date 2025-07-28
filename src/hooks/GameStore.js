@@ -96,9 +96,9 @@ export const useGameStore = create(
 
       inventory: {
         'chocobar':2, 
-        'vita-drink':1,
-        "vita-drink-pack":1,
-        "antidote": 1,
+        'vita-drink':2,
+        "vita-drink-pack":2,
+        "antidote": 3,
       },
       setInventory: (newInventory) => set({ inventory: newInventory }),
       addItem: (newItem) => {
@@ -157,7 +157,7 @@ export const useGameStore = create(
           state.setArena(a)
         }
         else if (a === 'add-ally') {
-          //state.addAlly(action.value)
+          if (state.party.length >= 3) return
           const tempParty = [...state.party]
           tempParty.push(action.value)
           state.setParty(tempParty)
